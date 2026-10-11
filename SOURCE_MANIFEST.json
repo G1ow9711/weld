@@ -9818,8 +9818,8 @@
     },
     {
       "path": "weld_pipeline/server_offline_parent_set_reference.py",
-      "sha256": "0431a4b20dd049ca9a25f0fc01d65dbdba6d2b57f58057aad02a8964d45b2bfa",
-      "bytes": 3992
+      "sha256": "85ae587a0c58d709854dea8a2fa2377c16de904ea2015bc74441bd37fbbfcf0e",
+      "bytes": 5694
     },
     {
       "path": "weld_pipeline/server_whole_parent_features.py",
@@ -10008,8 +10008,8 @@
     },
     {
       "path": "tools/prepare_full_predicted_parent_pool.py",
-      "sha256": "c7023533b2ce425fa953d2c0abc1d23cd56575c839fe4b64ea59869d7f5250bd",
-      "bytes": 13637
+      "sha256": "73b31c8212b07247a000c157d40a45232c3b1aeb08132fb8e700767a42519df9",
+      "bytes": 13810
     },
     {
       "path": "tools/verify_full_prediction_runtime.py",
@@ -10018,8 +10018,8 @@
     },
     {
       "path": "tools/train_full_predicted_parent_selector.py",
-      "sha256": "aa75600e5eddaf147a44b17fa610a4a366f5ea3c853b118b13dd53cbf68f0d62",
-      "bytes": 17601
+      "sha256": "c59b21415eb40f4cdb722a92b43faa73510c146a32e8262f8a0d425eb4a244b7",
+      "bytes": 17986
     },
     {
       "path": "tools/audit_full_query_geometry.py",
@@ -10070,6 +10070,26 @@
       "path": "tools/verify_lazy_parent_competition.py",
       "sha256": "f7f7700a5130a2fd37586b963564615bc567c81fab270af17961e595deb43df0",
       "bytes": 5802
+    },
+    {
+      "path": "weld_pipeline/server_cached_parent_relation_prior.py",
+      "sha256": "edae0641766729bab5c036606af51a687681d961ca0c825c40753fbc4659a91e",
+      "bytes": 3782
+    },
+    {
+      "path": "tools/verify_cached_parent_relation_prior.py",
+      "sha256": "60839e6ca1395b1e2ac2a9140bb0eba6a2a2e47b0ae13348cd1731825711bf88",
+      "bytes": 4047
+    },
+    {
+      "path": "tools/verify_compact_reference_compilation.py",
+      "sha256": "588c4f1d5ef1986970771745f2088811d4905bdea7b842d4256456fb7aa4f298",
+      "bytes": 3328
+    },
+    {
+      "path": "tools/train_full_parent_dataset.py",
+      "sha256": "27122fde6c889f79704e7b59fe9e7d1c2c516cdfb06916918c097588df7a1478",
+      "bytes": 22607
     }
   ]
 }

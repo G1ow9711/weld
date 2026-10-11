@@ -21,7 +21,7 @@ from weld_pipeline.server_streaming_parent_set_fit import backward_complete_hing
 from weld_pipeline.server_predicted_parent_pool import decoded_subset, FrozenRun446Priors
 from weld_pipeline.server_lazy_parent_competition import LazyParentCompetition
 from weld_pipeline.server_reference_parent_selection import greedy_nullable_set
-from weld_pipeline.server_offline_parent_set_reference import compile_reference_table, evaluate_reference_subset
+from weld_pipeline.server_offline_parent_set_reference import compile_reference_table, compile_compact_reference_table, evaluate_reference_subset
 from weld_pipeline.server_offline_parent_set_comparator import reference_comparator
 from weld_pipeline.sjg_native_d3_adapter_1056 import score_native_parents
 from weld_pipeline.sjg_local_runtime_904 import read, write, digest
@@ -108,7 +108,7 @@ def utility_difference(model, data, predicted, teacher):
     return result
 
 
-def load_job(dataset, job_key, pools=POOLS, priors=None):
+def load_job(dataset, job_key, pools=POOLS, priors=None, reference_chunk_size=None):
     folder = pools / 'pools' / job_key
     receipt = read(folder / 'receipt.json')
     if receipt['geometry_GT_reads'] != 0 or receipt['registry_sha256'] != dataset.registry_sha256:
@@ -127,7 +127,8 @@ def load_job(dataset, job_key, pools=POOLS, priors=None):
         if priors.checkpoint_sha256 != receipt['prior_run446_sha256']:
             raise ValueError('Frozen lazy relation prior changed')
         data['lazy_competition'] = LazyParentCompetition(pool['parents'], priors,
-            neighbors=receipt['competition_neighbors'])
+            neighbors=receipt['competition_neighbors'],
+            max_active_pairs=receipt.get('max_active_competition_pairs', 4_000_000))
         data.update(data['lazy_competition'].relation_arrays([]))
     elif receipt.get('competition_mode', 'eager') == 'eager':
         with np.load(folder / 'relations.npz', allow_pickle=False) as arrays:
@@ -142,11 +143,15 @@ def load_job(dataset, job_key, pools=POOLS, priors=None):
     data['pool_receipt_sha256'] = digest(folder / 'receipt.json')
     # Only now can approved TRAIN references be opened.
     data['views'] = []
-    decoded = decoded_subset(pool['parents'], np.arange(len(pool['parents'])))
+    decoded = (decoded_subset(pool['parents'], np.arange(len(pool['parents'])))
+               if reference_chunk_size is None else None)
     for version in dataset.jobs[job_key]['versions']:
         supervision = dataset.supervision(version['key'])
         target = supervision.target
-        table, score = compile_reference_table(decoded, target)
+        if reference_chunk_size is None:
+            table, score = compile_reference_table(decoded, target)
+        else:
+            table, score = compile_compact_reference_table(pool['parents'], target, decoded_subset, reference_chunk_size)
         data['views'].append(dict(key=version['key'], table=table, G=target['original_children'],
                                   target=target, weight=version['family_equal_version_weight'],
                                   pool_capacity_reference_evaluation=score['categories']['overall']))

@@ -74,3 +74,31 @@ def evaluate_reference_subset(table, selected):
     predicted = int(table['child_counts'][ids].sum()) + int(table['invalid_children'])
     return dict(TP=matched,FP=predicted-matched,predicted=predicted,
                 reference_utility=2*matched-predicted)
+
+
+def compile_compact_reference_table(parents, target, decode_subset, batch_size=1024):
+    """Keep every original assignment cost while sampling bounded parent chunks.
+
+    D3 costs are pairwise before its one global assignment. Original chunk
+    scoring captures each complete cost row; no local chunk TP is summed into
+    a global result. The full cost matrix and global assignment remain intact.
+    This offline helper reports overall reference capacity only.
+    """
+    if batch_size < 1:
+        raise ValueError('Positive exact reference compilation chunk size required')
+    rows, columns = len(parents), len(target['parents'])
+    costs = np.empty((rows, columns), np.float64)
+    tp = np.empty((rows, columns), np.int64)
+    counts = np.asarray([p['child_count'] for p in parents], np.int64)
+    for start in range(0, rows, batch_size):
+        stop = min(start+batch_size, rows)
+        decoded = decode_subset(parents, np.arange(start, stop))
+        table, _ = compile_reference_table(decoded, target)
+        if int(table['invalid_children']) or not np.array_equal(table['child_counts'], counts[start:stop]):
+            raise ValueError('Compact parent decoder changed complete prediction ownership')
+        costs[start:stop], tp[start:stop] = table['costs'], table['tp']
+    result = dict(costs=costs, tp=tp, child_counts=counts, invalid_children=np.asarray(0))
+    score = evaluate_reference_subset(result, np.arange(rows))
+    overall = dict(G=target['original_children'], **{k: score[k] for k in ('predicted', 'TP', 'FP')})
+    return result, dict(categories=dict(overall=overall),
+                       costs_from_original_D3=True, global_assignment_not_sum_of_chunk_TP=True)

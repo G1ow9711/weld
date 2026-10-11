@@ -149,6 +149,8 @@ def prepare(dataset, job_key, model, state, priors, output, query_mode,
                        resource_mode=resource_mode, input_span_count=len(inp.spans),
                        input_query_upper_bound=query_bound, child_hypothesis_upper_bound=2 * query_bound,
                        max_children=max_children, max_parents=max_parents, max_link_edges=max_edges,
+                       max_active_competition_pairs=max(4_000_000, len(pool['parents'])*64)
+                           if resource_mode == 'input_scaled_v1' else 4_000_000,
                        resource_overflow_behavior='Fail without returning a truncated pool',
                        fixed_query_fractions=list(fixed_query_fractions),
                        original_input_profiles=len(inp.profiles), children=len(proposals['children']),
