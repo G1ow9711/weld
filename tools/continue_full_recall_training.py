@@ -21,6 +21,7 @@ from weld_pipeline.server_legacy_runtime import install
 install()
 from weld_pipeline.server_query_checkpoint_model import load_query_model, verify_complete_query_fit
 from weld_pipeline.server_reference_recall_weld_model import ARCHITECTURE
+from weld_pipeline.server_full_evaluation_dataset import ROLES
 from weld_pipeline.sjg_local_runtime_904 import read, write, digest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,7 +29,17 @@ BASE = ROOT / 'server_rebuild/full_dataset_v1'
 SOURCES = ['tools/continue_full_recall_training.py', 'tools/train_full_recall_parent_dataset.py',
     'tools/prepare_full_recall_parent_pool.py', 'tools/evaluate_full_weld_predictions.py',
     'weld_pipeline/server_query_checkpoint_model.py', 'weld_pipeline/server_reference_recall_weld_model.py',
-    'tools/train_full_weld_reference_recall.py']
+    'tools/train_full_weld_reference_recall.py', 'tools/assess_full_weld_output_fields.py',
+    'weld_pipeline/server_complete_output_assessment.py',
+    'weld_pipeline/server_full_evaluation_dataset.py']
+
+
+def held_stages():
+    stages = [('MODEL_SELECTION_ONLY', 'selection'),
+              ('PROTECTED_DIAGNOSTIC_ONLY', 'protected_diagnostic')]
+    if any(role not in ROLES for role, _ in stages):
+        raise ValueError('Continuation roles differ from the actual evaluation interface')
+    return stages
 
 
 def atomic_json(path, value):
@@ -80,7 +91,8 @@ def main(args):
             selector_initialization_sha256=args.selector_sha256 if selector else None,
             selector_initializer_not_accepted_best_model=True, sources=sources,
             full_query_fit_required=True, final_test_auto_selection_allowed=False,
-            evaluation_roles=['MODEL_SELECTION_ONLY','DIAGNOSTIC_ONLY_NO_SELECTION'],
+            evaluation_roles=[role for role, _ in held_stages()],
+            complete_role_fields_assessed_after_geometry=True,
             held_or_diagnostic_fit_calls=0)
         if (out / 'protocol.json').exists():
             if read(out / 'protocol.json') != protocol:
@@ -136,7 +148,8 @@ def main(args):
             selector_checkpoint_sha256=resume['sha256'], selector_checkpoint=str(final_selector.relative_to(ROOT)),
             selector_training_receipt_sha256=digest(parent_dir/'receipt.json'),
             selector_training_protocol_sha256=digest(parent_dir/'protocol.json'), model_not_promoted=True))
-        for role, suffix in [('MODEL_SELECTION_ONLY','selection'),('DIAGNOSTIC_ONLY_NO_SELECTION','protected_diagnostic')]:
+        field_bindings = []
+        for role, suffix in held_stages():
             evaluation_name = args.experiment_name + '_' + suffix
             arguments = ['--experiment-name',evaluation_name,'--query-checkpoint',str(checkpoint),
                 '--query-sha256',qr['checkpoint_sha256'],'--selector-checkpoint',str(final_selector),
@@ -144,9 +157,38 @@ def main(args):
                 '--query-training-receipt',str(receipt_file),'--selector-training-receipt',str(parent_dir/'receipt.json'),
                 '--role',role,'--wait-ready']
             run_child(out, protocol, 'tools.evaluate_full_weld_predictions', arguments, suffix)
+            field_name = evaluation_name + '_fields'
+            field_dir = BASE / field_name
+            if not (field_dir / 'summary.json').exists():
+                run_child(out, protocol, 'tools.assess_full_weld_output_fields',
+                    ['--prediction-run', str(BASE / evaluation_name), '--experiment-name', field_name,
+                     '--role', role], suffix + '_fields')
+            fields, field_protocol = read(field_dir / 'summary.json'), read(field_dir / 'protocol.json')
+            geometry_dir = BASE / evaluation_name
+            required = sorted(v['key'] for job in read(BASE / 'evaluation_registry.json')['cases']
+                              for v in job['versions'] if v['role'] == role)
+            actual = []
+            if (fields['status'] != 'ALL_FROZEN_RECORDS_FIELDS_ASSESSED_NOT_PROMOTED'
+                    or fields['role'] != role or fields['fit_calls'] != 0
+                    or fields['source_protocol_sha256'] != digest(field_dir / 'protocol.json')
+                    or field_protocol['prediction_run'] != str(geometry_dir.relative_to(ROOT))
+                    or field_protocol['prediction_protocol_sha256'] != digest(geometry_dir / 'protocol.json')
+                    or field_protocol['prior_complete_role_summary_sha256'] != digest(geometry_dir / 'summary.json')):
+                raise ValueError('Complete-role process assessment differs from the frozen geometry run')
+            for record in fields['records']:
+                path = (ROOT / record['path']).resolve()
+                path.relative_to(field_dir.resolve())
+                if digest(path) != record['sha256'] or record['checkpoint_sha256'] != resume['sha256']:
+                    raise ValueError('Saved process-field result differs from this model pair')
+                actual.extend(record['versions'])
+            if sorted(actual) != required:
+                raise ValueError('Process assessment omitted or duplicated a registered held version')
+            field_bindings.append(dict(role=role, summary_path=str((field_dir / 'summary.json').relative_to(ROOT)),
+                                       summary_sha256=digest(field_dir / 'summary.json')))
         atomic_json(out / 'receipt.json', dict(status='FULL_QUERY_PARENT_AND_SELECTION_DIAGNOSTICS_COMPLETE_NOT_PROMOTED',
             query_full_fit=query_fit, model_pair_sha256=digest(out/'model_pair_binding.json'),
-            final_test_not_executed=True, baseline_regression_attributes_frames_csv_and_acceptance_remaining=True))
+            process_field_assessments=field_bindings, final_test_not_executed=True,
+            baseline_regression_field_tolerance_business_frames_csv_and_acceptance_remaining=True))
 
 
 if __name__ == '__main__':
