@@ -1,6 +1,6 @@
 """Resume the unchanged full input producer after verified resource-guard exits.
 
-Only observed geometry-stage guard failures are recoverable here. All source
+Only observed geometry or point-feature guard failures are recoverable here. All source
 artifacts are preserved before same-filesystem renaming an incomplete owned
 stage. Other errors stop with evidence. No input is skipped or truncated and
 the original resource threshold, data and model weights are unchanged.
@@ -21,11 +21,14 @@ from tools.reclaim_completed_training_read_cache import memory_snapshot, GIB
 from weld_pipeline.sjg_local_runtime_904 import read, write, digest
 
 GUARD = 'RuntimeError: Linux resource guard: less than 2.5 GiB headroom'
-STAGE_FOLDERS = {'finite': 'learned_finite_support', 'surfaces': 'run26_learned_surfaces'}
+STAGE_FOLDERS = {'finite': 'learned_finite_support', 'surfaces': 'run26_learned_surfaces',
+                 'point_features': ['point_features', 'run26_point_features']}
 SOURCES = ['tools/supervise_full_training_inputs.py', 'tools/prepare_full_training_inputs.py',
     'tools/prepare_full_training_case.py', 'tools/reclaim_completed_training_read_cache.py',
     'tools/rebuild_legacy_finite_support.py', 'tools/rebuild_run26_learned_surfaces.py',
-    'weld_pipeline/server_legacy_runtime.py']
+    'weld_pipeline/server_legacy_runtime.py', 'weld_pipeline/server_completed_point_features.py',
+    'tools/infer_legacy_point_features.py', 'tools/infer_run26_point_features.py',
+    'tools/rebuild_expansion_input_blocks.py']
 
 
 def atomic_json(path, value):
@@ -83,10 +86,18 @@ def preserve_and_release(out, index):
     if (not WORKSPACE.is_symlink() or temporary.parent != Path('/tmp')
             or not temporary.name.startswith('weld-full-training-')):
         raise ValueError('Unexpected full-input workspace ownership')
-    source = temporary / job['job_key'] / 'frozen_features' / STAGE_FOLDERS[stage] / ('source_' + job['runtime_key'])
+    frozen = temporary / job['job_key'] / 'frozen_features'
+    if stage == 'point_features':
+        candidates = [frozen / name / ('source_' + job['runtime_key']) for name in STAGE_FOLDERS[stage]]
+        incomplete = [path for path in candidates if path.is_dir() and not (path / 'feature_manifest.json').exists()]
+        if len(incomplete) != 1:
+            raise ValueError('Resource retry requires exactly one incomplete original point-feature component')
+        source = incomplete[0]
+    else:
+        source = frozen / STAGE_FOLDERS[stage] / ('source_' + job['runtime_key'])
     source.resolve().relative_to(temporary)
     if not source.is_dir() or source.is_symlink() or (source / 'receipt.json').exists():
-        raise ValueError('Recovery requires an existing incomplete owned geometry stage')
+        raise ValueError('Recovery requires an existing incomplete owned stage')
     archive = out / f'recovery_{index:04d}'
     archive.mkdir(exist_ok=False)
     write(archive / 'original_failure.json', failed)

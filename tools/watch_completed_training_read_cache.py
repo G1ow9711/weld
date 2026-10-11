@@ -24,6 +24,9 @@ def main(args):
     until = [Path(value).resolve() for value in args.until_receipt]
     for path in until:
         path.relative_to(ROOT)
+    active_progress = list(dict.fromkeys([BASE/'preparation/progress.json',
+        BASE/'full_parent_dataset_streamed_v1/training_progress.json',
+        *[path.parent/'training_progress.json' for path in until]]))
     sources = [Path(__file__), ROOT/'tools/reclaim_completed_training_read_cache.py']
     hashes = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}
     protocol = dict(status='SCOPED_COMPLETED_TRAIN_READ_CACHE_WATCHER', sources=hashes,
@@ -40,9 +43,7 @@ def main(args):
             snapshot = memory_snapshot()
             if snapshot['conservative_headroom_bytes'] < args.trigger_headroom_gib*GIB:
                 excluded = set(args.exclude_job)
-                for progress in ['preparation/progress.json', 'full_parent_dataset_streamed_v1/training_progress.json',
-                                 'full_parent_dataset_recall_final_v3/training_progress.json']:
-                    path = BASE/progress
+                for path in active_progress:
                     if path.exists():
                         job = json.loads(path.read_text()).get('job_key')
                         if job:

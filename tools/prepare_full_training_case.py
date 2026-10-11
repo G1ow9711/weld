@@ -88,6 +88,7 @@ def prepare_input(job):
 
 
 def point_features(job):
+    from weld_pipeline.server_completed_point_features import verify_complete_component
     work, frozen, inputs = roots(job)
     key = job['runtime_key']
     blocks = importlib.import_module('tools.rebuild_expansion_input_blocks')
@@ -97,7 +98,15 @@ def point_features(job):
     for name in ('infer_legacy_point_features', 'infer_run26_point_features'):
         module = importlib.import_module('tools.' + name)
         module.RESTORE, module.BLOCKS = frozen, blocks.DEST
-        module.run(key, 0)
+        component = 'point_features' if name == 'infer_legacy_point_features' else 'run26_point_features'
+        if (frozen / component / ('source_' + key) / 'feature_manifest.json').exists():
+            model_source = ('weld_pipeline/sjg_material_model_859.py' if name == 'infer_legacy_point_features'
+                            else 'weld_pipeline/sjg_ptv3_runtime_807.py')
+            binding = verify_complete_component(module, key, model_source)
+            write(frozen / (component + '_reuse_binding.json'), binding)
+            print(key, 'COMPLETE_POINT_COMPONENT_REUSED', component, binding['checked_blocks'], flush=True)
+        else:
+            module.run(key, 0)
 
 
 def geometry(job, stage):

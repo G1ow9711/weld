@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "a9eb9a2784a1ee9b7a7a01bfb1e3524f26cd832ebce8ebc44c2980b136d52609",
-      "bytes": 34976
+      "sha256": "0de310efca5b0cb7dcdf9a220ed2ac2dfa69b7a28778fa0d220edc2eb52d613b",
+      "bytes": 37148
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -340,6 +340,16 @@
       "path": "tools/audit_uploaded_vs_rebuilt_run446.py",
       "sha256": "3f8618842ac242781cc3e312d71398b9b0b7a9ba94001c0362607611d4caa475",
       "bytes": 3151
+    },
+    {
+      "path": "tools/bounded_relation_training_admission.py",
+      "sha256": "d7b06b01bfd843fddf95087c4a81aa27295a21b96ca74078c744da5bdf1070c0",
+      "bytes": 1913
+    },
+    {
+      "path": "tools/bounded_relation_training_backend.py",
+      "sha256": "980ba67f7e67c03abda5d5be07b593d8c37201fce664e9219e0483d5f38cab02",
+      "bytes": 4157
     },
     {
       "path": "tools/build_connection_annotation_features.py",
@@ -682,6 +692,11 @@
       "bytes": 1568
     },
     {
+      "path": "tools/continue_bounded_full_recall_training.py",
+      "sha256": "a1d8671708ebce210c68e80ecbd3c45ed1c722412f8eed7e11c53bee55f0b3b1",
+      "bytes": 3534
+    },
+    {
       "path": "tools/continue_bounded_raw_capacity_diagnostics.py",
       "sha256": "d397d4754a9aa24850eab1aa14e9a7051e9956618c5322351834facbc63483ce",
       "bytes": 2357
@@ -860,6 +875,11 @@
       "path": "tools/continue_validation_fixed_test.py",
       "sha256": "64bf35c3482ecf570c6d1796b048f955b4e6e79420e0f0d5d4c7abd23130b134",
       "bytes": 18185
+    },
+    {
+      "path": "tools/control_bounded_full_recall_parent_fit.py",
+      "sha256": "ec2f8989c718fd89ede8bc5f49d3ba55c720e6f9cbedac6c92b9e91fa98cbba5",
+      "bytes": 1640
     },
     {
       "path": "tools/control_compact_full_recall_parent_fit.py",
@@ -1953,8 +1973,8 @@
     },
     {
       "path": "tools/prepare_full_training_case.py",
-      "sha256": "0e24aedeb93cc1d0e49438f5ac95ca5e84633295b7d61445ed957290a6e18298",
-      "bytes": 10981
+      "sha256": "85b127e3b16e43cad50c522500b6a651eef58d39d417e9c8183f0736cba271d7",
+      "bytes": 11722
     },
     {
       "path": "tools/prepare_full_training_inputs.py",
@@ -2528,8 +2548,8 @@
     },
     {
       "path": "tools/supervise_full_training_inputs.py",
-      "sha256": "c0d921795aab9de6f5f92cc8e6b962b14ba79ec1b1688d26c05d6799fd35b7ca",
-      "bytes": 10368
+      "sha256": "2a84152333db13f4cd61c98a3a7b1327b713b6a12bf9e197daa56cc31b2d7558",
+      "bytes": 11098
     },
     {
       "path": "tools/trace_roundoff_extension_edges.py",
@@ -2580,6 +2600,11 @@
       "path": "tools/train_boundary_surface_material_relation.py",
       "sha256": "ed0be69c1b953f21410521780a8ea7e588178e3ae596e74baff1141c1ae9437a",
       "bytes": 4400
+    },
+    {
+      "path": "tools/train_bounded_full_recall_parent_dataset.py",
+      "sha256": "fd50a48651674a92a6cdb0965b040882ee767cfbbb20b6c7fb650ab8c3ec600e",
+      "bytes": 1833
     },
     {
       "path": "tools/train_bounded_raw_endpoint_comparison.py",
@@ -2897,9 +2922,24 @@
       "bytes": 2149
     },
     {
+      "path": "tools/verify_bounded_cached_relation_prior.py",
+      "sha256": "c2abe96171442940ef29910594077ae177c1302ffb36d4b9d1a10a9a3376df43",
+      "bytes": 5620
+    },
+    {
       "path": "tools/verify_bounded_endpoint_event_cover.py",
       "sha256": "74b5a9c37863a1da3a6b8bd2b2e90d1d89d19b4f564522f7ea0a0e4eef87ca6a",
       "bytes": 1313
+    },
+    {
+      "path": "tools/verify_bounded_lazy_parent_competition.py",
+      "sha256": "e24a9ba9c7a4e644dc3d5abca912c0a43d6abc425950e730a01ddbe02a105ac7",
+      "bytes": 5573
+    },
+    {
+      "path": "tools/verify_bounded_relation_training_backend.py",
+      "sha256": "c8f83179e376ff823fe4e9d66f981837e860ae6c2d9ee8b789bfb5fc114886fe",
+      "bytes": 7330
     },
     {
       "path": "tools/verify_cached_parent_relation_prior.py",
@@ -3193,8 +3233,8 @@
     },
     {
       "path": "tools/watch_completed_training_read_cache.py",
-      "sha256": "8be3713e33057a34493743e1582a8eb8bd1cd844525c1574073cd5dffa49864f",
-      "bytes": 4007
+      "sha256": "26fce653a4f0050e930c7fb0352f4a15c5da1c81b23cb4ae302beb2969b11c2c",
+      "bytes": 4011
     },
     {
       "path": "training/__init__.py",
@@ -6092,9 +6132,19 @@
       "bytes": 1485
     },
     {
+      "path": "weld_pipeline/server_bounded_cached_relation_prior.py",
+      "sha256": "80b7fe2e09368560c19de97f2af95c2a787c8ace8557f087ffc5979e28d14695",
+      "bytes": 1303
+    },
+    {
       "path": "weld_pipeline/server_bounded_endpoint_event_cover.py",
       "sha256": "6439268acdefc9506bf31b0bc50b578bda76e11661f1bf17deca31f45dd19074",
       "bytes": 1467
+    },
+    {
+      "path": "weld_pipeline/server_bounded_lazy_parent_competition.py",
+      "sha256": "aca31a3ed04cb24067e300bc2d1de37411132a6f29e19c170c6f195fd5123f10",
+      "bytes": 2891
     },
     {
       "path": "weld_pipeline/server_cached_parent_relation_prior.py",
@@ -6125,6 +6175,11 @@
       "path": "weld_pipeline/server_complete_output_assessment.py",
       "sha256": "d156fb995157fbe06031da3c819ddb2c73682533a7f8cd9952b11019733900cd",
       "bytes": 12806
+    },
+    {
+      "path": "weld_pipeline/server_completed_point_features.py",
+      "sha256": "efa3a494ac2074c00c559f5406e73549cf3015eb457d66cb5a7d6ef622b6b001",
+      "bytes": 3483
     },
     {
       "path": "weld_pipeline/server_connection_annotation_adapter.py",

@@ -199,3 +199,16 @@ The independent compact training backend requires current synthetic, complete-po
 `continue_validation_fixed_test.py` predeclares family-weighted complete D3 utility, recall and false-positive tie breakers before TEST assessment. It authenticates every complete validation view, training receipts, model hashes and field assessment before fixing the model pair. Protected diagnostics and TEST scores cannot select the model. Known process-field errors are reported without inventing unfrozen business-frame tolerances.
 
 `verify_validation_fixed_selection.py` checks held-role rejection, missing and duplicated views, complete count identities, family weighting and deterministic ordering. It also passes an actual saved TRAIN assessment to the existing final-selection verifier and requires rejection. The final continuation requires this current admission proof and binds the registry and source hashes while waiting. After complete training and validation, it runs all registered TEST geometry and field assessments; it does not automatically promote the model or certify independent generalization. Private evidence, weights and datasets remain external dependencies.
+
+
+## Bounded original relation reuse
+
+`server_bounded_cached_relation_prior.py` limits reusable decoded parent geometry. `server_bounded_lazy_parent_competition.py` limits reusable relation features while still returning every requested edge. Cache eviction recomputes original geometry and probabilities; it does not remove candidates, change full-input neighbour radii or ties, or alter complete-set objectives.
+
+The bounded training backend requires authenticated comparisons of all frozen original pair features and penalties, complete graph edges, replay after eviction, and actual complete-job optimizer parity. Its numerical controls compare input tokens, every reference view and matching cost, eight real optimizer histories, final model and optimizer tensors, scores and selections. The original model, objective and optimizer remain unchanged. Separate entry points bind proofs and sources before applying bounded reuse to actual controls, all-TRAIN parent fitting and complete held-role continuation. These controls establish numerical compatibility, not extraction accuracy or complete process memory limits.
+
+## Resuming point-feature resource failures
+
+`server_completed_point_features.py` authenticates completed point-feature components against original weights, model and inference sources, input blocks, every feature artifact and exact once-only core coverage before reuse. Incomplete components are not treated as complete. The input supervisor recognizes only the actual terminal low-headroom guard error in supported geometry or point-feature stages. It archives and byte-verifies the single incomplete component before a same-filesystem rename and retry with the original inference algorithm. Completed components, inputs, model updates and original resource thresholds are retained. Other errors stop instead of skipping a case.
+
+The completed TRAIN read-cache watcher derives active parent exclusions from its explicit completion-receipt configuration, so a new final training experiment cannot leave an obsolete parent-directory exclusion or completion gate. Read-only file advice preserves data bytes and does not change global cache settings.
