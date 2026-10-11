@@ -16,9 +16,9 @@ ROOT = Path(__file__).resolve().parents[1]
 DEST = ROOT / 'server_rebuild/expansion_v1/frozen_features/input_blocks'
 
 
-def prepare(key):
+def prepare(key, input_root=None):
     folder = DEST / ('source_' + key)
-    src = ROOT / 'server_rebuild/expansion_v1/inputs' / key
+    src = (Path(input_root) if input_root is not None else ROOT / 'server_rebuild/expansion_v1/inputs') / key
     receipt = json.loads((src / 'receipt.json').read_text())
     path = src / 'xyz_mm.npy'
     assert digest(path) == receipt['xyz_sha256']
@@ -54,7 +54,7 @@ def prepare(key):
         if bi % 100 == 0:
             print(key, 'blocks', bi + 1, 'core points', int(seen.sum()), '/', len(xyz), flush=True)
     assert np.all(seen == 1)
-    row = dict(source_key=key, role='TRAIN', input_file=str(path.relative_to(ROOT)),
+    row = dict(source_key=key, role=receipt.get('role', 'TRAIN') if input_root is not None else 'TRAIN', input_file=str(path.relative_to(ROOT)),
                input_sha256=receipt['xyz_sha256'], coordinate_frame='workpiece_local', unit='mm',
                original_points=len(xyz), blocks=blocks, core_coverage_exactly_once=True,
                saved_block_xyz_equals_source=True, seconds=time.perf_counter()-started,

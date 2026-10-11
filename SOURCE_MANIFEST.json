@@ -8598,13 +8598,13 @@
     },
     {
       "path": "tools/merge_expansion_point_features.py",
-      "sha256": "3356316f8a710b3ef8cb8c5b8f076d66764ceac4a9a750e2c8ad7ea4fa2b6d51",
-      "bytes": 2697
+      "sha256": "0ec7acf495b936891688a27f46a559be098d2b2f5696bc0c595802f7df089d80",
+      "bytes": 2764
     },
     {
       "path": "tools/merge_expansion_run26_point_features.py",
-      "sha256": "bdb11c5b970f8284ed7e24526e13dd9a2dd7af34481ec4839da1aca55840344b",
-      "bytes": 2477
+      "sha256": "29bf0e0a598abbbe473a906b8bd9999bed4f0ff0ab3693ee1c61229478ea4d95",
+      "bytes": 2544
     },
     {
       "path": "tools/merge_legacy_point_features.py",
@@ -9063,8 +9063,8 @@
     },
     {
       "path": "tools/rebuild_expansion_input_blocks.py",
-      "sha256": "2a25d5f1c07ecc7ed9c76dd4aeb9058296a3918ffef655b95723f58ddaef718a",
-      "bytes": 3469
+      "sha256": "d241ec1108a92f3e788f1bc1fcdf310c9a48de4fe3be5e04bf0ad02505e714e6",
+      "bytes": 3596
     },
     {
       "path": "tools/rebuild_expansion_training_labels.py",
@@ -9910,6 +9910,31 @@
       "path": "tools/train_structured_parent_residual.py",
       "sha256": "5343455e6a716e4b28d2754465762a3a66e790d4a7c0abe6e214eb8e8af2e2ef",
       "bytes": 7858
+    },
+    {
+      "path": "tools/freeze_full_dataset_split.py",
+      "sha256": "97605853182db16755ba887021c9fdd90b96f18de07d57d23faa97d36d3b3fdd",
+      "bytes": 6633
+    },
+    {
+      "path": "tools/qualify_full_dataset_labels.py",
+      "sha256": "b1f780c6c32ebe751b873e804edf2a7edb154de7d9cdf39a3ba3ec60ca13f0df",
+      "bytes": 22742
+    },
+    {
+      "path": "tools/prepare_full_training_registry.py",
+      "sha256": "bc2491edeca2c5d8e5b1bcfb523653b380fd365f241f0547410673affceda5af",
+      "bytes": 5745
+    },
+    {
+      "path": "tools/prepare_full_training_case.py",
+      "sha256": "0e24aedeb93cc1d0e49438f5ac95ca5e84633295b7d61445ed957290a6e18298",
+      "bytes": 10981
+    },
+    {
+      "path": "tools/prepare_full_training_inputs.py",
+      "sha256": "9b48c681a34725622ca8322e60ff51041438031655acb1773c771a026df6961a",
+      "bytes": 6169
     }
   ]
 }

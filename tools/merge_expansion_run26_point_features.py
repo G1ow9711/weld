@@ -12,11 +12,11 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / 'server_rebuild/expansion_v1/frozen_features'
 
 
-def merge(key):
+def merge(key, input_root=None):
     source = BASE / 'run26_point_features' / ('source_' + key)
     case = json.loads((source / 'feature_manifest.json').read_text())
     assert case['status'] == 'POINT_FEATURES_COMPLETE' and case['core_coverage_complete']
-    xyz = ROOT / 'server_rebuild/expansion_v1/inputs' / key / 'xyz_mm.npy'
+    xyz = (Path(input_root) if input_root is not None else ROOT / 'server_rebuild/expansion_v1/inputs') / key / 'xyz_mm.npy'
     assert digest(xyz) == case['input_sha256']
     dest = BASE / 'run26_merged_point_features' / ('source_' + key)
     dest.mkdir(parents=True, exist_ok=False)
