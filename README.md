@@ -66,3 +66,9 @@
 训练登记保留所有合格TRAIN版本及家族均衡权重，只对完全相同的点云共享输入计算。准备流程使用原run162/run26冻结骨干和有限几何模块，保存未经模型筛选的完整片段特征与直线/圆弧载体；压缩缓存保持原值，已核查的历史输入可复用。每件缓存完成验证后，仅清理本入口自有临时中间产物。
 
 这些入口完成的是训练数据接入和特征准备，不代表新模型已经训练、提升或验收。数据、标签、冻结权重、分组清单及缓存仍不随代码公开；运行需要项目数据布局和已核验的权重。
+
+## Experiment history and rollback
+
+`tools/record_training_experiment.py` records an immutable local experiment entry with the source revision, public source revision, configuration/result text snapshots and checkpoint SHA256 fingerprints. Large weights and data remain outside Git. Register source and fixed configuration before a run, then commit the completed or failed result record separately. Rollback must restore the corresponding source, configuration, split and checkpoint whose fingerprint matches the record. Historical runs imported before Git was initialized cannot acquire a fabricated original training commit.
+
+This public repository contains the recording tool. Private dataset manifests, experimental results, consultation transcripts and weight files are retained in the server development repository and are not automatically published by the tool. Milestone tags must distinguish input preparation, completed training, completed evaluation and an accepted model.

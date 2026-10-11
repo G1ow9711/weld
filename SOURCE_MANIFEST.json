@@ -9935,6 +9935,11 @@
       "path": "tools/prepare_full_training_inputs.py",
       "sha256": "9b48c681a34725622ca8322e60ff51041438031655acb1773c771a026df6961a",
       "bytes": 6169
+    },
+    {
+      "path": "tools/record_training_experiment.py",
+      "sha256": "90a94e91909a8344b751b1fbb5c64cde18771daa4f0c233b854ac5d0a4986421",
+      "bytes": 4196
     }
   ]
 }
