@@ -242,3 +242,9 @@ The reciprocal TRAIN backend combines the existing admitted bounded caches and e
 `audit_full_cross_role_rigid_invariants.py` reads every admitted workpiece XYZ point and its multiplicity, using actual TRAIN, selection, protected diagnostic and TEST registries. It checks every pair crossing those roles. Counts and covariance eigenvalues are necessary conditions for rigid near-bijections; the screening bound includes coordinate perturbation and a conservative float64 allowance. Input hashes and complete registration coverage are authenticated. Matching moments remain unresolved registration candidates. They are never interpreted as physical identity or inserted into the model.
 
 The audit reads no weld reference geometry, fits or scores no model, and changes no input, role, split or signed business frame. The tolerance concerns only input identity screening. Full registration, cropped or resampled derivatives, historical exposure and independent generalization are not certified by this audit.
+
+## Input registration with different point counts
+
+`audit_full_cross_role_input_alignment.py` follows the full moment audit by registering every actual cross-role input pair. It applies no equal-point-count or covariance retrieval exclusion. Full-input principal axes seed proper rigid rotations; two trimmed ICP recipes propose full and partial overlap transforms. Every retained sample contributes to the final distances in both directions. A synthetic case verifies recovery of a known rotation and translation despite different point counts.
+
+This is an input-only diagnostic. It changes no model, role, split, raw point cloud, inference output or signed business frame. Sampling, a finite pose search and proximity statistics cannot prove physical identity or exclude all cropped and resampled derivatives. Suspected matches require full-point follow-up; independent generalization and historical exposure remain separate assessments.

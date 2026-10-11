@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "ca8a6440edf70fb5f0bc61f72d3b60e53a45cb0fbe31ae41f3c7390d1830ea61",
-      "bytes": 42914
+      "sha256": "61c9ee96dc7e42fd29ff36f2aa54703968d9722ae536734c7e0d33562a6bb666",
+      "bytes": 43855
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -160,6 +160,11 @@
       "path": "tools/audit_finite_plane_endpoint_events.py",
       "sha256": "7fac7daa76ee97fc0daafcef475d08a6d5efe6b9e12ac69a101399aa8ba9afb0",
       "bytes": 3730
+    },
+    {
+      "path": "tools/audit_full_cross_role_input_alignment.py",
+      "sha256": "adba52bc6a07d5dececade521acd23845c4ef75f9dfea08346d7a71cfdac3763",
+      "bytes": 11912
     },
     {
       "path": "tools/audit_full_cross_role_rigid_invariants.py",
