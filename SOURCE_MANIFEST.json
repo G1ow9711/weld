@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "08add6d80023e0c107773330f61a98d712f377275123693ac02c7f476f9a9e21",
-      "bytes": 49416
+      "sha256": "b811c02993a3d9cc22731cbe285941caf377f76b52f07907fb4f858d7209f5fe",
+      "bytes": 50751
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -2457,6 +2457,11 @@
       "bytes": 4196
     },
     {
+      "path": "tools/recover_all_finite_joint_regions.py",
+      "sha256": "3e02eff855f4e166fb5fb303afba3138d2177d2eed373bc78aa3d6e5b75dcbdc",
+      "bytes": 10406
+    },
+    {
       "path": "tools/recover_full_parent_output_record.py",
       "sha256": "e9524e04805cd6443308646d9f64e2669b08ad668744bf0406dec104aa696b13",
       "bytes": 7021
@@ -3310,6 +3315,11 @@
       "path": "tools/verify_streaming_parent_set_fit.py",
       "sha256": "36aebbce9548ba1cd4511aac3bc89c907f44d7060b1cad31394a960eb0497a2e",
       "bytes": 6771
+    },
+    {
+      "path": "tools/verify_supported_joint_regions.py",
+      "sha256": "2e8bc53212305ca1a7c572aa1afb5633c13c170adf8d823318861578caf40f1f",
+      "bytes": 9104
     },
     {
       "path": "tools/verify_transverse_attribute_initialization.py",
@@ -6607,6 +6617,11 @@
       "bytes": 2125
     },
     {
+      "path": "weld_pipeline/server_plate_pair_evidence.py",
+      "sha256": "bab9a331b9458134bcd3700b766a209b2eac066a011e4a89dd72b79b7697fbba",
+      "bytes": 10167
+    },
+    {
       "path": "weld_pipeline/server_predicted_parent_pool.py",
       "sha256": "3085603d42496d5457bfc11a46333078a199eeb03df1136e8eac107778c5c1bf",
       "bytes": 14932
@@ -6705,6 +6720,11 @@
       "path": "weld_pipeline/server_structured_span_decoder.py",
       "sha256": "06e8e37c8e1f23a187b5208b9e0e15c63dbbd86d96aa840bfc149701b2a5a8c3",
       "bytes": 2279
+    },
+    {
+      "path": "weld_pipeline/server_supported_joint_regions.py",
+      "sha256": "86756550bd25d4ebcfbc1157c177d2d0d98039497a44089895f3ee55fa1a3c9b",
+      "bytes": 15835
     },
     {
       "path": "weld_pipeline/server_surface_pair_features.py",
