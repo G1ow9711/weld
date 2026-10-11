@@ -10250,6 +10250,11 @@
       "path": "tools/verify_complete_output_assessment.py",
       "sha256": "b2ba8f027ceaf5bd9580c6483be83db394c40b92f0d01114966dfcb300fbe388",
       "bytes": 6955
+    },
+    {
+      "path": "tools/supervise_full_training_inputs.py",
+      "sha256": "c0d921795aab9de6f5f92cc8e6b962b14ba79ec1b1688d26c05d6799fd35b7ca",
+      "bytes": 10368
     }
   ]
 }
