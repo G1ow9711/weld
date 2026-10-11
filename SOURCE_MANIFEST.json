@@ -10048,8 +10048,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "11d0eca26d29bc49d1dc1731aec33593f37557e7f7c537f07537798708dc79ad",
-      "bytes": 21526
+      "sha256": "631fa5ef76ce262cfb5c4923accf5cfa5490f9fd88cb6b603f593e89f3330fe3",
+      "bytes": 24034
     },
     {
       "path": "weld_pipeline/server_streaming_parent_set_fit.py",
@@ -10160,6 +10160,41 @@
       "path": "tools/verify_native_shard_input.py",
       "sha256": "87520b1c46f054a50395dbd7585b6684229ee5efd6e2ade52229c6a4684f0011",
       "bytes": 6583
+    },
+    {
+      "path": "weld_pipeline/server_native_parent_runtime.py",
+      "sha256": "0327e55dfb2fe9653dd500c20637a2254d64e43466c941aadd3027adbdea0b00",
+      "bytes": 8766
+    },
+    {
+      "path": "tools/verify_complete_native_parent_runtime.py",
+      "sha256": "63fbbcdfc213968527681899ab82cf809ab58812d970114433292d0db1ae1418",
+      "bytes": 8914
+    },
+    {
+      "path": "tools/verify_all_retained_native_parents.py",
+      "sha256": "092aa0fb3dc033c8871b919bfdc4525e391fec0d71259aa711ab94a43006cc3a",
+      "bytes": 7917
+    },
+    {
+      "path": "tools/audit_full_reference_query_gate.py",
+      "sha256": "60a6bb7e52dfc9a736853a61b75d8e8fc3992c616d2e87fc701f9879f456b323",
+      "bytes": 8357
+    },
+    {
+      "path": "weld_pipeline/server_reference_recall_weld_model.py",
+      "sha256": "f8a8bcb14aa30e0101263df161f523a36ce03c69db2a1df358c55915040ce8fd",
+      "bytes": 2527
+    },
+    {
+      "path": "tools/verify_reference_recall_weld_model.py",
+      "sha256": "3c23285e80ee62181046c50f2a741a71d75bb0505a6c717f5912e0acce5da0e6",
+      "bytes": 6370
+    },
+    {
+      "path": "tools/train_full_weld_reference_recall.py",
+      "sha256": "8c110170dd634a9850c916b259ce3158888924d43d17414fdbce22dfb4dda1df",
+      "bytes": 21128
     }
   ]
 }
