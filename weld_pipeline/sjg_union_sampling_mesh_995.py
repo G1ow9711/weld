@@ -26,6 +26,9 @@ def local_support(xyz,plane):
     ids,uv=projected_unique(xyz,plane)
     if len(ids)<16:return None
     radius,used=two_dimensional_radius(uv)
+    # The existing support rule requires three rank-valid measured vertices.
+    # Unsupported near-collinear points remain unresolved in original_extract.
+    if np.count_nonzero(used>0)<3:return None
     try:triangles=Delaunay(uv).simplices
     except QhullError:return None
     keep=np.all(used[triangles]>0,axis=1);q=uv[triangles]
