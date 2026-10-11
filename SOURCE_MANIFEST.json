@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "61c9ee96dc7e42fd29ff36f2aa54703968d9722ae536734c7e0d33562a6bb666",
-      "bytes": 43855
+      "sha256": "4d18f9b43d7cc055c71698c3981c2a6d49074993fd8dabee866c9dad93a4e6bd",
+      "bytes": 44915
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -170,6 +170,11 @@
       "path": "tools/audit_full_cross_role_rigid_invariants.py",
       "sha256": "09a11b3f6da677f77be8fd9ee45e86c4a2e89ce4b306b7b631b09dd0659ab012",
       "bytes": 11040
+    },
+    {
+      "path": "tools/audit_full_point_alignment_followup.py",
+      "sha256": "f87033c1a306599a7e2f70d31d80ae8bebf19a3a00d87f382e97bec27bbd06f3",
+      "bytes": 10221
     },
     {
       "path": "tools/audit_full_query_geometry.py",
