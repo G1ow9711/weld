@@ -9950,6 +9950,46 @@
       "path": "tools/prepare_full_model_use_policy.py",
       "sha256": "386ad7d8370b4fd5c802dbe960290d9cc8ffb2ddca7c9cf8c561e7f266db91ee",
       "bytes": 4516
+    },
+    {
+      "path": "weld_pipeline/server_full_shard_dataset.py",
+      "sha256": "f7a2f82a5eccc3faf61e96e30c7ae0008616059b3ea697a8ceb2453b033ecf20",
+      "bytes": 16723
+    },
+    {
+      "path": "weld_pipeline/server_full_reference_witnesses.py",
+      "sha256": "9151e61df913332ab04c3c989dff68305645da6dcd7fe2392ccd3817ec3c03c4",
+      "bytes": 11245
+    },
+    {
+      "path": "weld_pipeline/server_full_weld_model.py",
+      "sha256": "e181767c8c4c7686626ca24cbddb04cf1f30ce461935f7e1439a4088716f983d",
+      "bytes": 9633
+    },
+    {
+      "path": "weld_pipeline/server_full_training_samples.py",
+      "sha256": "79115e4ef211385a42a91aed068c4bff2cb3217bbc7ee14da47e0aab8709efcd",
+      "bytes": 12100
+    },
+    {
+      "path": "tools/verify_full_shard_dataset.py",
+      "sha256": "a1764f0a858eec2c1a674931d85f0a609f4bf822fafbd7d8cb169f8d0c3f7874",
+      "bytes": 5643
+    },
+    {
+      "path": "tools/prepare_full_task_supervision.py",
+      "sha256": "2b816bbdb82061b201b36d2f8372c607ac910174871188847821b1275a985954",
+      "bytes": 10495
+    },
+    {
+      "path": "tools/verify_full_weld_warmstart.py",
+      "sha256": "b69cee59c49c0c77f86e8e3f234079ad2ccbb301c77fe2aed787869799e14f82",
+      "bytes": 8115
+    },
+    {
+      "path": "tools/train_full_weld_warmstart.py",
+      "sha256": "a41f9940fd9e7ae48afff8a646a1a43420bae032831a2b94dd4ce312acc4b722",
+      "bytes": 18078
     }
   ]
 }
