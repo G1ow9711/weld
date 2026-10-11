@@ -9990,6 +9990,66 @@
       "path": "tools/train_full_weld_warmstart.py",
       "sha256": "a41f9940fd9e7ae48afff8a646a1a43420bae032831a2b94dd4ce312acc4b722",
       "bytes": 18078
+    },
+    {
+      "path": "weld_pipeline/server_full_prediction_runtime.py",
+      "sha256": "5ca056473f77b98e294df7e0bae772f94795384bdb878bd79968c8c69ee69299",
+      "bytes": 14472
+    },
+    {
+      "path": "weld_pipeline/server_predicted_parent_pool.py",
+      "sha256": "251507ccc572bce7c20255f322d04b21070d37f9497848f049cd3088d707fcc1",
+      "bytes": 14672
+    },
+    {
+      "path": "weld_pipeline/server_ordered_parent_set_model.py",
+      "sha256": "fde982c01a99c89c96207ebe256ce1ef09d1774efa21a7da53c8e1013838dcd0",
+      "bytes": 4308
+    },
+    {
+      "path": "tools/prepare_full_predicted_parent_pool.py",
+      "sha256": "0cd2d7849570c6be2e441e26c5be6088d08f0207fa8e0f1d503a317110792a7b",
+      "bytes": 10873
+    },
+    {
+      "path": "tools/verify_full_prediction_runtime.py",
+      "sha256": "e2c0bfd74de467fe75570f9e48f25dae817a8314bb6d32d5e6d24ad6571dd750",
+      "bytes": 5619
+    },
+    {
+      "path": "tools/train_full_predicted_parent_selector.py",
+      "sha256": "693cc5b6d723d1603f2543de9d3f578f04a99762e581c7d0568fa043e1fcc8af",
+      "bytes": 14722
+    },
+    {
+      "path": "tools/audit_full_query_geometry.py",
+      "sha256": "9c27ca8a41f95cd1e9775d8942b036d1a4ddc0e439be8d580465a1ede1faf25d",
+      "bytes": 9898
+    },
+    {
+      "path": "weld_pipeline/server_legacy_anchored_full_weld_model.py",
+      "sha256": "7fbf61236a09d842d6058039e5a45902f4e331da57f14163db576bc5ff980165",
+      "bytes": 4896
+    },
+    {
+      "path": "weld_pipeline/server_runtime_aligned_training_samples.py",
+      "sha256": "5b9ad019d5486ec0f7d029421bbb2ff2f0b035ac7807195a32837a24b554cfb0",
+      "bytes": 4293
+    },
+    {
+      "path": "tools/train_full_weld_anchored.py",
+      "sha256": "279749bd59b798c1df58f3761c66aeda6cce2dc724f99319e5c6b613c9621ed9",
+      "bytes": 19808
+    },
+    {
+      "path": "tools/verify_legacy_anchored_full_weld.py",
+      "sha256": "1821a0a5580433b8c40111ff048c0334696554c02fec76fbb9aca36c15cfe1ad",
+      "bytes": 6868
+    },
+    {
+      "path": "README.md",
+      "sha256": "7c5f43b3fbe642f9f851fabde647694c31b9d7e29aad8f88502c9cadbc36cf33",
+      "bytes": 14286
     }
   ]
 }
