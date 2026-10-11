@@ -21,7 +21,7 @@ from weld_pipeline.server_legacy_runtime import install
 install()
 from weld_pipeline.server_full_evaluation_dataset import EvaluationShardDataset, ROLES
 from weld_pipeline.server_cached_parent_relation_prior import CachedRun446RelationPrior
-from weld_pipeline.server_legacy_anchored_full_weld_model import LegacyAnchoredFullWeldModel
+from weld_pipeline.server_query_checkpoint_model import load_query_model, verify_complete_query_fit
 from weld_pipeline.server_parent_prediction_runtime import load_input_pool, load_selector, load_gzip, predict
 from weld_pipeline.server_predicted_parent_pool import FrozenRun446Priors, decoded_subset
 from weld_pipeline.server_runtime_aligned_training_samples import FIXED_QUERY_FRACTIONS
@@ -40,6 +40,7 @@ SOURCE_NAMES = ['tools/evaluate_full_weld_predictions.py',
     'weld_pipeline/server_cached_parent_relation_prior.py', 'weld_pipeline/server_predicted_parent_pool.py',
     'weld_pipeline/server_full_prediction_runtime.py', 'weld_pipeline/server_full_weld_model.py',
     'weld_pipeline/server_legacy_anchored_full_weld_model.py',
+    'weld_pipeline/server_query_checkpoint_model.py', 'weld_pipeline/server_reference_recall_weld_model.py',
     'weld_pipeline/server_runtime_aligned_training_samples.py',
     'weld_pipeline/sjg_parent_set_features_1160.py', 'weld_pipeline/sjg_additive_parent_precision_1254.py',
     'weld_pipeline/sjg_child_parent_supervision_1255.py', 'weld_pipeline/sjg_native_d3_adapter_1056.py',
@@ -81,12 +82,7 @@ def complete_train_fit(query, selector, query_sha, selector_sha, query_receipt, 
     jobs = {j['job_key'] for j in registration['cases']}
     versions = {v['key'] for j in registration['cases'] for v in j['versions']}
     qr, sr = read(local_file(query_receipt)), read(local_file(selector_receipt))
-    if (qr['status'] != 'ALL_TRAIN_WARMSTART_FITTED_NOT_PROMOTED_NOT_COMPLETE_INFERENCE'
-            or qr['checkpoint_sha256'] != query_sha or qr['protocol_sha256'] != query['protocol_sha256']
-            or qr['training_versions'] != len(versions) or qr['validation_or_test_label_reads'] != 0
-            or qr['epochs'] < 1 or qr['optimizer_steps'] != query['optimizer_steps']
-            or query['optimizer_steps'] < 1):
-        raise ValueError('Complete TRAIN query receipt is missing or differs from this checkpoint')
+    query_fit = verify_complete_query_fit(ROOT, query, query_sha, local_file(query_receipt))
     completed = set(query['completed_views'])
     if (completed != {str(e) + ':' + v for e in range(qr['epochs']) for v in versions}
             or len(completed) != qr['completed_views']):
@@ -111,12 +107,11 @@ def complete_train_fit(query, selector, query_sha, selector_sha, query_receipt, 
             or set(selector['job_visits']) != jobs
             or any(selector['job_visits'][j] != selector['passes'] for j in jobs)):
         raise ValueError('Selector has not actually visited all registered TRAIN inputs and label views')
-    return dict(query_receipt_sha256=digest(local_file(query_receipt)),
+    return dict(**query_fit,
                 selector_receipt_sha256=digest(local_file(selector_receipt)),
                 selector_final_resume_sha256=digest(resume_file),
                 actual_final_selector_checkpoint_sha256=selector_sha,
-                query_epochs=qr['epochs'], selector_passes=selector['passes'],
-                all_registered_train_views_fitted=True, held_or_diagnostic_fit_calls=0)
+                selector_passes=selector['passes'], held_or_diagnostic_fit_calls=0)
 
 
 def verify_final_selection(path, query_sha, selector_sha, registry_sha):
@@ -198,12 +193,7 @@ def main(args):
         selector_protocol_source = local_file(args.selector_protocol)
         immutable_copy(selector_protocol_source, out / 'selector_training_protocol.json', digest(selector_protocol_source))
         query = torch.load(out / 'query_checkpoint.pt', map_location='cpu', weights_only=False)
-        anchored = 'legacy.trunk.0.weight' in query['state_dict']
-        if not anchored:
-            raise ValueError('This evaluation protocol requires the declared anchored full query model')
-        model = LegacyAnchoredFullWeldModel()
-        model.load_state_dict(query['state_dict'], strict=True)
-        model.eval()
+        model, query_architecture = load_query_model(query)
         device = 'cuda' if torch.cuda.is_available() else 'cpu'
         selector, selector_state, fitted_protocol = load_selector(out / 'selector_checkpoint.pt',
             args.selector_sha256, out / 'selector_training_protocol.json', args.query_sha256, device)
@@ -224,6 +214,7 @@ def main(args):
                 if (out / 'protocol.json').exists() else git_head(ROOT)),
             role=args.role, jobs=jobs, versions=required, evaluation_registry_sha256=dataset.registry_sha256,
             query_checkpoint_sha256=args.query_sha256, selector_checkpoint_sha256=args.selector_sha256,
+            query_architecture=query_architecture,
             selector_training_protocol_sha256=digest(out / 'selector_training_protocol.json'),
             original_run446_prior_sha256=priors.checkpoint_sha256, full_train_fit=full_fit,
             partial_control_not_final_evaluation=args.allow_partial_training,
