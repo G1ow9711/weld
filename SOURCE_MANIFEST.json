@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "4d18f9b43d7cc055c71698c3981c2a6d49074993fd8dabee866c9dad93a4e6bd",
-      "bytes": 44915
+      "sha256": "8af3d907aa9571241a93818121ddc4417d554106b4872c4ee58ffed4cffbe4d9",
+      "bytes": 45991
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -90,6 +90,11 @@
       "path": "tools/audit_cross_profile_interval_redundancy.py",
       "sha256": "9716b88801d8b06f16a068b4fc0c5461484a640ae9b9ec0c9e91d8934fc93025",
       "bytes": 2420
+    },
+    {
+      "path": "tools/audit_cross_role_exact_point_support.py",
+      "sha256": "8eed6d1cf98adb1c57d8fce28129007e81966d27cc1fd60f067c6d40ee64c6f8",
+      "bytes": 9234
     },
     {
       "path": "tools/audit_curved_group_comparison.py",
