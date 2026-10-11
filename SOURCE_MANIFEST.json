@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "b811c02993a3d9cc22731cbe285941caf377f76b52f07907fb4f858d7209f5fe",
-      "bytes": 50751
+      "sha256": "9d0cf1499acfa11e5f0c2d353b6e7f921cf5ccd663868a95fa4860a32453f4f5",
+      "bytes": 52041
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -910,6 +910,11 @@
       "path": "tools/continue_union_nearest_arc_comparison.py",
       "sha256": "1f4eda48d811898a9e091a745211ef627c3b835e05f9dcbc629bca48053bfd15",
       "bytes": 2252
+    },
+    {
+      "path": "tools/continue_validation_fixed_baseline_regression.py",
+      "sha256": "3fb1be73d36383e65918e8359f7625186c2dd5ab8e8133580a6824d6b65dd8a9",
+      "bytes": 19487
     },
     {
       "path": "tools/continue_validation_fixed_test.py",
@@ -3335,6 +3340,11 @@
       "path": "tools/verify_union_nearest_graph.py",
       "sha256": "31a1b8eb0b4a10adbf36ba70b1094c453081b9fa1dd894109dc0a1b06ce31ac8",
       "bytes": 1894
+    },
+    {
+      "path": "tools/verify_validation_fixed_baseline_regression.py",
+      "sha256": "94890db3a9a820bc42efaf380f123f080721042e559688d68e36c2b1578d760d",
+      "bytes": 4083
     },
     {
       "path": "tools/verify_validation_fixed_selection.py",
