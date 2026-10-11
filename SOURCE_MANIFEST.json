@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "631fa5ef76ce262cfb5c4923accf5cfa5490f9fd88cb6b603f593e89f3330fe3",
-      "bytes": 24034
+      "sha256": "8e087121f15b4d9b21be42534d57ca75d8df8a82fb5732dbdff6ff5f90655b5d",
+      "bytes": 31198
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -10255,6 +10255,46 @@
       "path": "tools/supervise_full_training_inputs.py",
       "sha256": "c0d921795aab9de6f5f92cc8e6b962b14ba79ec1b1688d26c05d6799fd35b7ca",
       "bytes": 10368
+    },
+    {
+      "path": "weld_pipeline/server_exact_endpoint_reference.py",
+      "sha256": "1be129540b2f102d881aa511c1f95c8ff858a35a8558df0df1e825ad895d1699",
+      "bytes": 8651
+    },
+    {
+      "path": "tools/verify_exact_endpoint_reference.py",
+      "sha256": "62a2152afc2b3deecc9d9c003753cd8fd6a2ece48d1e834e21451e18bc1c674c",
+      "bytes": 7129
+    },
+    {
+      "path": "tools/verify_actual_endpoint_reference.py",
+      "sha256": "dedb69137345d32c2ee5c79919720926f85dbae10cf4ffa0d34ed6877fa3257a",
+      "bytes": 10400
+    },
+    {
+      "path": "tools/exact_reference_training_backend.py",
+      "sha256": "e5bd8aa4a8b88eeeacebbae0961597d9fc4988662313895422207ba89fef84b1",
+      "bytes": 6988
+    },
+    {
+      "path": "tools/control_exact_full_recall_parent_fit.py",
+      "sha256": "50a3632cc2fe1d494bf0ac87b2c4e7db62075a4faf7f86603ca5946ea0ff00f1",
+      "bytes": 1337
+    },
+    {
+      "path": "tools/train_exact_full_recall_parent_dataset.py",
+      "sha256": "f5a51f15f0c8a70eb1fdd42673cc1cab2519c9336c31eadd30087c5369a0d12d",
+      "bytes": 1527
+    },
+    {
+      "path": "tools/verify_exact_reference_training_backend.py",
+      "sha256": "fb184862a1ff7cf3f621b566690c224c4596a9eb94b01e3c0fa42e57dfc18356",
+      "bytes": 4266
+    },
+    {
+      "path": "tools/continue_exact_full_recall_training.py",
+      "sha256": "7da22aae44d9f467f4a25b6f98a3d01b2e22f6d13a9d887bcbdea0fbb828afa9",
+      "bytes": 3342
     }
   ]
 }

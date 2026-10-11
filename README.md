@@ -171,3 +171,10 @@ The full-training continuation dispatches the same selection and protected-diagn
 
 
 `supervise_full_training_inputs.py` keeps the original all-registered input producer and resource thresholds unchanged. It retries only the exact observed low-headroom guard exit of an incomplete finite-support or learned-surface stage, while refusing completed stages, unrelated latest errors or duplicate live preparers. The failed stage is copied, byte verified and renamed within its owned temporary filesystem before a retry. A declared conservative headroom policy delays restarting the producer. Other failures stop with evidence instead of skipping an input. These checks and retries do not establish model quality.
+
+
+## Exact offline reference compilation
+
+`server_exact_endpoint_reference.py` retains every prediction row, reference column and original D3 assignment cost. Impossible kind/type or structural pairs retain unavailable costs and their full prediction counts without materializing sampled geometry. The line endpoint broad phase permits any child pairing and either orientation; the original scorer still enforces whole-parent order, gaps and direction. Matching arcs and closed contours use the original geometry rules, including arbitrary circle anchors. One full global assignment remains unchanged.
+
+The exact training backend requires current synthetic semantic controls plus authenticated actual whole-pool and frozen-output comparisons of every cost, true-positive count and global assignment. Separate loader controls compare all tokens, relation inputs and complete label views. Independent entry points reuse the original complete TRAIN job loader, objective, optimizer and prediction logic through private function namespaces. They bind comparison artifacts and source files, preserve registered TRAIN coverage and keep selection, protected diagnostics and final testing in their existing roles. This optimizes label-side training computation; it does not establish extraction accuracy, inference timing or model promotion.
