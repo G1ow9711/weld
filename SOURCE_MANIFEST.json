@@ -9753,8 +9753,8 @@
     },
     {
       "path": "tools/evaluate_grid_endpoint_comparison.py",
-      "sha256": "4100cabe71b1abf41b1c289e96523e000d8b255141175e92e8429055c469861d",
-      "bytes": 4968
+      "sha256": "2730e6d31607a7fd507bbc75d658268bb8ddf12537a0c13a9db5f301a89f531e",
+      "bytes": 5084
     },
     {
       "path": "tools/prepare_grid_endpoint_training.py",
@@ -9793,8 +9793,8 @@
     },
     {
       "path": "weld_pipeline/server_grid_candidate_runtime.py",
-      "sha256": "32de552196c71a445bfdc7deccd08e869a16f32fb6ebab535d9b7713bc624f90",
-      "bytes": 2580
+      "sha256": "5a403576b36cd74e081910d340a4921148a58c49755e2f931d8be70bcabfa684",
+      "bytes": 2931
     },
     {
       "path": "weld_pipeline/server_grid_endpoint_selector.py",
@@ -9810,6 +9810,106 @@
       "path": "weld_pipeline/server_grid_owner_loss.py",
       "sha256": "2d52c06e3a708cafb1eb36d5ab644c73be3a5e16f25b19cd538a2f22946ee3c6",
       "bytes": 1674
+    },
+    {
+      "path": "weld_pipeline/server_grid_peak_candidates.py",
+      "sha256": "b410af47924a394587b5c9d82b7382bb945003f9a54757c03d505c545d32bf8d",
+      "bytes": 5635
+    },
+    {
+      "path": "weld_pipeline/server_offline_parent_set_reference.py",
+      "sha256": "0431a4b20dd049ca9a25f0fc01d65dbdba6d2b57f58057aad02a8964d45b2bfa",
+      "bytes": 3992
+    },
+    {
+      "path": "weld_pipeline/server_whole_parent_features.py",
+      "sha256": "57379292f68b2f7c2105cd3d76793538a84a34b5cae00477e17e00e7d2ce9dc3",
+      "bytes": 6302
+    },
+    {
+      "path": "weld_pipeline/server_bound_parent_pool.py",
+      "sha256": "d44cb37bcb32e9feb28292fdb5b82ed2997e5cf2224e3d7418f4ceba149c56de",
+      "bytes": 1727
+    },
+    {
+      "path": "weld_pipeline/server_reference_parent_selection.py",
+      "sha256": "85e7ad2d92de43843632137a4b8715d4028d5171f8424e047edc3e125cedd8bc",
+      "bytes": 6416
+    },
+    {
+      "path": "weld_pipeline/server_offline_parent_pair_utility.py",
+      "sha256": "343fec06bc82cc1109bc3d47ee6540f80cf1c146ba566968cb2b1701ccdbb35c",
+      "bytes": 1138
+    },
+    {
+      "path": "weld_pipeline/server_structured_parent_residual.py",
+      "sha256": "a369a06b31c3c745bc627b71e084e5ad7d1a7d3a3d350d7dafcb29ecbaec7f3c",
+      "bytes": 3522
+    },
+    {
+      "path": "weld_pipeline/server_offline_parent_set_comparator.py",
+      "sha256": "34b77480a0459bbb70964f028183c6c2b306ca150e7bbd57c0e4731e137bfc1d",
+      "bytes": 1641
+    },
+    {
+      "path": "tools/evaluate_grid_peak_comparison.py",
+      "sha256": "8e29359d2da64421b70edf490546137a77e24870005bfef2707f1cc3fb2feb3f",
+      "bytes": 3148
+    },
+    {
+      "path": "tools/verify_grid_peak_candidates.py",
+      "sha256": "c97fbf1bf06ccff6f31f1b15d18741919b45fd78a710748cf193348d61caa9e4",
+      "bytes": 3369
+    },
+    {
+      "path": "tools/verify_parent_set_reference.py",
+      "sha256": "e52ec7973a426c44bdadf6c63b67f83ae2ef022173b8bd432c8822287d91e04f",
+      "bytes": 2589
+    },
+    {
+      "path": "tools/prepare_whole_parent_reference_sets.py",
+      "sha256": "bce37b920db298096c3e14b9d758bc438c276684bb696e1157e7cc4f991e145e",
+      "bytes": 4894
+    },
+    {
+      "path": "tools/verify_whole_parent_feature_parity.py",
+      "sha256": "d8282fa69d34e775d7f06ad568810a0c0e6642aa83f084a0676d533404e2757d",
+      "bytes": 1544
+    },
+    {
+      "path": "tools/prepare_augmented_whole_parent_pool.py",
+      "sha256": "4da8edbda565f0d2ae2fe62cd8aa49e293a5a239ef652899cc426de045da2745",
+      "bytes": 5320
+    },
+    {
+      "path": "tools/verify_reference_parent_selection.py",
+      "sha256": "7431c5a4ea1e6556aa4ee87e8d1f6d1c9515f866f5eeb7a0d99f5b4a82ae71ed",
+      "bytes": 2924
+    },
+    {
+      "path": "tools/prepare_reference_parent_selection.py",
+      "sha256": "20f132576bbf479b86606055ccddb3941e36e9a46cb3685c4d013ddffb7ff6ae",
+      "bytes": 7932
+    },
+    {
+      "path": "tools/train_reference_parent_selection.py",
+      "sha256": "9fff3ba50ee7d10a9fd9deacbfdfab2a391ab87201c322302fed0b877f285d3f",
+      "bytes": 4842
+    },
+    {
+      "path": "tools/evaluate_reference_parent_selection.py",
+      "sha256": "74b950d633d5bbb6eb189e6969c9d7b7a3077fecbd66723a1614a16b439cdd35",
+      "bytes": 8932
+    },
+    {
+      "path": "tools/verify_whole_parent_projection_limits.py",
+      "sha256": "b07901d184bd6720808055297d7b474f70c2bfec27960c692e025d3b4d53c8e1",
+      "bytes": 2319
+    },
+    {
+      "path": "tools/train_structured_parent_residual.py",
+      "sha256": "5343455e6a716e4b28d2754465762a3a66e790d4a7c0abe6e214eb8e8af2e2ef",
+      "bytes": 7858
     }
   ]
 }
