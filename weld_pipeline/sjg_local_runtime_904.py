@@ -10,7 +10,12 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'weld_pipeline/reports/goal_contract_training_20261005/sjg_pilot_776'
 
 def read(path):return json.loads(Path(path).read_text(encoding='utf-8-sig'))
-def write(path,value):Path(path).write_text(json.dumps(value,ensure_ascii=False,indent=2,allow_nan=False),encoding='utf-8')
+def _json_native(value):
+    import numpy as np
+    if isinstance(value,np.generic):return value.item()
+    if isinstance(value,np.ndarray):return value.tolist()
+    raise TypeError(f'Object of type {type(value).__name__} is not JSON serializable')
+def write(path,value):Path(path).write_text(json.dumps(value,ensure_ascii=False,indent=2,allow_nan=False,default=_json_native),encoding='utf-8')
 def utc():return datetime.now(timezone.utc).isoformat()
 def digest(path):
     h=hashlib.sha256()

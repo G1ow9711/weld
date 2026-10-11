@@ -4213,8 +4213,8 @@
     },
     {
       "path": "weld_pipeline/sjg_local_runtime_904.py",
-      "sha256": "70843c9c4775fbea4f5c54bfc74fb02ae7fab2f5955a7a3a22e62b91c92aa679",
-      "bytes": 3274
+      "sha256": "a052edcefe2f547bff51144cff0d903de6e4fa4ae530de6133e8d4b496163991",
+      "bytes": 3544
     },
     {
       "path": "weld_pipeline/sjg_local_sampling_finite_pilot_992.py",
@@ -10090,6 +10090,11 @@
       "path": "tools/train_full_parent_dataset.py",
       "sha256": "27122fde6c889f79704e7b59fe9e7d1c2c516cdfb06916918c097588df7a1478",
       "bytes": 22607
+    },
+    {
+      "path": "tools/recover_full_parent_output_record.py",
+      "sha256": "e9524e04805cd6443308646d9f64e2669b08ad668744bf0406dec104aa696b13",
+      "bytes": 7021
     }
   ]
 }
