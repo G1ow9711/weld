@@ -10048,8 +10048,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "7c5f43b3fbe642f9f851fabde647694c31b9d7e29aad8f88502c9cadbc36cf33",
-      "bytes": 14286
+      "sha256": "ef6c596420c10c03157818f9d215760dec65038f6db20d871818b8eaecc4229d",
+      "bytes": 19724
     },
     {
       "path": "weld_pipeline/server_streaming_parent_set_fit.py",
@@ -10095,6 +10095,41 @@
       "path": "tools/recover_full_parent_output_record.py",
       "sha256": "e9524e04805cd6443308646d9f64e2669b08ad668744bf0406dec104aa696b13",
       "bytes": 7021
+    },
+    {
+      "path": "tools/prepare_full_evaluation_registry.py",
+      "sha256": "f50decf979d4902eb961147f5f56984c09777c7eba37fb5391549a43ebbc00e6",
+      "bytes": 6803
+    },
+    {
+      "path": "weld_pipeline/server_full_evaluation_dataset.py",
+      "sha256": "3eeee21761f9665874049cb4c585a618a892a875349e3a2417abab936b7627be",
+      "bytes": 7025
+    },
+    {
+      "path": "tools/prepare_full_evaluation_case.py",
+      "sha256": "63abcdfc655160f4748fb5b48ba734bbfda95d0deacc7fdfa30f9df59d4bddc5",
+      "bytes": 9206
+    },
+    {
+      "path": "tools/prepare_full_evaluation_inputs.py",
+      "sha256": "d600f104ffb50c85ca33055d6a35cc45003be5f3711ea8c94bc8a18fbe6108d9",
+      "bytes": 8180
+    },
+    {
+      "path": "tools/verify_full_evaluation_registry.py",
+      "sha256": "0a6f4a59a4166298b52d8d2f3b80b0fc489431a61f8dfc3b192893e9e0102a3c",
+      "bytes": 4165
+    },
+    {
+      "path": "tools/verify_full_evaluation_xyz.py",
+      "sha256": "ea71ab18d65a002d81643f2bca9e3ad2e72ced3f37bc64141518620a8e42bd0d",
+      "bytes": 3105
+    },
+    {
+      "path": "tools/audit_full_workpiece_xyz_identity.py",
+      "sha256": "7d995def7a9ae58b427732bc6856b9544131cdd6c224f66715eb3594908c3370",
+      "bytes": 6397
     }
   ]
 }

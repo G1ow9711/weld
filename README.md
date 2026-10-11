@@ -117,3 +117,12 @@ The controller records immutable per-job model/optimizer checkpoints, input rece
 
 
 The JSON writer preserves NumPy integer, boolean, scalar and array values while continuing to reject nonfinite values. `tools/recover_full_parent_output_record.py` accepts a verified output encoding failure only: it checks the saved calculation sources and checkpoint, regenerates the same selected geometry, completes original D3 evaluation and commits a durable resume pointer without repeating optimizer steps. Other failures require a separate diagnosis; a recovered output is not a new model-quality round.
+
+
+## Complete held inputs and evaluation roles
+
+`prepare_full_evaluation_registry.py` registers every qualified held label version while deduplicating only input computation. Selection, protected diagnostics and final testing retain separate roles; they cannot enter the training registry. `server_full_evaluation_dataset.py` supplies the same complete input tensor interface, without a training epoch or supervision API. Reference access requires an authenticated input-only prediction freeze. Final-test reference access also requires the declared validation-selected query and selector checkpoints. This workflow guard does not certify historical independence.
+
+`prepare_full_evaluation_inputs.py` prepares raw held XYZ in a separate owned workspace. Its frozen point-feature stages wait for the complete TRAIN input producer to finish, then reuse the original input computations without fitting. Some preserved helper receipts have literal TRAIN routing tags; the held registration and shard receipts remain authoritative and prohibit fitting. Full fragment features and every label version are retained. `verify_full_evaluation_registry.py` and `verify_full_evaluation_xyz.py` check actual role admission and raw-input bindings; these checks are not model accuracy or complete-runtime validation.
+
+`audit_full_workpiece_xyz_identity.py` compares exact point multisets across every qualified version, preserving duplicate-point multiplicity and ignoring PLY metadata and vertex order. It does not normalize pose, prove the absence of rotated/cropped derivatives, or certify the absence of historical development exposure. Input preparation, identity audits, training, held prediction scoring and CSV acceptance remain separate evidence.
