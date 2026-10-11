@@ -9745,6 +9745,71 @@
       "path": "tools/verify_union_nearest_graph.py",
       "sha256": "31a1b8eb0b4a10adbf36ba70b1094c453081b9fa1dd894109dc0a1b06ce31ac8",
       "bytes": 1894
+    },
+    {
+      "path": "tools/audit_stable_pair_pool_capacity.py",
+      "sha256": "4ab629bf7ec8bea8c5283219103c31193f1a351f5154a910dc113830c51d1a60",
+      "bytes": 3809
+    },
+    {
+      "path": "tools/evaluate_grid_endpoint_comparison.py",
+      "sha256": "4100cabe71b1abf41b1c289e96523e000d8b255141175e92e8429055c469861d",
+      "bytes": 4968
+    },
+    {
+      "path": "tools/prepare_grid_endpoint_training.py",
+      "sha256": "dfd03d0e675f0e171d9c91c0208d2030b2d7415d9a5b14bf8406542e92708d0b",
+      "bytes": 4588
+    },
+    {
+      "path": "tools/probe_grid_candidate_runtime.py",
+      "sha256": "fc69f0f03957fb409c488bab1115224816056838db9c321a0384f85381cd510b",
+      "bytes": 2726
+    },
+    {
+      "path": "tools/train_grid_endpoint_head.py",
+      "sha256": "2a0f45a2aca02e786b2a0bf379408db445e5eaeaeabda7e6048f5efcbdad89bc",
+      "bytes": 5839
+    },
+    {
+      "path": "tools/verify_grid_endpoint_selector.py",
+      "sha256": "381580f071d33aa28e12ba2b7831c20cab60c38fde2ea5798b4e0bc4a1cee22d",
+      "bytes": 2486
+    },
+    {
+      "path": "tools/verify_grid_feature_stream.py",
+      "sha256": "dd1ba4f5ee16b5140fb42206f1c8befadb9eb9c3bed42bf3cfc0ebc30826f5be",
+      "bytes": 2314
+    },
+    {
+      "path": "tools/verify_grid_owner_loss.py",
+      "sha256": "3d84034f7e51dd1055b17d0dfaa9a3f9e03b28f982d0e24db04500cab3047ed6",
+      "bytes": 1606
+    },
+    {
+      "path": "weld_pipeline/server_finite_carrier_grid.py",
+      "sha256": "6b49d87057797f535397fdff31b9b89cca5dc07093af75b88e5130e70e96f8a3",
+      "bytes": 1460
+    },
+    {
+      "path": "weld_pipeline/server_grid_candidate_runtime.py",
+      "sha256": "32de552196c71a445bfdc7deccd08e869a16f32fb6ebab535d9b7713bc624f90",
+      "bytes": 2580
+    },
+    {
+      "path": "weld_pipeline/server_grid_endpoint_selector.py",
+      "sha256": "03b098116b0abf51b281a967d1ec750666bc43268edebb70cace3480c7260d14",
+      "bytes": 4371
+    },
+    {
+      "path": "weld_pipeline/server_grid_feature_stream.py",
+      "sha256": "fc05683bd62a210b5dc42cbf8f1e51b20888596e19f86d17830e89c02ce2f2e8",
+      "bytes": 2360
+    },
+    {
+      "path": "weld_pipeline/server_grid_owner_loss.py",
+      "sha256": "2d52c06e3a708cafb1eb36d5ab644c73be3a5e16f25b19cd538a2f22946ee3c6",
+      "bytes": 1674
     }
   ]
 }
