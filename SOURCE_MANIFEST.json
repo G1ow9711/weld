@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "da0f92a2400af3fd5cb8f97ef802b2339f319a275cd577eff43a2c82faf0aee0",
-      "bytes": 38271
+      "sha256": "13e8006616593f4da4577cbe96ea2e4e75f9a28118e0ad70fc4458267234e3e5",
+      "bytes": 40573
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -15,6 +15,11 @@
       "path": "tools/archive_completed_endpoint_feature_cache.py",
       "sha256": "93a05ba4c0c5931d5c58e6bdb059021858c34d7d062f7805d6d16cc3c38128b8",
       "bytes": 1865
+    },
+    {
+      "path": "tools/archive_completed_model_csv_export.py",
+      "sha256": "22da19aed08598a7c359f0bf592f9f881bef9b3be1fcd97a2016db5b7adde41d",
+      "bytes": 5242
     },
     {
       "path": "tools/archive_completed_query_outputs.py",
@@ -767,6 +772,11 @@
       "bytes": 1169
     },
     {
+      "path": "tools/continue_full_output_export.py",
+      "sha256": "c00b5a157604c75d401cb5eb4fa59c6de981f00421c1882dfaa131442d1d9e35",
+      "bytes": 11291
+    },
+    {
       "path": "tools/continue_full_recall_training.py",
       "sha256": "239e9973cbe6a5e4127303301732f99a1aee0944c3194c1f677f17586cff1dff",
       "bytes": 12818
@@ -1485,6 +1495,11 @@
       "path": "tools/exact_reference_training_backend.py",
       "sha256": "e5bd8aa4a8b88eeeacebbae0961597d9fc4988662313895422207ba89fef84b1",
       "bytes": 6988
+    },
+    {
+      "path": "tools/export_full_weld_predictions.py",
+      "sha256": "803d57ae92e9a5906ae9305d6bde23d7655cab8d34be98e45db47b5e7834ede0",
+      "bytes": 5755
     },
     {
       "path": "tools/extend_local_graph_arc_candidates.py",
@@ -3085,6 +3100,11 @@
       "path": "tools/verify_full_shard_dataset.py",
       "sha256": "a1764f0a858eec2c1a674931d85f0a609f4bf822fafbd7d8cb169f8d0c3f7874",
       "bytes": 5643
+    },
+    {
+      "path": "tools/verify_full_weld_csv_export.py",
+      "sha256": "edd404b9573a1bfe48c0fc4d39a5cb55f066b938ac71cd32e0c9bb7e9b0d0ff1",
+      "bytes": 7569
     },
     {
       "path": "tools/verify_full_weld_warmstart.py",
@@ -6300,6 +6320,11 @@
       "path": "weld_pipeline/server_full_training_samples.py",
       "sha256": "79115e4ef211385a42a91aed068c4bff2cb3217bbc7ee14da47e0aab8709efcd",
       "bytes": 12100
+    },
+    {
+      "path": "weld_pipeline/server_full_weld_csv_export.py",
+      "sha256": "8fa5b8cb60b1e1f4ef2f692d7ade124d549f195b18b6a8400da8edb9e8b79a2e",
+      "bytes": 12641
     },
     {
       "path": "weld_pipeline/server_full_weld_model.py",
