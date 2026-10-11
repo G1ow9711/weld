@@ -24,7 +24,9 @@ def role_of(example):
     return ROLES[flags.index(True)]
 
 
-def build(manifest, qualification, policy, train, providers, root=ROOT):
+def build(manifest, qualification, policy, train, providers, root=ROOT, dataset_base=None):
+    dataset_base = Path(dataset_base) if dataset_base is not None else root / 'server_rebuild/full_dataset_v1'
+    dataset_base.resolve().relative_to(Path(root).resolve())
     assigned = {row['key']: row for row in manifest['examples']}
     qualified = {row['key']: row for row in qualification['qualified']}
     expected = [row for row in policy['examples'] if row['qualified'] and not row['fit_allowed']]
@@ -39,7 +41,7 @@ def build(manifest, qualification, policy, train, providers, root=ROOT):
         if (assignment['split'] != example['assigned_split'] or source['split'] != assignment['split']
                 or source['family_id'] != example['family_id'] or assignment['split'] == 'train'):
             raise ValueError('Held source, policy and assignment disagree')
-        label = root / 'server_rebuild/full_dataset_v1/labels' / key
+        label = dataset_base / 'labels' / key
         receipt = read(label / 'receipt.json')
         if receipt != source:
             raise ValueError('Qualified held receipt differs from the qualification summary')
@@ -99,7 +101,7 @@ def main():
         if values[name]['split_manifest_sha256'] != split_sha:
             raise ValueError('Evaluation input sources have a different frozen split')
     value = build(values['split_manifest.json'], values['qualification_summary.json'],
-                  values['model_use_policy.json'], values['training_registry.json'], existing_sources())
+                  values['model_use_policy.json'], values['training_registry.json'], existing_sources(), dataset_base=BASE)
     value.update(source_bindings={name: digest(path) for name, path in paths.items()}, source_sha256=digest(__file__))
     write(destination, value)
     print('ALL_QUALIFIED_HELD_INPUTS_REGISTERED', value['qualified_evaluation_versions'],

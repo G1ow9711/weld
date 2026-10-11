@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "8af3d907aa9571241a93818121ddc4417d554106b4872c4ee58ffed4cffbe4d9",
-      "bytes": 45991
+      "sha256": "08add6d80023e0c107773330f61a98d712f377275123693ac02c7f476f9a9e21",
+      "bytes": 49416
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -670,6 +670,11 @@
       "path": "tools/compile_expansion_endpoint_attribute_labels.py",
       "sha256": "cee098fb98a867c1c0a65c72361de09a0bb0753975c645c1aeeaf396e7991b75",
       "bytes": 3233
+    },
+    {
+      "path": "tools/complete_partitioned_full_training_inputs.py",
+      "sha256": "9f8e767e232c78c4b265875335f5df909089508fa471f767908115dab7dd4bbb",
+      "bytes": 10443
     },
     {
       "path": "tools/continue_additional_batch01_supervision.py",
@@ -1988,8 +1993,8 @@
     },
     {
       "path": "tools/prepare_full_evaluation_registry.py",
-      "sha256": "f50decf979d4902eb961147f5f56984c09777c7eba37fb5391549a43ebbc00e6",
-      "bytes": 6803
+      "sha256": "03f49691c41432c3379f330f3e790350aaf16140d7c3e6f2c5a2e431a6dde9cd",
+      "bytes": 6990
     },
     {
       "path": "tools/prepare_full_model_use_policy.py",
@@ -2132,6 +2137,16 @@
       "bytes": 3292
     },
     {
+      "path": "tools/prepare_partitioned_full_task_supervision.py",
+      "sha256": "017faf85c8cd06275bc1b6a9149829253ea893cdddcf5e5d10a7e8e4c7142590",
+      "bytes": 1736
+    },
+    {
+      "path": "tools/prepare_partitioned_full_training_case.py",
+      "sha256": "21abccc76280c90bdffdd0aaa59cfa6d2001af2236a4a0b273488e92f379d99b",
+      "bytes": 3753
+    },
+    {
       "path": "tools/prepare_positive_query_interval_training.py",
       "sha256": "66b3fd2580efd1786690241b4a9618feb841e31d7ea4f93c299e9a46591187ef",
       "bytes": 5043
@@ -2270,6 +2285,11 @@
       "path": "tools/qualify_full_dataset_labels.py",
       "sha256": "b1f780c6c32ebe751b873e804edf2a7edb154de7d9cdf39a3ba3ec60ca13f0df",
       "bytes": 22742
+    },
+    {
+      "path": "tools/qualify_repaired_full_dataset_labels.py",
+      "sha256": "48f1cb150daf62eaeb3133e7316f3a10aef7b839cde21b4d6bd61a70f352e227",
+      "bytes": 5726
     },
     {
       "path": "tools/query_reference_endpoint_context_runtime.py",
@@ -2452,9 +2472,19 @@
       "bytes": 3575
     },
     {
+      "path": "tools/register_repaired_full_dataset.py",
+      "sha256": "36b04d70d7561e646f2e60cc9e7b4e426a5942d3fa95064715614cd568a08934",
+      "bytes": 5028
+    },
+    {
       "path": "tools/reinfer_uploaded_run446.py",
       "sha256": "47d4c163aede3ce32bd0c40e0b9475dc052b49cc4d2fb8e6cb92a7ff90a2d36e",
       "bytes": 1911
+    },
+    {
+      "path": "tools/repair_full_dataset_family_split.py",
+      "sha256": "2a5002697cf2070a74bf53ec19e039ba4ef32d825c53414d0c66b80048f551c6",
+      "bytes": 10555
     },
     {
       "path": "tools/restore_completed_endpoint_feature_cache.py",
@@ -2465,6 +2495,11 @@
       "path": "tools/restore_curved_event_feature_cache.py",
       "sha256": "211a4bd8f5194189f29c2fffd1bcb85dc8c4634dbd7a4db6a52fb893c1dfb105",
       "bytes": 1180
+    },
+    {
+      "path": "tools/reuse_repaired_full_input_shards.py",
+      "sha256": "4808de94e9bfb599d186793d842a76b0f1e81dc9a1e5aa2e7056f273c7cfc781",
+      "bytes": 6956
     },
     {
       "path": "tools/revalidate_step_teacher_parameters.py",
@@ -2555,6 +2590,11 @@
       "path": "tools/run_expansion_incremental_stage.py",
       "sha256": "4bfb07adca48cbae8c185cde0dc8a8b54419f24a95aa484c52f96093a5ea3975",
       "bytes": 2019
+    },
+    {
+      "path": "tools/run_partitioned_full_dataset_stage.py",
+      "sha256": "d4e5f78bbb468970483bce83050d5c54f6ac3bfe3060377a23f1656060803824",
+      "bytes": 8200
     },
     {
       "path": "tools/run_reference_occupancy_only_comparison.py",
@@ -2790,6 +2830,11 @@
       "path": "tools/train_parent_residual_shadow.py",
       "sha256": "e5ce2555530f83cddbef59bdb9a65e5c3da8412f32c12a1ffb3df4af1c75631b",
       "bytes": 4378
+    },
+    {
+      "path": "tools/train_partitioned_full_weld_reference_recall.py",
+      "sha256": "3d164c741a06a013b7dd3e1c9663d18b7566e0bd2fcae79dd371798e9c50508a",
+      "bytes": 7061
     },
     {
       "path": "tools/train_physical_query_scale_comparison.py",
@@ -6550,6 +6595,16 @@
       "path": "weld_pipeline/server_parent_set_optimization_v2.py",
       "sha256": "cc89ca8fd6843e245878fd83cd161204e93faefc53ad4c1b2866a2ae213eb1be",
       "bytes": 4069
+    },
+    {
+      "path": "weld_pipeline/server_partitioned_full_dataset.py",
+      "sha256": "4b72294cffe9af05f87f33f07eb2df389cb912a8d7167fbc7c6c5ef4c359cac7",
+      "bytes": 5240
+    },
+    {
+      "path": "weld_pipeline/server_partitioned_query_fit.py",
+      "sha256": "4b94b8eb704484d6df018bc21976b8a91aa65aa4bae72fcc15d9dbbcebcb0bb7",
+      "bytes": 2125
     },
     {
       "path": "weld_pipeline/server_predicted_parent_pool.py",
