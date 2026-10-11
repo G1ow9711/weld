@@ -180,10 +180,10 @@ def proposal_edges(children, neighbors=16, max_edges=4_000_000):
 
 
 def build_parent_pool(children, priors, neighbors=16, beam_width=2,
-                      max_chain_children=64, max_parents=500_000):
-    if min(neighbors, beam_width, max_chain_children, max_parents) < 1:
+                      max_chain_children=64, max_parents=500_000, max_link_edges=4_000_000):
+    if min(neighbors, beam_width, max_chain_children, max_parents, max_link_edges) < 1:
         raise ValueError('Positive explicit parent search resources required')
-    edges = proposal_edges(children, neighbors)
+    edges = proposal_edges(children, neighbors, max_link_edges)
     link_x, probabilities = priors.link_probabilities(children, edges)
     successors = [[] for _ in children]
     for (left, right), scores in zip(edges, probabilities):
@@ -192,6 +192,8 @@ def build_parent_pool(children, priors, neighbors=16, beam_width=2,
             gain = math.log(max(float(scores[kind]), 1e-12)) - math.log(max(float(scores[0]), 1e-12))
             successors[int(left)].append((int(right), kind, gain))
     parents = [assemble_parent(children, [i], []) for i in range(len(children))]
+    if len(parents) > max_parents:
+        raise ValueError('Complete singleton pool exceeds explicit resource limit')
     seen = {(tuple([i]), tuple(), bool(c['is_closed'])) for i, c in enumerate(children)}
     diagnostics = Counter()
     for first in range(len(children)):
@@ -234,6 +236,7 @@ def build_parent_pool(children, priors, neighbors=16, beam_width=2,
                            prior_existence_score_distribution_changed=True,
                            unknown_physical_sides_retained=True,
                            rejected_hypotheses=dict(diagnostics), max_chain_children=max_chain_children,
+                           max_parents=max_parents, max_link_edges=max_link_edges,
                            GT_or_STEP_reads=0, teacher_parent_order_used=False))
 
 

@@ -9998,8 +9998,8 @@
     },
     {
       "path": "weld_pipeline/server_predicted_parent_pool.py",
-      "sha256": "251507ccc572bce7c20255f322d04b21070d37f9497848f049cd3088d707fcc1",
-      "bytes": 14672
+      "sha256": "3085603d42496d5457bfc11a46333078a199eeb03df1136e8eac107778c5c1bf",
+      "bytes": 14932
     },
     {
       "path": "weld_pipeline/server_ordered_parent_set_model.py",
@@ -10008,8 +10008,8 @@
     },
     {
       "path": "tools/prepare_full_predicted_parent_pool.py",
-      "sha256": "0cd2d7849570c6be2e441e26c5be6088d08f0207fa8e0f1d503a317110792a7b",
-      "bytes": 10873
+      "sha256": "c7023533b2ce425fa953d2c0abc1d23cd56575c839fe4b64ea59869d7f5250bd",
+      "bytes": 13637
     },
     {
       "path": "tools/verify_full_prediction_runtime.py",
@@ -10018,8 +10018,8 @@
     },
     {
       "path": "tools/train_full_predicted_parent_selector.py",
-      "sha256": "693cc5b6d723d1603f2543de9d3f578f04a99762e581c7d0568fa043e1fcc8af",
-      "bytes": 14722
+      "sha256": "aa75600e5eddaf147a44b17fa610a4a366f5ea3c853b118b13dd53cbf68f0d62",
+      "bytes": 17601
     },
     {
       "path": "tools/audit_full_query_geometry.py",
@@ -10050,6 +10050,26 @@
       "path": "README.md",
       "sha256": "7c5f43b3fbe642f9f851fabde647694c31b9d7e29aad8f88502c9cadbc36cf33",
       "bytes": 14286
+    },
+    {
+      "path": "weld_pipeline/server_streaming_parent_set_fit.py",
+      "sha256": "6fecde002e226a6a358f0da6218bbab6cc52e92c2b581cc4a674e4c543a8c49a",
+      "bytes": 4374
+    },
+    {
+      "path": "weld_pipeline/server_lazy_parent_competition.py",
+      "sha256": "8323ee1e8e5ea1ce6c23fe1253636ffe52bfebaa4aa035d7148b35438e145e15",
+      "bytes": 4578
+    },
+    {
+      "path": "tools/verify_streaming_parent_set_fit.py",
+      "sha256": "36aebbce9548ba1cd4511aac3bc89c907f44d7060b1cad31394a960eb0497a2e",
+      "bytes": 6771
+    },
+    {
+      "path": "tools/verify_lazy_parent_competition.py",
+      "sha256": "f7f7700a5130a2fd37586b963564615bc567c81fab270af17961e595deb43df0",
+      "bytes": 5802
     }
   ]
 }

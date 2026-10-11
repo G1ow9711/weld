@@ -17,7 +17,9 @@ from weld_pipeline.server_legacy_runtime import install
 install()
 from weld_pipeline.server_full_shard_dataset import FullShardDataset
 from weld_pipeline.server_ordered_parent_set_model import OrderedParentSetModel, parent_batch
-from weld_pipeline.server_predicted_parent_pool import decoded_subset
+from weld_pipeline.server_streaming_parent_set_fit import backward_complete_hinge
+from weld_pipeline.server_predicted_parent_pool import decoded_subset, FrozenRun446Priors
+from weld_pipeline.server_lazy_parent_competition import LazyParentCompetition
 from weld_pipeline.server_reference_parent_selection import greedy_nullable_set
 from weld_pipeline.server_offline_parent_set_reference import compile_reference_table, evaluate_reference_subset
 from weld_pipeline.server_offline_parent_set_comparator import reference_comparator
@@ -64,13 +66,18 @@ def forward_scores(model, data):
             ids = np.arange(start, min(start + 256, len(data['counts'])))
             tokens, valid = packed_batch(data, ids, device)
             unary.append(model.parent_utility(tokens, valid).cpu().numpy())
+        unary = np.concatenate(unary).astype(float) if unary else np.empty(0)
+        if 'lazy_competition' in data:
+            # This runtime graph depends only on model unary scores and the
+            # full input parent geometry. No reference/comparator is consulted.
+            data.update(data['lazy_competition'].relation_arrays(np.flatnonzero(unary > 0)))
         penalties = []
         for start in range(0, len(data['pairs']), 8192):
             stop = start + 8192
             penalties.append(model.pair_penalty(torch.tensor(data['pair_features'][start:stop], device=device),
                               torch.tensor(data['base_penalties'][start:stop], device=device, dtype=torch.float32),
                               torch.tensor(data['pair_scale'][start:stop], device=device, dtype=torch.float32)).cpu().numpy())
-    return (np.concatenate(unary).astype(float) if unary else np.empty(0),
+    return (unary,
             np.concatenate(penalties).astype(float) if penalties else np.empty(0))
 
 
@@ -101,7 +108,7 @@ def utility_difference(model, data, predicted, teacher):
     return result
 
 
-def load_job(dataset, job_key, pools=POOLS):
+def load_job(dataset, job_key, pools=POOLS, priors=None):
     folder = pools / 'pools' / job_key
     receipt = read(folder / 'receipt.json')
     if receipt['geometry_GT_reads'] != 0 or receipt['registry_sha256'] != dataset.registry_sha256:
@@ -115,9 +122,19 @@ def load_job(dataset, job_key, pools=POOLS):
     with np.load(folder / 'child_inputs.npz', allow_pickle=False) as arrays:
         proposals = {name: arrays[name] for name in arrays.files}
     data = pack_tokens(pool, proposals)
-    with np.load(folder / 'relations.npz', allow_pickle=False) as arrays:
-        for name in ('pairs', 'pair_features', 'base_penalties'):
-            data[name] = arrays[name]
+    if receipt.get('competition_mode', 'eager') == 'lazy':
+        priors = priors or FrozenRun446Priors(ROOT)
+        if priors.checkpoint_sha256 != receipt['prior_run446_sha256']:
+            raise ValueError('Frozen lazy relation prior changed')
+        data['lazy_competition'] = LazyParentCompetition(pool['parents'], priors,
+            neighbors=receipt['competition_neighbors'])
+        data.update(data['lazy_competition'].relation_arrays([]))
+    elif receipt.get('competition_mode', 'eager') == 'eager':
+        with np.load(folder / 'relations.npz', allow_pickle=False) as arrays:
+            for name in ('pairs', 'pair_features', 'base_penalties'):
+                data[name] = arrays[name]
+    else:
+        raise ValueError('Unknown frozen competition recipe')
     counts, pairs = data['counts'], data['pairs']
     data['pair_scale'] = 2 * np.minimum(counts[pairs[:, 0]], counts[pairs[:, 1]])
     data['pc'] = [p['input_children'] for p in pool['parents']]
@@ -143,8 +160,9 @@ def expected_utility(data, selected):
                / max(1, view['G']) for view in data['views'])
 
 
-def main(jobs, steps, pool_name=POOLS.name, experiment_name=DEST.name):
-    if steps < 1:
+def main(jobs, steps, pool_name=POOLS.name, experiment_name=DEST.name,
+         passes=None, steps_per_job=8):
+    if steps < 1 or steps_per_job < 1 or (passes is not None and passes < 1):
         raise ValueError('Positive recorded optimizer budget required')
     if any(not name or name in ('.', '..') or Path(name).name != name
            for name in (pool_name, experiment_name)):
@@ -160,10 +178,16 @@ def main(jobs, steps, pool_name=POOLS.name, experiment_name=DEST.name):
     dest.mkdir(exist_ok=False)
     source = {name: digest(ROOT / 'weld_pipeline' / name) for name in
                ['server_ordered_parent_set_model.py', 'server_offline_parent_set_reference.py',
-                'server_offline_parent_set_comparator.py', 'server_reference_parent_selection.py']}
+                'server_offline_parent_set_comparator.py', 'server_reference_parent_selection.py',
+                'server_streaming_parent_set_fit.py', 'server_lazy_parent_competition.py']}
     protocol = dict(status='ACTUAL_COMPLETE_PREDICTION_REFERENCE_SET_SELECTOR_TRAINING_PARTIAL_COVERAGE',
                     jobs=jobs, registered_jobs=len(dataset.jobs), registered_versions=len(dataset.versions),
-                    steps=steps, seed=1031, learning_rate=.0003, source_sha256=digest(__file__), sources=source,
+                    steps=steps, seed=1031, learning_rate=.0003, adam_epsilon=1e-6,
+                    source_sha256=digest(__file__), sources=source,
+                    passes=passes, steps_per_job=steps_per_job,
+                    total_optimizer_visit_budget=steps if passes is None else passes * len(jobs) * steps_per_job,
+                    host_pool_storage='One workpiece at a time; all label views retained',
+                    gradient_storage='Two-pass deterministic complete hinge; all affected score terms backpropagated in chunks',
                     pool_name=pool_name, query_checkpoint_sha256=digest(pools / 'query_checkpoint.pt'),
                     loss='relu(expected normalized full D3 utility advantage + differentiable full set score difference)',
                     same_input_versions='Separate complete expected reference utility, no parent coordinate or child mixing',
@@ -176,15 +200,29 @@ def main(jobs, steps, pool_name=POOLS.name, experiment_name=DEST.name):
                     if name.startswith('parent_encoder.')}
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     model = OrderedParentSetModel(parent_state).to(device)
-    data = [load_job(dataset, key, pools) for key in jobs]
-    optimizer = torch.optim.AdamW(model.parameters(), lr=.0003, weight_decay=.0001)
+    priors = FrozenRun446Priors(ROOT)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=.0003, weight_decay=.0001, eps=1e-6)
     rng = np.random.default_rng(1031)
     history, actual_updates = [], 0
-    order = []
-    for step in range(steps):
-        if step % len(data) == 0:
-            order = rng.permutation(len(data)).tolist()
-        row = data[order[step % len(data)]]
+    schedule = []
+    if passes is not None:
+        for _ in range(passes):
+            schedule.extend(key for key in rng.permutation(jobs).tolist()
+                            for _ in range(steps_per_job))
+    else:
+        while len(schedule) < steps:
+            schedule.extend(rng.permutation(jobs).tolist())
+        schedule = schedule[:steps]
+    processed, visited = set(), {}
+    row, current_key = None, None
+    for step, key in enumerate(schedule):
+        if key != current_key:
+            del row
+            gc.collect()
+            row = load_job(dataset, key, pools, priors)
+            current_key = key
+            processed.update(view['key'] for view in row['views'])
+        visited[key] = visited.get(key, 0) + 1
         model.eval()
         unary, penalties = forward_scores(model, row)
         predicted = greedy_nullable_set(unary, row['pairs'], penalties, row['pc'])
@@ -197,24 +235,28 @@ def main(jobs, steps, pool_name=POOLS.name, experiment_name=DEST.name):
         model.train()
         optimizer.zero_grad(set_to_none=True)
         if advantage > 0:
+            if 'lazy_competition' in row:
+                row.update(row['lazy_competition'].relations_for_selections(predicted, teacher))
             # Scores are normalized by the same expected full reference G;
             # exact matching choices are detached, the score difference is not.
             normalizer = sum(v['weight'] / max(1, v['G']) for v in row['views']) / sum(v['weight'] for v in row['views'])
             job_mass = sum(v['weight'] for v in row['views'])
-            loss = torch.relu(utility_difference(model, row, predicted, teacher) * normalizer + advantage)
-            # Uniform job visits recover registered family/version objective
-            # mass across a complete pool pass. Partial controls keep that mass.
-            loss = loss * job_mass * len(data)
-            loss.backward()
-            torch.nn.utils.clip_grad_norm_(model.parameters(), 5., error_if_nonfinite=True)
-            optimizer.step()
-            actual_updates += 1
+            gradient = backward_complete_hinge(model, row, predicted, teacher,
+                       advantage, normalizer, job_mass * len(jobs), packed_batch)
+            loss = gradient['loss']
+            if gradient['active']:
+                torch.nn.utils.clip_grad_norm_(model.parameters(), 5., error_if_nonfinite=True)
+                optimizer.step()
+                actual_updates += 1
         else:
-            loss = torch.zeros((), device=device)
-        record = dict(step=step + 1, job_key=row['job_key'], loss=float(loss.detach()),
+            loss = 0.
+            gradient = dict(active=False, gradient_terms=0, affected_parents=0,
+                            affected_relations=0, all_complete_set_terms_used=True)
+        record = dict(step=step + 1, job_key=row['job_key'], loss=loss,
                       predicted_parents=len(predicted), comparator_parents=len(teacher),
                       expected_prediction_utility=expected_utility(row, predicted),
-                      expected_comparator_utility=expected_utility(row, teacher), parameter_updates=actual_updates)
+                      expected_comparator_utility=expected_utility(row, teacher), parameter_updates=actual_updates,
+                      complete_gradient=gradient)
         history.append(record)
         write(dest / 'progress.json', record)
         print('FULL_REFERENCE_ORDERED_SET_FIT', record, flush=True)
@@ -223,13 +265,16 @@ def main(jobs, steps, pool_name=POOLS.name, experiment_name=DEST.name):
                     protocol_sha256=digest(dest / 'protocol.json')), checkpoint)
     evaluations = []
     model.eval()
-    for row in data:
+    del row
+    gc.collect()
+    for key in jobs:
+        row = load_job(dataset, key, pools, priors)
         unary, penalty = forward_scores(model, row)
         selected = greedy_nullable_set(unary, row['pairs'], penalty, row['pc'])
         freeze = dict(selected_parent_indices=selected, checkpoint_sha256=digest(checkpoint),
                       pool_receipt_sha256=row['pool_receipt_sha256'], model_scores_from_reference=False)
         write(dest / (row['job_key'] + '_prediction_freeze.json'), freeze)
-        np.savez_compressed(dest / (row['job_key'] + '_scores.npz'), unary=unary, penalty=penalty)
+        np.savez_compressed(dest / (row['job_key'] + '_scores.npz'), unary=unary, penalty=penalty, pairs=row['pairs'])
         for view in row['views']:
             score = evaluate_reference_subset(view['table'], selected)
             direct = score_native_parents(decoded_subset(row['pool']['parents'], selected), view['target'],
@@ -237,10 +282,13 @@ def main(jobs, steps, pool_name=POOLS.name, experiment_name=DEST.name):
             if direct['TP'] != score['TP'] or direct['FP'] != score['FP']:
                 raise ValueError('Selected complete prediction table differs from original direct D3')
             evaluations.append(dict(version_key=view['key'], G=view['G'], **score))
+        del row
+        gc.collect()
     write(dest / 'receipt.json', dict(status='PARTIAL_TRAIN_POOL_SET_FIT_NOT_PROMOTED' if actual_updates else
           'REFERENCE_POOL_CONTROL_NO_PARAMETER_UPDATES_NOT_PROMOTED',
-          jobs=jobs, processed_reference_versions=sum(len(row['views']) for row in data),
-          registered_training_versions=len(dataset.versions), steps=steps, parameter_updates=actual_updates,
+          jobs=jobs, processed_reference_versions=len(processed), job_visit_counts=visited,
+          registered_training_versions=len(dataset.versions), steps=len(schedule), parameter_updates=actual_updates,
+          host_jobs_loaded_simultaneously=1, complete_set_gradient_subsampling=False,
           checkpoint_sha256=digest(checkpoint), protocol_sha256=digest(dest / 'protocol.json'),
           history=history, same_training_pool_evaluations=evaluations, independent_model_evaluations=0,
           full_dataset_training_remaining=True, held_or_diagnostic_fit_calls=0))
@@ -252,5 +300,8 @@ if __name__ == '__main__':
     parser.add_argument('--steps', type=int, default=8)
     parser.add_argument('--pool-name', default=POOLS.name)
     parser.add_argument('--experiment-name', default=DEST.name)
+    parser.add_argument('--passes', type=int)
+    parser.add_argument('--steps-per-job', type=int, default=8)
     args = parser.parse_args()
-    main(args.job, args.steps, args.pool_name, args.experiment_name)
+    main(args.job, args.steps, args.pool_name, args.experiment_name,
+         args.passes, args.steps_per_job)
