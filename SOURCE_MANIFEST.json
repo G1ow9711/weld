@@ -10225,6 +10225,16 @@
       "path": "weld_pipeline/world_training_manifest_285_revision2.py",
       "sha256": "75b1530f2870be9e4023516e55de308b1f6c8f16f4c77729f13e8bbd692bba1c",
       "bytes": 12628
+    },
+    {
+      "path": "tools/reclaim_completed_training_read_cache.py",
+      "sha256": "cb19b7f329843648bbde654fd39fa30da5f594a505a9043549d83fe7734135cb",
+      "bytes": 4895
+    },
+    {
+      "path": "tools/watch_completed_training_read_cache.py",
+      "sha256": "8be3713e33057a34493743e1582a8eb8bd1cd844525c1574073cd5dffa49864f",
+      "bytes": 4007
     }
   ]
 }
