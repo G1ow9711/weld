@@ -1,0 +1,20 @@
+"""Line endpoint event supervision with missing candidates masked, never invented."""
+import argparse,time
+from pathlib import Path
+import numpy as np
+from weld_pipeline.sjg_local_runtime_904 import read,write,digest
+BASE=Path(__file__).resolve().parents[1]/'server_rebuild/expansion_v1';ROOT=BASE.parents[1]
+def run(key):
+ start=time.perf_counter();cache=BASE/'original_boundary_anchor_training_v1'/key;cr=read(cache/'receipt.json');assert digest(cache/'events.npz')==cr['events_sha256'];assert key in read(cache.parent/'protocol.json')['keys'];data=BASE/'positive_query_head_v1'/key;r=read(data/'receipt.json');assert digest(data/'receipt.json')==cr['query_receipt_sha256'];records=read(data/'records.json');truthpath=ROOT/'server_rebuild/labels_v1'/key/'targets.json';assert digest(truthpath)==r['target_sha256'];truth=read(truthpath);source=ROOT/'server_rebuild/best_baseline_restore/legacy_runtime'/('source_'+key)/'run185'/('source_'+key);profiles=read(source/'profiles.json');events=np.load(cache/'events.npz');pmap={int(pid):i for i,pid in enumerate(events['profile_ids'])};offsets=events['offsets'];position=events['positions_mm'];rowids=[];left=[];right=[];loff=[0];roff=[0];ambiguity=[];owners=[];candidate_counts=[]
+ for row,v in enumerate(records):
+  pid=v['profile']
+  if pid not in pmap:continue
+  p=profiles[pid];ends=np.asarray(p['representation']['endpoints_mm']);direction=ends[1]-ends[0];length=np.linalg.norm(direction);direction/=length;query=v['carrier_query_ratio']*length;aligned=[]
+  for pi,ci in v['owners']:
+   c=truth['parents'][pi]['children'][ci];assert c['representation']['kind']=='line';ref=np.asarray(c['representation']['endpoints_mm'],np.float64);project=(ref-ends[0])@direction;aligned.append(ref if project[0]<=project[1] else ref[::-1])
+  ambiguous=any(np.max(abs(a-aligned[0]))>1e-6 for a in aligned[1:]);index=pmap[pid];a,b=offsets[index:index+2];q=position[a:b];xyz=ends[0]+q[:,None]*direction;dist=np.linalg.norm(xyz[:,None,:]-aligned[0][None,:,:],axis=2);l=np.flatnonzero((q<=query)&(dist[:,0]<=3.))+a;rr=np.flatnonzero((q>=query)&(dist[:,1]<=3.))+a
+  if ambiguous:l=np.empty(0,np.int64);rr=np.empty(0,np.int64)
+  rowids.append(row);left.extend(l.tolist());right.extend(rr.tolist());loff.append(len(left));roff.append(len(right));ambiguity.append(ambiguous);owners.append(v['owners']);candidate_counts.append(b-a)
+ left_counts=np.diff(loff);right_counts=np.diff(roff);both=(left_counts>0)&(right_counts>0);either=(left_counts>0)|(right_counts>0);all_owners={tuple(o) for v in owners for o in v};both_owners={tuple(o) for i,v in enumerate(owners) if both[i] for o in v};dest=BASE/'original_boundary_anchor_supervision_v1'/key;dest.mkdir(parents=True,exist_ok=False);np.savez(dest/'targets.npz',query_rows=np.asarray(rowids,np.int64),left_offsets=np.asarray(loff,np.int64),left_event_ids=np.asarray(left,np.int64),right_offsets=np.asarray(roff,np.int64),right_event_ids=np.asarray(right,np.int64),ambiguous_owners=np.asarray(ambiguity,bool));report=dict(key=key,status='TRAIN_LINE_ENDPOINT_EVENT_SUPERVISION',line_queries=len(rowids),queries_both_endpoints_available=int(both.sum()),queries_either_endpoint_available=int(either.sum()),queries_no_endpoint_available=int((~either).sum()),ambiguous_owner_queries=int(sum(ambiguity)),line_reference_children=len(all_owners),children_with_both_endpoints_available=len(both_owners),events_per_query_quantiles=np.quantile(candidate_counts,[0,.5,.9,.99,1]).tolist(),labels='Input event <=3mm Euclidean from ordered true endpoint, constrained to correct side of fixed input query; exact finite line. Missing head targets masked, no fake event or background target.',not_full_parent_or_type_scoring=True,events_receipt_sha256=digest(cache/'receipt.json'),query_receipt_sha256=digest(data/'receipt.json'),target_sha256=digest(truthpath),supervision_sha256=digest(dest/'targets.npz'),fit_calls=0,DEV_reads=0,source_sha256=digest(__file__),seconds=time.perf_counter()-start);write(dest/'receipt.json',report);print(report,flush=True)
+if __name__=='__main__':
+ p=argparse.ArgumentParser();p.add_argument('--key',required=True);run(p.parse_args().key)

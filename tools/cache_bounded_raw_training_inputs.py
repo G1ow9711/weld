@@ -1,0 +1,25 @@
+"""Eight TRAIN input-only bounded raw-event caches with exact old-anchor provenance."""
+from pathlib import Path
+import time,shutil
+import numpy as np
+from threadpoolctl import threadpool_limits
+from weld_pipeline.server_raw_tube_endpoint_events import RawTubeEndpointEvents
+from weld_pipeline.server_bounded_endpoint_event_cover import bounded_event_cover
+from weld_pipeline.server_fixed_fragment_queries import FixedQueries
+from weld_pipeline.sjg_curve_queries_907 import CurveCarrier
+from weld_pipeline.sjg_local_runtime_904 import read,write,digest
+BASE=Path(__file__).resolve().parents[1]/'server_rebuild/expansion_v1';OUT=BASE/'bounded_raw_training_inputs_v1'
+def main():
+ OUT.mkdir(exist_ok=False);assert shutil.disk_usage(BASE).free>8*1024**3;keys=read(BASE/'reference_query_task_v1/protocol.json')['training_keys'];extra=[v['key'] for v in read(BASE/'additional_batch02_protocol.json')['cases']];assert set(keys).isdisjoint(extra);keys+=extra
+ for name,module in [('raw_tube_event_controls_v1','server_raw_tube_endpoint_events.py'),('bounded_event_cover_controls_v1','server_bounded_endpoint_event_cover.py')]:
+  c=read(BASE/name/'receipt.json');assert c['status']=='PASS' and c['module_sha256']==digest('weld_pipeline/'+module)
+ write(OUT/'protocol.json',dict(keys=keys,radius_mm=3.,cell_mm=1.,all_original_anchors_kept=True,old_provenance_preserved=True,new_event_provenance='Original12 columns zero when unavailable; extra13th flag1 only for added raw-projection positions',scope='Same input recipe for all8TRAIN; profile scope inherited from reliable positive-query cache only for training, not deployment profile selection',GT_endpoint_reads=0,STEP_reads=0,DEV_reads=0,modules={m:digest('weld_pipeline/'+m) for m in ['server_raw_tube_endpoint_events.py','server_bounded_endpoint_event_cover.py']}))
+ for key in keys:
+  started=time.perf_counter();old=BASE/('batch02_boundary_anchor_training_v1' if key in extra else 'sampled_boundary_anchor_training_v1')/key;oldprov=BASE/('batch02_boundary_event_provenance_v1' if key in extra else 'boundary_event_provenance_v1')/key;r=read(old/'receipt.json');pr=read(oldprov/'receipt.json');assert digest(old/'events.npz')==r['events_sha256'];assert pr['events_receipt_sha256']==digest(old/'receipt.json');assert digest(oldprov/'features.npy')==pr['features_sha256'];ev=np.load(old/'events.npz');oldp=np.load(oldprov/'features.npy');assert oldp.shape[1]==12;ids=ev['profile_ids'];oldoff=ev['offsets'];oldq=ev['positions_mm'];source=BASE/'frozen_features/legacy_runtime'/('source_'+key);inp=FixedQueries(source,key);assert inp.bindings==r['input_bindings'];freeze=read(source/'run185'/('source_'+key)/'input_freeze.json');xyzpath=BASE/'inputs'/key/'xyz_mm.npy';assert digest(xyzpath)==freeze['input_sha256'];xyz=np.load(xyzpath,mmap_mode='r');generator=RawTubeEndpointEvents(xyz);positions=[];features=[];provenance=[];offsets=[0];lengths=[];raw_count=0;added_count=0
+  for i,pid in enumerate(ids):
+   curve=CurveCarrier(inp.profiles[int(pid)]['representation']);raw,_=generator.events(curve);a,b=oldoff[i:i+2];anchor=oldq[a:b];union=np.union1d(anchor,raw);q=bounded_event_cover(union,curve.length,anchor);old_indices=np.searchsorted(q,anchor);assert np.array_equal(q[old_indices],anchor);pv=np.zeros((len(q),13),np.float32);pv[:,12]=1;pv[old_indices,:12]=oldp[a:b];pv[old_indices,12]=0;assert np.array_equal(pv[old_indices,:12],oldp[a:b]);fa,fb=inp.offsets[pid:pid+2];spans=inp.spans[fa:fb,:2];local=np.minimum(np.searchsorted(spans[:,1],q,side='right'),len(spans)-1);rep=inp.representative[fa+local];rows=np.searchsorted(inp.canonical,rep);assert np.array_equal(inp.canonical[rows],rep);positions.append(q);features.append(rows.astype(np.int64));provenance.append(pv);offsets.append(offsets[-1]+len(q));lengths.append(curve.length);raw_count+=len(raw);added_count+=len(q)-len(anchor)
+   if i%200==0:print(key,i,'/',len(ids),'events',offsets[-1],flush=True)
+  dest=OUT/key;dest.mkdir();np.savez(dest/'events.npz',profile_ids=ids,offsets=np.asarray(offsets,np.int64),positions_mm=np.concatenate(positions),feature_indices=np.concatenate(features),profile_length_mm=np.asarray(lengths));np.save(dest/'provenance.npy',np.concatenate(provenance));write(dest/'receipt.json',dict(key=key,events_sha256=digest(dest/'events.npz'),provenance_sha256=digest(dest/'provenance.npy'),columns=pr['columns']+['added_raw_projection'],query_receipt_sha256=r['query_receipt_sha256'],input_bindings=inp.bindings,input_sha256=freeze['input_sha256'],old_event_receipt_sha256=digest(old/'receipt.json'),old_provenance_receipt_sha256=digest(oldprov/'receipt.json'),profiles=len(ids),events=offsets[-1],old_events=len(oldq),added_events=added_count,unthinned_raw_events=raw_count,max_events_per_profile=int(np.diff(offsets).max()),GT_endpoint_reads=0,fit_calls=0,DEV_reads=0,seconds=time.perf_counter()-started));inp.close();del generator;xyz._mmap.close();print('COMPLETE',key,offsets[-1],flush=True)
+ write(OUT/'receipt.json',dict(status='EIGHT_TRAIN_BOUNDED_RAW_INPUTS_READY',fit_calls=0,DEV_reads=0,GT_endpoint_reads=0))
+if __name__=='__main__':
+ with threadpool_limits(limits=2):main()

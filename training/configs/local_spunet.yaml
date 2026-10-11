@@ -1,0 +1,44 @@
+# Design reference only. The current trainer does not parse this YAML;
+# executed parameters and receipts are in training/runs/<name>/config.json.
+experiment: weld_spunet_local_v1
+seed: 42
+model:
+  name: SpUNet-v1m1
+  in_channels: 3
+  num_classes: 2
+  base_channels: 32
+  channels: [32, 64, 128, 256, 256, 128, 96, 96]
+  layers: [2, 3, 4, 6, 2, 2, 2, 2]
+  cls_mode: false
+data:
+  raw_root: DataSet/9月20日
+  processed_root: training/data/processed
+  split: training/configs/pilot_split.frozen.json
+  coordinate_unit: mm
+  voxel_mm: 2.0
+  max_points: 32768
+  fallback_max_points: 8192
+  num_workers: 0
+  requires_label_and_family_audit: true
+training:
+  batch_size: 1
+  accumulation_steps: 4
+  amp: true
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.01
+  epochs: 100
+  warmup_epochs: 5
+  scheduler: cosine
+  early_stopping_patience: 20
+  losses: [weighted_cross_entropy, dice]
+  foreground_weight_source: training_split_only
+evaluation:
+  endpoints_mm: 3.0
+  valid_weld_recall_target_strictly_greater_than: 0.95
+  one_to_one_matching: true
+  time_scope: input_read_to_csv_written
+  repeat_per_workpiece: 3
+  reported_time: maximum
+  allow_model_warmup: true
+  allow_prediction_cache: false

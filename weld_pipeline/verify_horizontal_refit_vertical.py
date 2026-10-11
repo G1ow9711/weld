@@ -1,0 +1,78 @@
+"""Compare vertical probabilities against the frozen 115 branch."""
+import argparse
+import hashlib
+import io
+import json
+from pathlib import Path
+import numpy as np
+import torch
+from training.labels import sha256
+from weld_pipeline.checkpoint_sources import verify_cached_inference_sources
+from weld_pipeline.curved_cache import load_piece
+from weld_pipeline.model_registry_horizontal_refit import model_from_checkpoint
+from weld_pipeline.typed_contact_model import infer_probabilities
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    for name in ['checkpoint', 'baseline', 'data', 'outdir']:
+        ap.add_argument('--' + name, required=True)
+    ap.add_argument('--groups', nargs='+', required=True)
+    args = ap.parse_args()
+    out, root = Path(args.outdir), Path(args.data)
+    out.mkdir(parents=True, exist_ok=True)
+    snapshot = out / 'checkpoint_used.pt'
+    if snapshot.exists():
+        raise ValueError('Verification snapshot already exists; use a new directory')
+    blob = Path(args.checkpoint).read_bytes()
+    snapshot.write_bytes(blob)
+    state = torch.load(io.BytesIO(blob), map_location='cpu')
+    checkpoint_hash = hashlib.sha256(blob).hexdigest()
+    del blob
+    with Path(args.baseline).open('rb') as stream:
+        baseline_state = torch.load(stream, map_location='cpu')
+    verify_cached_inference_sources(state, args.checkpoint)
+    verify_cached_inference_sources(baseline_state, args.baseline)
+    if state.get('model_name') != 'horizontal_refit_branch_surface' or state['frozen_vertical_initial_sha256'] != sha256(args.baseline):
+        raise ValueError('Mismatched branch baseline')
+    for name, value in baseline_state['model'].items():
+        if not name.startswith('vertical.'):
+            continue
+        if not torch.equal(value, state['model'][name]):
+            raise ValueError('Vertical parameter differs: ' + name)
+    torch.set_num_threads(4)
+    model = model_from_checkpoint(state).cuda().eval()
+    baseline = model_from_checkpoint(baseline_state).cuda().eval()
+    split = json.loads((root / 'split.json').read_text(encoding='utf-8'))
+    rows = []
+    for group in args.groups:
+        folder = (root / split.get('piece_roots', {}).get(group, group)).resolve()
+        digest = sha256(folder / 'manifest.json')
+        if any(s['data_hashes'].get(group) != digest for s in [state, baseline_state]):
+            raise ValueError('Reference cache changed or absent from baseline')
+        piece = load_piece(folder)
+        reference = infer_probabilities(baseline, piece['sequences'])
+        actual = infer_probabilities(model, piece['sequences'])
+        selected = [i for i, seq in enumerate(piece['sequences']) if seq['type'] == 'vertical']
+        differences = [float(np.max(np.abs(actual[i] - reference[i]))) for i in selected]
+        exact = all(np.array_equal(actual[i], reference[i]) for i in selected)
+        row = {'group': group, 'vertical_sequences': len(selected),
+               'vertical_points': sum(len(actual[i]) for i in selected),
+               'arc_sequences': sum(piece['sequences'][i].get('curve_kind') == 'arc' for i in selected),
+               'all_seven_probabilities_exact': exact, 'max_absolute_difference': max(differences, default=0.),
+               'cache_sha256': digest}
+        rows.append(row)
+        print(json.dumps(row), flush=True)
+        del piece, actual, reference
+    report = {'status': 'PASS' if all(r['all_seven_probabilities_exact'] for r in rows) else 'FAIL',
+              'scope': 'Frozen vertical inference equivalence only, not improved accuracy or overall acceptance.',
+              'checkpoint_epoch': state['epoch'], 'checkpoint_sha256': checkpoint_hash,
+              'baseline_sha256': sha256(args.baseline), 'vertical_parameters_exact': True, 'groups': rows,
+              'sources': {str(Path(__file__)): sha256(__file__), **state['source_hashes']}}
+    (out / 'receipt.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
+    if report['status'] != 'PASS':
+        raise RuntimeError('Vertical probability equivalence failed')
+
+
+if __name__ == '__main__':
+    main()

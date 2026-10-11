@@ -1,0 +1,11 @@
+"""Check prior reliable TRAIN rows survive all-compatible carrier expansion."""
+from pathlib import Path
+import numpy as np
+from weld_pipeline.sjg_local_runtime_904 import read,write,digest
+BASE=Path(__file__).resolve().parents[1]/'server_rebuild/expansion_v1'
+def main():
+ old=BASE/'positive_query_head_v1/10';new=BASE/'original10_exhaustive_carrier_supervision_v1/positive_query/10';a=read(old/'records.json');b=read(new/'records.json');ident=lambda r:(tuple(r['feature_rows']),r['query_index']);index={ident(r):i for i,r in enumerate(b)};assert len(index)==len(b);ax=np.load(old/'features.npy');bx=np.load(new/'features.npy');az=np.load(old/'targets.npz');bz=np.load(new/'targets.npz');matches=[];errors=[];exact_mismatches=0;profiles=read(BASE.parents[1]/'server_rebuild/best_baseline_restore/legacy_runtime/source_10/run185/source_10/profiles.json')
+ for i,r in enumerate(a):
+  assert ident(r) in index;j=index[ident(r)];v=b[j];assert r['profile']==v['profile'] and r['carrier_query_ratio']==v['carrier_query_ratio'];assert set(map(tuple,r['owners']))<=set(map(tuple,v['owners']));assert np.array_equal(ax[i],bx[j]);ends=np.asarray(profiles[r['profile']]['representation']['endpoints_mm']);length=float(np.linalg.norm(ends[1]-ends[0]));delta=float(np.max(abs(az['interval_ratios'][i]-bz['interval_ratios'][j])));error=delta*length;errors.append(error);exact_mismatches+=int(delta!=0);assert error<=32*np.finfo(np.float64).eps*max(1.,length);assert az['weld_type'][i]==bz['weld_type'][j];matches.append(j)
+ report=dict(status='PASS',old_rows=len(a),new_rows=len(b),old_features_and_types_exactly_preserved=True,intervals_bitwise_equal=(exact_mismatches==0),interval_exact_mismatch_rows=exact_mismatches,max_interval_difference_mm=max(errors),interval_numeric_tolerance='32*float64 epsilon*max(1,carrier_length_mm), far below geometric acceptance; exact failure retained',old_owner_sets_retained=True,weights_recomputed_for_expanded_query_multiplicity=True,old_receipt_sha256=digest(old/'receipt.json'),new_receipt_sha256=digest(new/'receipt.json'),scope='TRAIN supervision subset verification; not runtime accuracy',DEV_reads=0);write(new/'previous_query_subset_control.json',report);print(report)
+if __name__=='__main__':main()

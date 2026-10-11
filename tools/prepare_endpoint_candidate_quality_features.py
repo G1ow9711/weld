@@ -1,0 +1,13 @@
+"""Extract pure input features; quality labels are not read by this program."""
+from pathlib import Path
+import argparse,time
+import numpy as np
+from weld_pipeline.server_endpoint_candidate_quality_features import features,COLUMNS
+from weld_pipeline.server_fixed_fragment_queries import FixedQueries
+from weld_pipeline.sjg_local_runtime_904 import read,write,digest
+BASE=Path(__file__).resolve().parents[1]/'server_rebuild/expansion_v1'
+def main():
+ p=argparse.ArgumentParser();p.add_argument('--key',required=True);a=p.parse_args();key=a.key;train=read(BASE/'reference_query_task_v1/protocol.json')['training_keys'];assert key in train+['new_cfc732e5f068','new_ceeae49d6777'];start=time.perf_counter();source=BASE/'reference_detector_balanced_endpoint_full_output_v1'/key;freeze=read(source/'prediction_freeze.json')
+ for name,sha in freeze['files'].items():assert digest(source/name)==sha
+ prediction=np.load(source/'predictions.npz');compact=np.load(source/'compact_predictions.npz');detector=BASE/'reference_detector_balanced_full_output_v1'/key;d=read(detector/'prediction_freeze.json');assert digest(detector/'prediction_freeze.json')==freeze['detector_freeze_sha256'];assert digest(detector/'predictions.npz')==d['predictions_sha256'];det=np.load(detector/'predictions.npz');cache=BASE/'reference_detector_balanced_event_cache_v1'/key;c=read(cache/'receipt.json');assert digest(cache/'receipt.json')==freeze['input_event_receipt_sha256'];assert digest(cache/'provenance.npy')==c['features_sha256'];provenance=np.load(cache/'provenance.npy');inp=FixedQueries(BASE/'frozen_features/legacy_runtime'/('source_'+key),key);assert inp.bindings==c['input_bindings'];xyzpath=BASE/'inputs'/key/'xyz_mm.npy';assert digest(xyzpath)==c['input_sha256'];xyz=np.load(xyzpath,mmap_mode='r');x,group=features(compact,prediction,det['reference_occupancy_score'],det['weld_type'],provenance,inp,xyz);dest=BASE/'endpoint_candidate_quality_features_v1'/key;dest.mkdir(parents=True,exist_ok=False);np.save(dest/'features.npy',x);np.save(dest/'query_to_compact.npy',group);write(dest/'receipt.json',dict(key=key,rows=len(x),columns=COLUMNS,features_sha256=digest(dest/'features.npy'),query_to_compact_sha256=digest(dest/'query_to_compact.npy'),prediction_freeze_sha256=digest(source/'prediction_freeze.json'),input_event_receipt_sha256=digest(cache/'receipt.json'),module_sha256=digest('weld_pipeline/server_endpoint_candidate_quality_features.py'),data_scope='TRAIN' if key in train else 'HELD_INPUT_ONLY',GT_reads=0,STEP_reads=0,fit_calls=0,DEV_reads=0,not_physical_weldability_features=True,seconds=time.perf_counter()-start));inp.close();xyz._mmap.close();print(key,x.shape,flush=True)
+if __name__=='__main__':main()

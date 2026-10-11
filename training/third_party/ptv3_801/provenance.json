@@ -1,0 +1,44 @@
+{
+  "repository": "https://github.com/Pointcept/PointTransformerV3",
+  "commit": "3229e9b7de1770c8ad17c316f8e349982de509f8",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "8E293FB7C93586FB19294BCAE2096755B467E465B010B1547F5658A3DF1682AB"
+    },
+    {
+      "path": "model.py",
+      "sha256": "695372FE66630656B158BD2697E9874A5919C255CC8D90A0B9BD60E3FB833461"
+    },
+    {
+      "path": "serialization/__init__.py",
+      "sha256": "1E3AA8D47116A3D6CC86E816420483C496F4CAAC03EFE8395F90B0AAC5E97597"
+    },
+    {
+      "path": "serialization/default.py",
+      "sha256": "3D20C6CD07BCDF770740F2188A790D23707AB55D67D9B69D5AC763921D3F1084"
+    },
+    {
+      "path": "serialization/hilbert.py",
+      "sha256": "7166E14531407D93E151749F3B2CADE69690516CEA0D6A7A5968A3273770CC36"
+    },
+    {
+      "path": "serialization/z_order.py",
+      "sha256": "E94D7AEBFF6B1FBF92EB9D0AC8CDB7C62FE4D13F17C7255BBC5BE96661190FAC"
+    }
+  ],
+  "license": "MIT",
+  "modifications": [
+    "model.py: replace only timm.models.layers DropPath import with the unchanged official timm v0.6.13 drop.py; avoid importing torchvision."
+  ],
+  "timm": {
+    "repository": "https://github.com/huggingface/pytorch-image-models",
+    "version": "v0.6.13",
+    "files": {
+      "drop.py": "0e0e514f16aae1ebeadef0b3fe787d7567050adca0c8a184cb512449890350b5",
+      "helpers.py": "2b336f2434001df65cce34089e07b4d930ba54ee4745fb6fc0c8fd53bc5b9599",
+      "LICENSE": "71b111620fa32c17a80ccd6db2da759d31a591e497d8b5f382174f59d1b59d49"
+    }
+  },
+  "adapted_model_sha256": "607f76f706fa3f13492397a377749f11589e8ec951d5bc25f9a77940811603d9"
+}

@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/Pointcept/Pointcept",
+  "tag": "v1.5.2",
+  "commit": "ad653ee75857f57a44cc0ee7cea5fd0372908b4d",
+  "source_path": "pointcept/models/sparse_unet/spconv_unet_v1m1_base.py",
+  "source_sha256": "02ca26281f687b4dd01cc75727a1a8a761b9b010d1b2f00cb9ea3a1905811e11",
+  "adapted_sha256": "25167bf0c959a885309b1ac9b25927b5c047206d78dc367559a9768d8021c565",
+  "changes": {
+    "from torch_geometric.utils import scatter": "from training.models.compat import scatter",
+    "from timm.models.layers import trunc_normal_": "from training.models.compat import trunc_normal_",
+    "from pointcept.models.builder import MODELS": "from training.models.compat import MODELS",
+    "from pointcept.models.utils import offset2batch": "from training.models.compat import offset2batch"
+  },
+  "scope": "Standalone SpUNet backbone; not the complete Pointcept engine."
+}
