@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "77b22b952d8b493d0c79786fb7bae6cfdc2f89eb0123b49f19cfa46c84277ba5",
-      "bytes": 32245
+      "sha256": "5f9c97fc2bd2aea80704b2d792f9c8455430e860255cfa5290fdbcc9a5584f7c",
+      "bytes": 33840
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -612,6 +612,11 @@
       "bytes": 2595
     },
     {
+      "path": "tools/compact_endpoint_training_backend.py",
+      "sha256": "c5d5917e02889fcd7f1de4e009e622ea90d420f666089e1961447afa00f73476",
+      "bytes": 7519
+    },
+    {
       "path": "tools/compare_joint_interval_outputs.py",
       "sha256": "38c7f46aa57dc7fd019fe47e5933bcf1680d6a60f6148c45ad8aaca3d6918272",
       "bytes": 2364
@@ -695,6 +700,11 @@
       "path": "tools/continue_bounded_raw_training_supervision.py",
       "sha256": "e00ebc6f86946ebcb74661fefbd409ef3ce967bf1065fa95dfd8886d6a7c614d",
       "bytes": 1716
+    },
+    {
+      "path": "tools/continue_compact_full_recall_training.py",
+      "sha256": "63d3d9b71d43348809d2ad1a6c5ad6e92390e95e71884a732f16062c98371202",
+      "bytes": 3349
     },
     {
       "path": "tools/continue_curved_probe_pointer_evaluation.py",
@@ -845,6 +855,11 @@
       "path": "tools/continue_union_nearest_arc_comparison.py",
       "sha256": "1f4eda48d811898a9e091a745211ef627c3b835e05f9dcbc629bca48053bfd15",
       "bytes": 2252
+    },
+    {
+      "path": "tools/control_compact_full_recall_parent_fit.py",
+      "sha256": "2ea41aeeebc0b9d0ca2098e243b992d1b11d6c344ecefb12dbd3e2e355b9d5df",
+      "bytes": 1338
     },
     {
       "path": "tools/control_exact_full_recall_parent_fit.py",
@@ -2567,6 +2582,11 @@
       "bytes": 10201
     },
     {
+      "path": "tools/train_compact_full_recall_parent_dataset.py",
+      "sha256": "94c2662261e70063ad74c93f414ccb696630154cf64902d8fcdb8c1bfcd7ae0d",
+      "bytes": 1528
+    },
+    {
       "path": "tools/train_connection_annotation_gate.py",
       "sha256": "8844e521250fa8954786e59e7e4b7ef2c5764fc3a40c4327fe93fc076e269d5b",
       "bytes": 4583
@@ -2842,6 +2862,11 @@
       "bytes": 3308
     },
     {
+      "path": "tools/verify_actual_compact_endpoint_reference.py",
+      "sha256": "c2bb4b9ee8fae5f5ad620800e5a498e11b432ae6d0376b2f8c17c543575a95fe",
+      "bytes": 1490
+    },
+    {
       "path": "tools/verify_actual_endpoint_reference.py",
       "sha256": "dedb69137345d32c2ee5c79919720926f85dbae10cf4ffa0d34ed6877fa3257a",
       "bytes": 10400
@@ -2882,9 +2907,19 @@
       "bytes": 2837
     },
     {
+      "path": "tools/verify_compact_endpoint_reference.py",
+      "sha256": "eb763861cfdeeeed702362ea9837c871aad59c4bd370566efa3ae47a728c964c",
+      "bytes": 3630
+    },
+    {
       "path": "tools/verify_compact_reference_compilation.py",
       "sha256": "588c4f1d5ef1986970771745f2088811d4905bdea7b842d4256456fb7aa4f298",
       "bytes": 3328
+    },
+    {
+      "path": "tools/verify_compact_reference_training_backend.py",
+      "sha256": "a20a308458daa5065972adb26bd41388230d6549e3a1b9024c89835773b02934",
+      "bytes": 4272
     },
     {
       "path": "tools/verify_competition_v4_unchanged_open_cases.py",
@@ -6065,6 +6100,11 @@
       "path": "weld_pipeline/server_clipped_graph_circle_intervals.py",
       "sha256": "071ec5a31337f6350cdf8a025e85234b012c143fe95e5429b4994f36e70048bb",
       "bytes": 2800
+    },
+    {
+      "path": "weld_pipeline/server_compact_endpoint_reference.py",
+      "sha256": "1f87825ae7511c52614aa7136bd151175879b8a5aa363102eea682ddf3cdcdb9",
+      "bytes": 9370
     },
     {
       "path": "weld_pipeline/server_compact_line_predictions.py",
