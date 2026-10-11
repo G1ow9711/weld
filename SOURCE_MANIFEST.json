@@ -9940,6 +9940,16 @@
       "path": "tools/record_training_experiment.py",
       "sha256": "90a94e91909a8344b751b1fbb5c64cde18771daa4f0c233b854ac5d0a4986421",
       "bytes": 4196
+    },
+    {
+      "path": "tools/audit_full_training_version_compatibility.py",
+      "sha256": "6bd71ed299f8f016820082d0fc1d57f9d69198641bced036c2edf1ed6e0e1020",
+      "bytes": 7307
+    },
+    {
+      "path": "tools/prepare_full_model_use_policy.py",
+      "sha256": "386ad7d8370b4fd5c802dbe960290d9cc8ffb2ddca7c9cf8c561e7f266db91ee",
+      "bytes": 4516
     }
   ]
 }
