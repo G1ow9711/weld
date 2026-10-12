@@ -324,3 +324,12 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 `tools/check_local_metric_warmstart.py` 要求显式 `--version`，在一份包含直线和圆弧的完整TRAIN工件上检查实际更新、其他子损失逐字节保持及冻结原参数保持。公开入口不含私有样本默认标识；准备等价检查的分母由训练登记动态计算。这些调用参数和登记数量的通用处理不改变几何学习算法。运行仍需外部数据、登记、权重和检查回执，不能仅靠克隆本仓库复现训练。
 
 `tools/compare_full_query_geometry_models.py` 与 `tools/compare_cached_full_query_geometry_models.py` 检查同一输入查询下的完整训练单子几何；旧预测只能在逐记录哈希、权重和输入责任绑定全部相同后复用。允许独立子反向的局部诊断不是完整父焊缝提取准确率，也不是独立测试成绩。`tools/run_local_full_dataset_stage.py` 和 `tools/run_local_baseline_stage.py` 支持该完整参数架构，实际完成全部训练覆盖后仍需完整父集合、验证固定、最终测试、字段及CSV和原最佳同条件对照。此分支尚未被验收或替换原最佳模型。
+
+
+## 实验性整父训练关系复用
+
+`server_disk_cached_parent_competition.py` 在一份冻结TRAIN输入内，用有界临时SQLite存储复用原32列关系特征及原冻结单线程ExtraTrees先验。输入几何变更会拒绝复用；全输入邻域图、原评分、全部请求的边和完整参考分母保持。空间不足只停止存储并重算，不减少候选或输出。缓存随所属工件关闭清理，不保存正在训练的selector分数，不跨运行复用预测。
+
+`tools/verify_disk_cached_parent_competition.py` 比较全部冻结原关系并检查反序回放、输入变更及存储上限；`tools/verify_disk_relation_training_backend.py` 在完整实际输入上执行两种方法的八次更新，比较全部历史、参数、优化器和最终选择。`tools/run_disk_cached_local_full_dataset_stage.py` 要求这两项当前源码绑定的证据，才在独立进程中替换TRAIN关系读取方法；完整查询拟合、父集合、验证固定、测试、字段、CSV及原最佳回归仍走原入口。
+
+该复用方案服务于训练迭代。它不证明新模型质量或完整推理十秒达标；后者必须从新鲜原始XYZ开始计时，不能用已有关系回放代替。数据、冻结关系数组、权重及私有检查结果不随源码发布。

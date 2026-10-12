@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "540cff84e86c7fd4d7b8206d67353639a183fc1d1d2c25ce6218a367c0eb984e",
-      "bytes": 58506
+      "sha256": "3ce573c7306009c85df893e3181c26a41f7954432ef8a3048dffda02b110fb1e",
+      "bytes": 59812
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -2647,6 +2647,11 @@
       "bytes": 1348
     },
     {
+      "path": "tools/run_disk_cached_local_full_dataset_stage.py",
+      "sha256": "e0ed8209c220f646e7e76283d3f0106acf3812b171e0fbdeda22ee6c7340d558",
+      "bytes": 6231
+    },
+    {
       "path": "tools/run_expansion_fragment_stage.py",
       "sha256": "c083211daaf15ca17fd345f5b7a084dedf1bdb0b0f362a79297528c3a97ac3da",
       "bytes": 1607
@@ -3200,6 +3205,16 @@
       "path": "tools/verify_direction_continuous_chains.py",
       "sha256": "0182e15e0b7a60ab3d31119d52a3fbae67f93e25b1a758cb70241fd8005edeea",
       "bytes": 2033
+    },
+    {
+      "path": "tools/verify_disk_cached_parent_competition.py",
+      "sha256": "879c6e41a7c82822b4b23e743d495dd105d427d94e6ba25ef08ec5eb8860bbb9",
+      "bytes": 9559
+    },
+    {
+      "path": "tools/verify_disk_relation_training_backend.py",
+      "sha256": "4a99fcc5fc9954138d61ccc5d7c9fc3ba8017903a20adb1d95f5d3ece5527d39",
+      "bytes": 11228
     },
     {
       "path": "tools/verify_duplicate_full_cloud_distances.py",
@@ -6430,6 +6445,11 @@
       "path": "weld_pipeline/server_direction_continuous_chains.py",
       "sha256": "486768bafe97499eebbf7891b9823616685505c4360e3790b7400aef0fdc8cd7",
       "bytes": 2143
+    },
+    {
+      "path": "weld_pipeline/server_disk_cached_parent_competition.py",
+      "sha256": "51ab31c9eddc655548a92b1106faf95dcc4780f609f54f7ef8d9c41bda1d49cd",
+      "bytes": 7216
     },
     {
       "path": "weld_pipeline/server_empty_parent_selection.py",
