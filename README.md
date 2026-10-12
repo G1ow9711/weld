@@ -343,3 +343,5 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 全量入口：`tools/train_full_interval_endpoint_geometry.py`，它以有计数核验的源码转换复用原完整训练器，保留所有数据、字段掩码、更新、恢复和完成检查。`server_interval_endpoint_checkpoint.py` 单独核验新增参数及完整训练记录，拒绝部分检查模型。`tools/run_interval_endpoint_full_dataset_stage.py` 与 `tools/compare_interval_endpoint_full_query_geometry_models.py` 接续完整输出与同输入位置对照。
 
 `tools/run_interval_endpoint_baseline_stage.py` 以同一验证固定模型评估原最佳的全部原样本及精确历史标签。`tools/verify_interval_endpoint_baseline_regression.py` 保留原输入、标签、预测与评分的所有权检查，使用真实诊断模型及其实际记录拒绝不完整训练。回归结果不用于选模型。
+
+`tools/compare_saved_complete_query_diagnostics.py` 在全部注册 TRAIN 预测记录、完整模型和输入责任均核验一致后，逐条比较两份已完成的局部诊断，列出改善、退步及分类结果。它可等待明确绑定的现有评估进程，不重新训练或推理；独立子反向和分支择优检查仍不代表完整焊缝提取或测试准确率。
