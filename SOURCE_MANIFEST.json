@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "3ce573c7306009c85df893e3181c26a41f7954432ef8a3048dffda02b110fb1e",
-      "bytes": 59812
+      "sha256": "3eebdc92643eb579f1c4825d45762d98ec5cc5e5415b2c281b610ccbe97abd6a",
+      "bytes": 60635
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -685,6 +685,11 @@
       "path": "tools/compare_full_query_geometry_models.py",
       "sha256": "24c03846e64828235192d5fc16809d124af145cded798677a9c9bc710ce6028a",
       "bytes": 13851
+    },
+    {
+      "path": "tools/compare_interval_endpoint_residual.py",
+      "sha256": "411b4a413489bd8f35999f4ab16f9cef3142e2b3f24e03d208163476a99e54af",
+      "bytes": 12888
     },
     {
       "path": "tools/compare_joint_interval_outputs.py",
@@ -6605,6 +6610,11 @@
       "path": "weld_pipeline/server_grid_peak_candidates.py",
       "sha256": "b410af47924a394587b5c9d82b7382bb945003f9a54757c03d505c545d32bf8d",
       "bytes": 5635
+    },
+    {
+      "path": "weld_pipeline/server_interval_endpoint_residual_model.py",
+      "sha256": "90900e9b2ce458e90ad785b408048dc781ef5bda6c523c3ed73b060984933873",
+      "bytes": 4555
     },
     {
       "path": "weld_pipeline/server_interval_set.py",

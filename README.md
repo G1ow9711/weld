@@ -333,3 +333,9 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 `tools/verify_disk_cached_parent_competition.py` 比较全部冻结原关系并检查反序回放、输入变更及存储上限；`tools/verify_disk_relation_training_backend.py` 在完整实际输入上执行两种方法的八次更新，比较全部历史、参数、优化器和最终选择。`tools/run_disk_cached_local_full_dataset_stage.py` 要求这两项当前源码绑定的证据，才在独立进程中替换TRAIN关系读取方法；完整查询拟合、父集合、验证固定、测试、字段、CSV及原最佳回归仍走原入口。
 
 该复用方案服务于训练迭代。它不证明新模型质量或完整推理十秒达标；后者必须从新鲜原始XYZ开始计时，不能用已有关系回放代替。数据、冻结关系数组、权重及私有检查结果不随源码发布。
+
+## 实验性米制端点修正
+
+`server_interval_endpoint_residual_model.py` 在已完成的局部 XYZ 模型上增加零初始化的沿载体端点位移，保留原自由几何、类型、属性、坐标系及父连接输出。位移以米表示，推理端点投影到包含实际输入查询的位置范围；训练投影采用恒等回传，允许越界修正继续学习。
+
+`tools/compare_interval_endpoint_residual.py` 用同一完整 TRAIN 工件、原始 XYZ、输入查询、监督和目标比较两种方法。它检查初始输出逐字节一致、原冻结参数不变以及真实更新。该新结构目前是对照实验；完整数据训练接入、验证固定、最终测试及真实输入至 CSV 耗时仍需核验，未替换原最佳模型。运行需自行提供已完成的模型及外部数据。
