@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "cf52f399db52660d4663d147b80c2d687893c56238012d455278d7aa5ea475f2",
-      "bytes": 61184
+      "sha256": "f8beeba4150ddaa877c0bb801f1431e8773a1b690cc9a1a25a76557ef02e766e",
+      "bytes": 61539
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -2682,6 +2682,11 @@
       "bytes": 2019
     },
     {
+      "path": "tools/run_interval_endpoint_baseline_stage.py",
+      "sha256": "273870abd30358426c6aae722f9fa14a9385fb9098376ae599bb0e6ff256a931",
+      "bytes": 1564
+    },
+    {
       "path": "tools/run_interval_endpoint_full_dataset_stage.py",
       "sha256": "bbc5ea5fd4ddb27ac156610ca5847da0824ce2462e740161d6cd4d48b0b74e07",
       "bytes": 3638
@@ -3355,6 +3360,11 @@
       "path": "tools/verify_grid_peak_candidates.py",
       "sha256": "c97fbf1bf06ccff6f31f1b15d18741919b45fd78a710748cf193348d61caa9e4",
       "bytes": 3369
+    },
+    {
+      "path": "tools/verify_interval_endpoint_baseline_regression.py",
+      "sha256": "450f99e6ef8d49171cb3ecccbd1bc329fdfc9ecbc9974fdf309a923758cd7294",
+      "bytes": 1810
     },
     {
       "path": "tools/verify_lazy_parent_competition.py",
