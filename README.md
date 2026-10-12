@@ -311,3 +311,16 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 ## Diagnose TRAIN arc witness gaps
 
 `tools/diagnose_training_arc_witnesses.py` reproduces missing TRAIN arc witnesses with the original input profiles, conservative circle filter, projected intervals and D3 rules. It separates proximity to a finite input arc from proximity to its underlying circle and records ordered endpoint, tangent and whole-curve errors. Reference projections are offline diagnostics; the tool does not extend deployed curves, insert reference endpoints, fit models or score held references.
+
+
+## 原始XYZ局部信息与几何精度训练
+
+新增 `server_local_query_weld_model.py` 和 `server_query_point_neighborhood.py`：保留完整冻结原查询及其输入归一化，在实际原始XYZ邻域上添加零残差初始化的局部信息分支。训练责任分配使用已部署的输入网格，参考只分配完整监督，不生成输入查询；缺匹配载体的子段继续学习自由几何，已知属性、坐标系、父序和连接均保留。
+
+`tools/train_full_local_query_geometry_mixed.py` 在不同完整训练视图间交替更新，保留全部原始种子变化。`server_cached_local_query_training.py` 保存真正的输入数组及逐查询邻域绑定；`server_memoized_training_queries.py` 仅复用原计算的确定性准备结果，不缓存预测，也不进入部署或held推理。完整准备等价入口为 `tools/check_full_train_query_memoization.py`。
+
+`tools/train_full_local_query_geometry_metric.py` 从实际已完成的局部模型继续学习，开启独立优化器。`server_metric_geometry_losses.py` 将直线端点欧氏误差、65个有序解析圆弧采样点误差及已知载体区间误差按3毫米量纲计算；原类型、方向、闭合、已知字段掩码、坐标系与父连接损失保留。训练中的65点采样不替代验收时的完整曲线采样要求，几何和时间验收门槛未修改。
+
+`tools/check_local_metric_warmstart.py` 要求显式 `--version`，在一份包含直线和圆弧的完整TRAIN工件上检查实际更新、其他子损失逐字节保持及冻结原参数保持。公开入口不含私有样本默认标识；准备等价检查的分母由训练登记动态计算。这些调用参数和登记数量的通用处理不改变几何学习算法。运行仍需外部数据、登记、权重和检查回执，不能仅靠克隆本仓库复现训练。
+
+`tools/compare_full_query_geometry_models.py` 与 `tools/compare_cached_full_query_geometry_models.py` 检查同一输入查询下的完整训练单子几何；旧预测只能在逐记录哈希、权重和输入责任绑定全部相同后复用。允许独立子反向的局部诊断不是完整父焊缝提取准确率，也不是独立测试成绩。`tools/run_local_full_dataset_stage.py` 和 `tools/run_local_baseline_stage.py` 支持该完整参数架构，实际完成全部训练覆盖后仍需完整父集合、验证固定、最终测试、字段及CSV和原最佳同条件对照。此分支尚未被验收或替换原最佳模型。

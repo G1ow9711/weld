@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "cf72c9d3d815bbb02bbeb56acd35f43eeaf0ab3f16dba3b2a422b9ed38cfd992",
-      "bytes": 55999
+      "sha256": "540cff84e86c7fd4d7b8206d67353639a183fc1d1d2c25ce6218a367c0eb984e",
+      "bytes": 58506
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -547,6 +547,11 @@
       "bytes": 2331
     },
     {
+      "path": "tools/check_cached_local_query_training.py",
+      "sha256": "433dda2099da3dae5a14ef354718c76a8cd0044238676e2353c0a9899f92a181",
+      "bytes": 7247
+    },
+    {
       "path": "tools/check_clipped_circle_intervals.py",
       "sha256": "370c047d578cf6ca546d36d0840329d0c185eda9f060d716f00148ca198754cb",
       "bytes": 2415
@@ -565,6 +570,16 @@
       "path": "tools/check_fragment_circle_fit.py",
       "sha256": "09e5d519a14afbd0bc70d827802ab9bd012d17da82cdd07904caba66890b8b88",
       "bytes": 3891
+    },
+    {
+      "path": "tools/check_full_train_query_memoization.py",
+      "sha256": "5d29f49f1678f4d519c65e520b019454ad01140861ac5cba33b3ed8c06f2a54c",
+      "bytes": 10621
+    },
+    {
+      "path": "tools/check_local_metric_warmstart.py",
+      "sha256": "5f8e84d1bc4c022bab7b5da96e1feb1682631200d67104bbb7358e5a45f6e331",
+      "bytes": 7824
     },
     {
       "path": "tools/check_offline_step_query_parameters.py",
@@ -662,9 +677,24 @@
       "bytes": 7519
     },
     {
+      "path": "tools/compare_cached_full_query_geometry_models.py",
+      "sha256": "21bfe7f444283b308b16ab1a6f95798be9f603ab2881cda783335500e43bbb43",
+      "bytes": 7791
+    },
+    {
+      "path": "tools/compare_full_query_geometry_models.py",
+      "sha256": "24c03846e64828235192d5fc16809d124af145cded798677a9c9bc710ce6028a",
+      "bytes": 13851
+    },
+    {
       "path": "tools/compare_joint_interval_outputs.py",
       "sha256": "38c7f46aa57dc7fd019fe47e5933bcf1680d6a60f6148c45ad8aaca3d6918272",
       "bytes": 2364
+    },
+    {
+      "path": "tools/compare_metric_geometry_loss.py",
+      "sha256": "9fedc0945891e384cf9977903360d2d373164f52b3dd479522cc73c80daa69bf",
+      "bytes": 14042
     },
     {
       "path": "tools/compare_run10_original_constraints.py",
@@ -1050,6 +1080,11 @@
       "path": "tools/diagnose_finite_mesh_vertex_index.py",
       "sha256": "0bf842007b0c3a7e0b42e5944f2fa7050fece916b10684662b837256406fb2da",
       "bytes": 5766
+    },
+    {
+      "path": "tools/diagnose_full_query_geometry.py",
+      "sha256": "71d9d0fbdcf0e90b729aa76cd2020ab02b7cdef06fcbf347063476124d706f38",
+      "bytes": 15714
     },
     {
       "path": "tools/diagnose_global_planes.py",
@@ -1550,6 +1585,11 @@
       "path": "tools/exact_reference_training_backend.py",
       "sha256": "e5bd8aa4a8b88eeeacebbae0961597d9fc4988662313895422207ba89fef84b1",
       "bytes": 6988
+    },
+    {
+      "path": "tools/export_full_dataset_split_view.py",
+      "sha256": "e3ecdb7b8cb3c30f02f15f3a2104abe39c93af5a9012338d082f8644d9786665",
+      "bytes": 10929
     },
     {
       "path": "tools/export_full_weld_predictions.py",
@@ -2627,6 +2667,16 @@
       "bytes": 2019
     },
     {
+      "path": "tools/run_local_baseline_stage.py",
+      "sha256": "7b5c786745520af2f3a2a7d82e60309f6bbae4e0b6b8c3433ef0249d692b27ea",
+      "bytes": 3826
+    },
+    {
+      "path": "tools/run_local_full_dataset_stage.py",
+      "sha256": "36afa11b7d39e348524857cf419c6125f51ef1f69d4153a6652352ebb1f79c76",
+      "bytes": 7226
+    },
+    {
       "path": "tools/run_partitioned_full_dataset_stage.py",
       "sha256": "d4e5f78bbb468970483bce83050d5c54f6ac3bfe3060377a23f1656060803824",
       "bytes": 8200
@@ -2780,6 +2830,21 @@
       "path": "tools/train_expanded_ten_neural_intervals.py",
       "sha256": "2ef19f36f2450d220555321e30207976485d07a935e87202138ca50ce01bae11",
       "bytes": 4288
+    },
+    {
+      "path": "tools/train_full_local_query_geometry.py",
+      "sha256": "ae543c5115301eef59accaa0d716193e4d126667c8361974ba81124cb802acba",
+      "bytes": 15444
+    },
+    {
+      "path": "tools/train_full_local_query_geometry_metric.py",
+      "sha256": "caf98e7bbcf2a8f31f0ea2ed20bcc4f17f61045664d37b43b01f1d63d70db10b",
+      "bytes": 23578
+    },
+    {
+      "path": "tools/train_full_local_query_geometry_mixed.py",
+      "sha256": "a84e61d74d74c3c98761a3e81e0f266fe5b6e66c34d4c354941759ae02d71472",
+      "bytes": 20229
     },
     {
       "path": "tools/train_full_parent_dataset.py",
@@ -6307,6 +6372,11 @@
       "bytes": 2891
     },
     {
+      "path": "weld_pipeline/server_cached_local_query_training.py",
+      "sha256": "d37fa3492c1d0891163425c86c6d6d8c07929022176e585814d1d8ace52f452a",
+      "bytes": 4262
+    },
+    {
       "path": "weld_pipeline/server_cached_parent_relation_prior.py",
       "sha256": "edae0641766729bab5c036606af51a687681d961ca0c825c40753fbc4659a91e",
       "bytes": 3782
@@ -6350,6 +6420,11 @@
       "path": "weld_pipeline/server_connection_interval_context.py",
       "sha256": "87399dde093fb2bef9e4cfa8cbc14671917a53637c97eddc5550c10a94aa1fcf",
       "bytes": 2157
+    },
+    {
+      "path": "weld_pipeline/server_deployed_query_assignments.py",
+      "sha256": "736f4e0f9bc3c985c0658473a61632922d6f8c91f07d4dc51ac0faa0d7b5f621",
+      "bytes": 1607
     },
     {
       "path": "weld_pipeline/server_direction_continuous_chains.py",
@@ -6547,9 +6622,34 @@
       "bytes": 3249
     },
     {
+      "path": "weld_pipeline/server_local_query_checkpoint.py",
+      "sha256": "de34fe98fda439ece23eeb9d7b7c3e774621376242d8cbea14276bccbc57c2b8",
+      "bytes": 4084
+    },
+    {
+      "path": "weld_pipeline/server_local_query_runtime.py",
+      "sha256": "0309722946d6ccbe221e94a2e3caec7e8752754432f9dd22499f0529c0271de2",
+      "bytes": 1671
+    },
+    {
+      "path": "weld_pipeline/server_local_query_weld_model.py",
+      "sha256": "1cf4a5011f844bc417d6676bd1737e1a57cc9cded64b82388add35a12961b25c",
+      "bytes": 1724
+    },
+    {
       "path": "weld_pipeline/server_local_spacing_graph.py",
       "sha256": "537b7a347b870d4df222072754155dd8005a4c1be2c9ca188e47cd89209e0178",
       "bytes": 1624
+    },
+    {
+      "path": "weld_pipeline/server_memoized_training_queries.py",
+      "sha256": "c1c1cf29a786bf15e53e0754a569c08ada5870c0fb12dd35d80b6d3d1cb0ff95",
+      "bytes": 2956
+    },
+    {
+      "path": "weld_pipeline/server_metric_geometry_losses.py",
+      "sha256": "d38ba68b1eb0dd75ed37cc5fdc8ea0a29c30adf00adae4cba0099fd3a81e62fe",
+      "bytes": 2330
     },
     {
       "path": "weld_pipeline/server_metric_query_model.py",
@@ -6670,6 +6770,11 @@
       "path": "weld_pipeline/server_query_checkpoint_model.py",
       "sha256": "ec1a362f257ac34b4d2672feb0b7d0164183890838d7f21bc2eaf13ba4deacb8",
       "bytes": 5834
+    },
+    {
+      "path": "weld_pipeline/server_query_point_neighborhood.py",
+      "sha256": "3962024e5ca10aa3e39d7ad807f6b3d0c60364949ef005a26a625f522a23d8fe",
+      "bytes": 1830
     },
     {
       "path": "weld_pipeline/server_raw_event_endpoint_selector.py",
