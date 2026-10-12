@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "3eebdc92643eb579f1c4825d45762d98ec5cc5e5415b2c281b610ccbe97abd6a",
-      "bytes": 60635
+      "sha256": "cf52f399db52660d4663d147b80c2d687893c56238012d455278d7aa5ea475f2",
+      "bytes": 61184
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -685,6 +685,11 @@
       "path": "tools/compare_full_query_geometry_models.py",
       "sha256": "24c03846e64828235192d5fc16809d124af145cded798677a9c9bc710ce6028a",
       "bytes": 13851
+    },
+    {
+      "path": "tools/compare_interval_endpoint_full_query_geometry_models.py",
+      "sha256": "be7f18792e4461b606570afaf34bfadae58cd022113f189543c104dafc527a95",
+      "bytes": 1757
     },
     {
       "path": "tools/compare_interval_endpoint_residual.py",
@@ -2677,6 +2682,11 @@
       "bytes": 2019
     },
     {
+      "path": "tools/run_interval_endpoint_full_dataset_stage.py",
+      "sha256": "bbc5ea5fd4ddb27ac156610ca5847da0824ce2462e740161d6cd4d48b0b74e07",
+      "bytes": 3638
+    },
+    {
       "path": "tools/run_local_baseline_stage.py",
       "sha256": "7b5c786745520af2f3a2a7d82e60309f6bbae4e0b6b8c3433ef0249d692b27ea",
       "bytes": 3826
@@ -2840,6 +2850,11 @@
       "path": "tools/train_expanded_ten_neural_intervals.py",
       "sha256": "2ef19f36f2450d220555321e30207976485d07a935e87202138ca50ce01bae11",
       "bytes": 4288
+    },
+    {
+      "path": "tools/train_full_interval_endpoint_geometry.py",
+      "sha256": "827985d91ec3a5e28c951c9c81824492f8546de10399c08c3690cf66ed24b03e",
+      "bytes": 8068
     },
     {
       "path": "tools/train_full_local_query_geometry.py",
@@ -6610,6 +6625,11 @@
       "path": "weld_pipeline/server_grid_peak_candidates.py",
       "sha256": "b410af47924a394587b5c9d82b7382bb945003f9a54757c03d505c545d32bf8d",
       "bytes": 5635
+    },
+    {
+      "path": "weld_pipeline/server_interval_endpoint_checkpoint.py",
+      "sha256": "0d4ff486cf4f6a28b5ca18e6a3f3651ba36ea8947d6d52c1ca526a5651620495",
+      "bytes": 3081
     },
     {
       "path": "weld_pipeline/server_interval_endpoint_residual_model.py",

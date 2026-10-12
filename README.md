@@ -338,4 +338,6 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 
 `server_interval_endpoint_residual_model.py` 在已完成的局部 XYZ 模型上增加零初始化的沿载体端点位移，保留原自由几何、类型、属性、坐标系及父连接输出。位移以米表示，推理端点投影到包含实际输入查询的位置范围；训练投影采用恒等回传，允许越界修正继续学习。
 
-`tools/compare_interval_endpoint_residual.py` 用同一完整 TRAIN 工件、原始 XYZ、输入查询、监督和目标比较两种方法。它检查初始输出逐字节一致、原冻结参数不变以及真实更新。该新结构目前是对照实验；完整数据训练接入、验证固定、最终测试及真实输入至 CSV 耗时仍需核验，未替换原最佳模型。运行需自行提供已完成的模型及外部数据。
+`tools/compare_interval_endpoint_residual.py` 用同一完整 TRAIN 工件、原始 XYZ、输入查询、监督和目标比较两种方法。它检查初始输出逐字节一致、原冻结参数不变以及真实更新。该新结构已有完整数据训练入口和严格模型核验，以及整父训练、验证固定、最终测试和 CSV 接续入口；原最佳回归适配及真实输入至 CSV 耗时仍需核验，未替换原最佳模型。运行需自行提供已完成的模型及外部数据。
+
+全量入口：`tools/train_full_interval_endpoint_geometry.py`，它以有计数核验的源码转换复用原完整训练器，保留所有数据、字段掩码、更新、恢复和完成检查。`server_interval_endpoint_checkpoint.py` 单独核验新增参数及完整训练记录，拒绝部分检查模型。`tools/run_interval_endpoint_full_dataset_stage.py` 与 `tools/compare_interval_endpoint_full_query_geometry_models.py` 接续完整输出与同输入位置对照。
