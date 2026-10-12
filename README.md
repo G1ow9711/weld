@@ -306,3 +306,8 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 ## Audit complete TRAIN task assignments
 
 `tools/audit_complete_training_task_coverage.py` checks all registered TRAIN views against a frozen complete query checkpoint, authenticates the owner witnesses and labels, and reports carrier gaps and endpoint label masks. A missing carrier witness does not remove that child from free geometry supervision and is not an inference recall ceiling. This audit fits no model, reads no held reference and reports no prediction accuracy. Its reports remain local experiment artifacts.
+
+
+## Diagnose TRAIN arc witness gaps
+
+`tools/diagnose_training_arc_witnesses.py` reproduces missing TRAIN arc witnesses with the original input profiles, conservative circle filter, projected intervals and D3 rules. It separates proximity to a finite input arc from proximity to its underlying circle and records ordered endpoint, tangent and whole-curve errors. Reference projections are offline diagnostics; the tool does not extend deployed curves, insert reference endpoints, fit models or score held references.

@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "9f7a1329703418d2ee3449c09630fdabdc912d6cd05584be9d1e8dc8017d1e06",
-      "bytes": 55482
+      "sha256": "cf72c9d3d815bbb02bbeb56acd35f43eeaf0ab3f16dba3b2a422b9ed38cfd992",
+      "bytes": 55999
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -1150,6 +1150,11 @@
       "path": "tools/diagnose_training_arc_support_topology.py",
       "sha256": "18c48e1bc851b2b72c857977bbb8d342a54252257b84ab2ea55d56dea956a1ea",
       "bytes": 4828
+    },
+    {
+      "path": "tools/diagnose_training_arc_witnesses.py",
+      "sha256": "a6e21fd04011d6af9b30912278e2bdc3f3cb7d51d854490d976777491e4793f1",
+      "bytes": 9554
     },
     {
       "path": "tools/diagnose_training_missing_endpoint_geometry.py",
