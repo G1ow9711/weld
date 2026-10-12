@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "1fe1d793f0c14e4a4ac19510609351bdecbbb9445fd89b98ec589ec856d81936",
-      "bytes": 54957
+      "sha256": "9f7a1329703418d2ee3449c09630fdabdc912d6cd05584be9d1e8dc8017d1e06",
+      "bytes": 55482
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -65,6 +65,11 @@
       "path": "tools/audit_carrier_endpoint_reachability.py",
       "sha256": "7c7e1a5ccdae0a37a9de82f8493501ce00af17ad9f29f485b76271725cbe5486",
       "bytes": 2651
+    },
+    {
+      "path": "tools/audit_complete_training_task_coverage.py",
+      "sha256": "ce7186920825279302e6f2db15412a6a3eb62f046ff9ee37c49fd4635ecd87cf",
+      "bytes": 9112
     },
     {
       "path": "tools/audit_connection_feature_collisions.py",

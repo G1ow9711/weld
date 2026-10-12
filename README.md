@@ -301,3 +301,8 @@ Relevant preserved entries include `tools.continue_reciprocal_full_recall_traini
 `tools/prepare_lightweight_partitioned_held_inputs.py` resumes an authenticated held input preparation context while loading only the original input controller and workers. This preserves the CPU fragment producer's requirement that training model modules have not been imported. It retains completed stage receipts, original feature functions and frozen point weights, and records the new launcher separately from the prior failed context.
 
 Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-preparation-name`. The prior registration, source hashes and stage receipts must remain valid. The launcher uses the original controller lock and owned input storage; it prepares input features without fitting models or scoring test references.
+
+
+## Audit complete TRAIN task assignments
+
+`tools/audit_complete_training_task_coverage.py` checks all registered TRAIN views against a frozen complete query checkpoint, authenticates the owner witnesses and labels, and reports carrier gaps and endpoint label masks. A missing carrier witness does not remove that child from free geometry supervision and is not an inference recall ceiling. This audit fits no model, reads no held reference and reports no prediction accuracy. Its reports remain local experiment artifacts.
