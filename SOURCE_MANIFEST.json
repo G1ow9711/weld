@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "37717a5ac123a1cb258e81e1ae8c8984b9585f4e9829a144a3db55f75af14039",
-      "bytes": 54139
+      "sha256": "1fe1d793f0c14e4a4ac19510609351bdecbbb9445fd89b98ec589ec856d81936",
+      "bytes": 54957
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -2070,6 +2070,11 @@
       "path": "tools/prepare_joint_arc_output_quality.py",
       "sha256": "5691c9dc97940ad5fdb16bec55d0f462058de995e482ef7d093a785e99efb251",
       "bytes": 8114
+    },
+    {
+      "path": "tools/prepare_lightweight_partitioned_held_inputs.py",
+      "sha256": "732013457b2223b4eeb7641461320cdba843651b0dfcdf57a614ade493cf8154",
+      "bytes": 8422
     },
     {
       "path": "tools/prepare_native_training_inputs.py",

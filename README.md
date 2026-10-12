@@ -294,3 +294,10 @@ Relevant preserved entries include `tools.continue_reciprocal_full_recall_traini
 ## Checkpoint-declared backbone training source roles
 
 `audit_backbone_training_role_bindings.py` reads the actual checkpoint-embedded training-source declarations and their authenticated original cohort arrays. It compares every registered raw PLY with the same point count against each complete original ordered XYZ array, with no coordinate transform. Exact matches retain current TRAIN or held roles and every registered label version; ambiguous or absent matches remain unresolved. Same-count screening does not exclude cropped, reordered or transformed derivatives. Checkpoint declarations and exact input identity do not reconstruct all historical fitting, missing older data manifests or external exposure. No model fitting, extraction scoring, role changes or independence certificate is produced. Local original artifacts and registered raw inputs are required and remain outside this public repository.
+
+
+## Held input preparation in a separate process
+
+`tools/prepare_lightweight_partitioned_held_inputs.py` resumes an authenticated held input preparation context while loading only the original input controller and workers. This preserves the CPU fragment producer's requirement that training model modules have not been imported. It retains completed stage receipts, original feature functions and frozen point weights, and records the new launcher separately from the prior failed context.
+
+Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-preparation-name`. The prior registration, source hashes and stage receipts must remain valid. The launcher uses the original controller lock and owned input storage; it prepares input features without fitting models or scoring test references.
