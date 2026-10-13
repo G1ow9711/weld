@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "caf15c6957bb98cce703245b30e3a3f081fc18e7bdb127409e7e4822ad1daf7d",
-      "bytes": 67438
+      "sha256": "d181d900f3a2b94e7fc59910f6ce77ab7cff79ad3e827c95dcee1bbc1670d0d3",
+      "bytes": 68009
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -2365,6 +2365,11 @@
       "path": "tools/prepare_unified_parent_supervision.py",
       "sha256": "a85637ffd8b7408d013ccdf63b719203770a55300e878823fe3bed55e1e9f50c",
       "bytes": 3052
+    },
+    {
+      "path": "tools/prepare_visual_augmented_full_supervision.py",
+      "sha256": "9640ce8b98f641e3894663d4c7d73df1cc662206886274e59d7c614655b63493",
+      "bytes": 8699
     },
     {
       "path": "tools/prepare_whole_parent_reference_sets.py",
@@ -7065,6 +7070,11 @@
       "path": "weld_pipeline/server_union_nearest_graph.py",
       "sha256": "1d9cb283c9c48b615cb1629bc9f641ecb42ebf4501f11c9463a24db1ce3c180e",
       "bytes": 849
+    },
+    {
+      "path": "weld_pipeline/server_visual_augmented_input.py",
+      "sha256": "e4d4bc6b95e57efb6a99741da54287381cf9df73ad8cbd103c44b6a56eac0897",
+      "bytes": 1405
     },
     {
       "path": "weld_pipeline/server_visual_candidate_augmentation.py",
