@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "777b3a01ef1fbdf005739b54bd5171c55b3d24f302e47d97dfd70bb115bb1569",
-      "bytes": 62302
+      "sha256": "b4bbf897a571d7bc61bb656dde4803c92db0c56ddfb5c737e660310e8181ad7a",
+      "bytes": 62906
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -687,6 +687,11 @@
       "bytes": 13851
     },
     {
+      "path": "tools/compare_geometry_direction_surrogate.py",
+      "sha256": "4f0c3e0033d26a612462271c9c87dba145dd3b21a7f2a07637f75002f8bbd5a5",
+      "bytes": 13811
+    },
+    {
       "path": "tools/compare_interval_endpoint_full_query_geometry_models.py",
       "sha256": "be7f18792e4461b606570afaf34bfadae58cd022113f189543c104dafc527a95",
       "bytes": 1757
@@ -705,6 +710,11 @@
       "path": "tools/compare_metric_geometry_loss.py",
       "sha256": "9fedc0945891e384cf9977903360d2d373164f52b3dd479522cc73c80daa69bf",
       "bytes": 14042
+    },
+    {
+      "path": "tools/compare_nonlinear_geometry_residual.py",
+      "sha256": "bb0a4a4092b87a6dd210d27053cd961381e88791caf41442377deca41896a064",
+      "bytes": 12781
     },
     {
       "path": "tools/compare_run10_original_constraints.py",
@@ -6607,6 +6617,11 @@
       "bytes": 2485
     },
     {
+      "path": "weld_pipeline/server_geometry_direction_surrogate_model.py",
+      "sha256": "a2d88d3e597cb9fbb91d7321d5263a7450f75a287b8d7076b931acd91b0a1c61",
+      "bytes": 1665
+    },
+    {
       "path": "weld_pipeline/server_geometry_events.py",
       "sha256": "8b51a02bf0bc7527749fe465eb339acec43d94b61c9b7207ad62836892ac094c",
       "bytes": 3582
@@ -6740,6 +6755,11 @@
       "path": "weld_pipeline/server_native_shard_input.py",
       "sha256": "d3c5df95099575749b896e1aa4b0bca5a2255677e3307979562fb7dc297d7a01",
       "bytes": 4111
+    },
+    {
+      "path": "weld_pipeline/server_nonlinear_geometry_residual_model.py",
+      "sha256": "9c61bf9dd1dbf726a3ee2edf9e160ac24180be00510e7947c98ae1ee58da1df1",
+      "bytes": 2920
     },
     {
       "path": "weld_pipeline/server_offline_parent_pair_utility.py",

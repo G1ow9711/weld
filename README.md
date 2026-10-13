@@ -347,3 +347,7 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 `tools/compare_saved_complete_query_diagnostics.py` 在全部注册 TRAIN 预测记录、完整模型和输入责任均核验一致后，逐条比较两份已完成的局部诊断，列出改善、退步及分类结果。它可等待明确绑定的现有评估进程，不重新训练或推理；独立子反向和分支择优检查仍不代表完整焊缝提取或测试准确率。
 
 `tools/watch_train_file_cache_headroom.py` 独立核验存活 TRAIN 进程，在内存达到阈值时对未被打开或映射的登记原始文件给只读缓存释放提示。它核对原文件元数据和进程身份，不改文件内容、权重、优化器或训练配置；此操作用于训练资源管理，不证明提取质量或原始输入至 CSV 的推理时间。
+
+## 完整几何学习对照
+
+`tools/compare_nonlinear_geometry_residual.py` 对照零初始化的非线性端点与自由圆弧修正；`tools/compare_geometry_direction_surrogate.py` 对照保持前向几何输出、让几何误差训练方向判断的实验梯度。两者只使用已登记 TRAIN 的完整工件和原始 XYZ，保留全部已知字段、父段和连接监督。独立小范围对照不能代表全数据、完整提取或验收成绩。相应模型位于 `weld_pipeline/server_nonlinear_geometry_residual_model.py` 和 `weld_pipeline/server_geometry_direction_surrogate_model.py`。
