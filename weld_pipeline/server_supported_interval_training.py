@@ -156,7 +156,9 @@ def complete_view_step(model, converter, data, optimizer, loss_mass=1.):
         hidden = data.encode(model, converter, rows[:1])[:, :128]
         events = data.encode_events(model, converter, pid)[None]
         provenance = converter.tensor(bank['provenance'])[None]
-        pos = converter.tensor(positions)[None]; q = converter.tensor([query]); lengths = converter.tensor([length])
+        pos = torch.as_tensor(positions, device=converter.device, dtype=torch.float64)[None]
+        q = torch.tensor([query], device=converter.device, dtype=torch.float64)
+        lengths = torch.tensor([length], device=converter.device, dtype=torch.float64)
         legal_np = np.column_stack((positions <= query, positions >= query))
         legal = converter.tensor(legal_np)[None]
         positives = np.any([data.endpoint_positive[int(r)] for r in rows], axis=0)
@@ -195,8 +197,9 @@ def complete_view_step(model, converter, data, optimizer, loss_mass=1.):
             left.append(ev[0]); right.append(ev[1])
             bounds.append(data.banks[pid]['positions_mm'][ids] / data.banks[pid]['length_mm'])
         prediction = model.predict_interval(hidden, torch.stack(left), torch.stack(right),
-            converter.tensor(sample['geometry'][rows]), converter.tensor(np.asarray(bounds)),
-            converter.tensor(sample['query_ratios'][rows]), native=native,
+            converter.tensor(sample['geometry'][rows]),
+            torch.tensor(np.asarray(bounds), device=converter.device, dtype=torch.float64),
+            torch.tensor(sample['query_ratios'][rows], device=converter.device, dtype=torch.float64), native=native,
             reverse=converter.tensor(sample['targets']['direction'][rows]).bool())
         predictions.append(prediction); route_rows.extend(rows.tolist())
     order = converter.tensor(np.argsort(route_rows))

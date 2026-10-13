@@ -16,7 +16,7 @@ from .server_stable_endpoint_pairs import endpoint_pairs
 from .server_stable_joint_interval_residual import JointIntervalResidual
 from .server_supported_directed_parent_pool import DirectedLinkModel
 
-ARCHITECTURE = 'SUPPORTED_INPUT_EVENT_INTERVALS_WITH_COMPLETE_WELD_FIELDS_V1'
+ARCHITECTURE = 'SUPPORTED_INPUT_EVENT_INTERVALS_WITH_COMPLETE_WELD_FIELDS_V2'
 
 
 class SupportedIntervalWeldModel(nn.Module):
@@ -108,13 +108,16 @@ class SupportedIntervalWeldModel(nn.Module):
             raise ValueError('Native query and selected interval must share input geometry')
         if ((bounds[:, 0] > query_ratio).any() or (bounds[:, 1] < query_ratio).any()):
             raise ValueError('Selected whole interval must enclose its input query')
+        # Direction is decided before the supervised orientation conditions
+        # process fields. Otherwise teacher orientation leaks its own answer.
+        direction_logits = self.query.direction(main)
         if reverse is None:
-            reverse = self.query.direction(main).argmax(1).bool()
+            reverse = direction_logits.argmax(1).bool()
         length_m = torch.expm1(geometry[:, 2]) / 1000.
         lo, hi = bounds.unbind(1); width = hi - lo
         context = torch.stack(((lo - query_ratio) * length_m, (hi - query_ratio) * length_m,
             width * length_m, width, (query_ratio - lo) / width, reverse.to(main.dtype)), -1)
-        main = main + self.interval_context(torch.cat((main, left_embedding, right_embedding, context), 1))
+        main = main + self.interval_context(torch.cat((main, left_embedding, right_embedding, context.to(main.dtype)), 1))
         if native:
             prediction = self.query.predict(torch.cat((main, query_hidden[:, 128:]), 1), query_ratio)
         else:
@@ -123,8 +126,8 @@ class SupportedIntervalWeldModel(nn.Module):
             correction = self.visual_reference(main.detach()).squeeze(1)
             prediction.update(reference_score=correction, frozen_reference_score=torch.zeros_like(correction),
                               reference_delta_logit=correction)
-        points, shape = input_geometry_anchor(geometry, bounds, reverse, query_ratio)
-        prediction.update(line_points=points, arc_shape=shape, interval_ratios=bounds, hidden=main,
+        points, shape = input_geometry_anchor(geometry.to(bounds.dtype), bounds, reverse, query_ratio)
+        prediction.update(direction=direction_logits, line_points=points, arc_shape=shape, interval_ratios=bounds, hidden=main,
                           selected_direction_reversed=reverse)
         return prediction
 

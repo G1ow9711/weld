@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "d95c13119933c96a1dddd43977fb99627d8691dc88cae5dd98bd8dfd2d8fadee",
-      "bytes": 69568
+      "sha256": "cfe60298b4dcf1374a78620c4d87b042fa244a3b5274eb79ec08bcdadc2dcec7",
+      "bytes": 70280
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -702,6 +702,11 @@
       "bytes": 5895
     },
     {
+      "path": "tools/check_supported_interval_prediction_runtime.py",
+      "sha256": "defec122dc6ce274cf9505e19f261319030932ff9523b2a33b48bed8cf5c039e",
+      "bytes": 6471
+    },
+    {
       "path": "tools/check_supported_interval_warm_fields.py",
       "sha256": "fe6d7c78416f281091836f9dfe401e33e1ed6ecf842cae474f1cc97455be326f",
       "bytes": 5720
@@ -1000,6 +1005,11 @@
       "path": "tools/continue_sideplate_endpoint_comparison.py",
       "sha256": "cd767e8962ed059c90630188469826038b55956a1a1f2380e03324433e4c8884",
       "bytes": 2694
+    },
+    {
+      "path": "tools/continue_supported_interval_output_control.py",
+      "sha256": "8c170f336a88ac6addd68e5f56c8d8c0bacdc24d4c9f907afbff4c15dc6286f6",
+      "bytes": 2805
     },
     {
       "path": "tools/continue_transverse_attribute_evaluation.py",
@@ -1670,6 +1680,11 @@
       "path": "tools/extract_migrated_data.py",
       "sha256": "95a00e5d4a8ae3786514870f2a4f2863880c11987d2a18d81af24fecb3b4ca5b",
       "bytes": 2381
+    },
+    {
+      "path": "tools/fit_supported_interval_parent_pool_control.py",
+      "sha256": "37cf2c42560f2daeb18096018eb32a477367a2c6403e2322cd41895ea408b424",
+      "bytes": 9280
     },
     {
       "path": "tools/freeze_balanced_detector_training_inputs.py",
@@ -2347,6 +2362,11 @@
       "bytes": 4107
     },
     {
+      "path": "tools/prepare_supported_interval_parent_pool.py",
+      "sha256": "8452619ad4451b47ca2f8873abe104c4bd858128480ebf11ec7f7b2c4df49066",
+      "bytes": 9914
+    },
+    {
       "path": "tools/prepare_supported_interval_training_events.py",
       "sha256": "5956f963ae3e9409b16f306a1522c16f89501c476f253295f245a7f12c4ee2d1",
       "bytes": 9681
@@ -2657,6 +2677,11 @@
       "bytes": 1180
     },
     {
+      "path": "tools/resume_supported_interval_parent_pool.py",
+      "sha256": "26a3e5abf62485617e8fa7a1e4ae731faf69815f446ab063527eac44bb8aa333",
+      "bytes": 5423
+    },
+    {
       "path": "tools/reuse_repaired_full_input_shards.py",
       "sha256": "4808de94e9bfb599d186793d842a76b0f1e81dc9a1e5aa2e7056f273c7cfc781",
       "bytes": 6956
@@ -2795,6 +2820,11 @@
       "path": "tools/run_roundoff_gap_baseline_probe.py",
       "sha256": "0c52ebdee43443294d58b467c1ffeacee1583771fbc163cb10a9a55b89159c69",
       "bytes": 3295
+    },
+    {
+      "path": "tools/run_supported_interval_visual_priority.py",
+      "sha256": "1675ee0a0218adda06b775df9a5cab82d6deebba7a117c8a9c82383b8830b73e",
+      "bytes": 3621
     },
     {
       "path": "tools/score_boundary_provenance_batch02_comparison.py",
@@ -7047,14 +7077,19 @@
       "bytes": 8376
     },
     {
+      "path": "weld_pipeline/server_supported_interval_prediction_runtime.py",
+      "sha256": "d419a01fd2c58fa881e8fc904874436357354fe15a3c9427c8dce0bfc4b1ff4c",
+      "bytes": 13079
+    },
+    {
       "path": "weld_pipeline/server_supported_interval_training.py",
-      "sha256": "50fb4f12eb86c05c3957138fa5f523cd2c881ca3ba1b83683956d8762f52de56",
-      "bytes": 15716
+      "sha256": "d81a72ac535d675804516bbbf48cf9c969002d4ef9d43a8261354e79e3d6c652",
+      "bytes": 15955
     },
     {
       "path": "weld_pipeline/server_supported_interval_weld_model.py",
-      "sha256": "aa1cccc20bee727f78ce237d08f3ea100169819376be443c0ecef52c08a79698",
-      "bytes": 8710
+      "sha256": "e12ab309b18bb5ab2e127f5b34cef1276ade55a335e09466bed1f43caf30afea",
+      "bytes": 8968
     },
     {
       "path": "weld_pipeline/server_supported_joint_regions.py",
