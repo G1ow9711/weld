@@ -10,7 +10,6 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
-import tempfile
 import traceback
 from types import FunctionType
 
@@ -72,14 +71,15 @@ def worker(out, attempt):
     priors = FrozenRun446Priors(ROOT)
     folder = out / f'process_{attempt}'; folder.mkdir(exist_ok=False)
     (folder / 'query_checkpoint.pt').symlink_to(out / 'query_checkpoint.pt')
-    storage = Path(tempfile.mkdtemp(prefix='weld-v5-complete-repeat-', dir='/tmp'))
-    (folder / 'pools').symlink_to(storage, target_is_directory=True)
+    storage = folder / 'pools'
+    storage.mkdir(exist_ok=False)
     write(folder / 'storage_binding.json', dict(storage=str(storage),
         scope='Own rebuildable complete raw-input proposals; retained for authenticated replay'))
     factory = lambda m, mean, std, **kwargs: LocalCompleteQueryProposals(m, mean, std, xyz, **kwargs)
     original = FunctionType(prepare.__code__, dict(prepare.__globals__, CompleteQueryProposals=factory),
                             prepare.__name__, prepare.__defaults__, prepare.__closure__)
-    forbidden = {p.resolve() for p in (BASE / 'supervision_shards').rglob('*') if p.is_file()}
+    forbidden = {p.resolve() for _, version in dataset.versions.values()
+                 for p in (ROOT / version['label_directory']).rglob('*') if p.is_file()}
     with audit_inference_io(folder, forbidden) as inputs:
         pool_receipt = original(dataset, job_key, model, state, priors, folder,
             protocol['query_mode'], tuple(protocol['fixed_query_fractions']),
