@@ -68,7 +68,10 @@ def main(args):
                 raise ValueError('Original finite input binding changed')
             original=dataset.input_case(key);inp=VisualAugmentedInput(original,addition)
             folder=out/key;folder.mkdir();event_folder=folder/'events';event_folder.mkdir()
-            xyz,_=load_xyz(dataset.jobs[key]);producer=FiniteInputIntervalEvents(xyz,digest(path))
+            # Native and added curves share the same authenticated raw-input
+            # identity. The separate addition binding authenticates new curves.
+            xyz,_=load_xyz(dataset.jobs[key]);producer=FiniteInputIntervalEvents(
+                xyz, addition['original_input_receipt_sha256'])
             events=[]
             for pid in range(inp.original_profile_count,len(inp.profiles)):
                 bank=producer.build(inp.profiles[pid],np.array([[0.,inp.lengths[pid]]]))
@@ -79,7 +82,8 @@ def main(args):
                     curve_representation=bank['curve_representation'],length_mm=bank['length_mm'],audit=bank['audit']))
                 events_total+=len(bank['positions_mm']);profiles_total+=1
             write(event_folder/'receipt.json',dict(profiles=events,raw_points=len(xyz),
-                  augmented_input_receipt_sha256=digest(path),GT_geometry_reads=0))
+                  augmented_input_receipt_sha256=digest(path),
+                  shared_raw_input_receipt_sha256=addition['original_input_receipt_sha256'],GT_geometry_reads=0))
             builder=ReferenceWitnessBuilder(SimpleNamespace(profiles=addition['additional_profiles']))
             for version in dataset.jobs[key]['versions']:
                 vk=version['key'];view=dataset.supervision(vk)

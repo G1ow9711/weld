@@ -2373,8 +2373,8 @@
     },
     {
       "path": "tools/prepare_visual_augmented_full_supervision.py",
-      "sha256": "9640ce8b98f641e3894663d4c7d73df1cc662206886274e59d7c614655b63493",
-      "bytes": 8699
+      "sha256": "a2b49dbd1c46c0595d3feb46eb7441f93674cef3519943a8c2f5330d88d65f62",
+      "bytes": 8996
     },
     {
       "path": "tools/prepare_whole_parent_reference_sets.py",
