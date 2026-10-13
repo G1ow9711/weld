@@ -372,3 +372,6 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 `server_multiview_visual_features.py` 将完整 XYZ 投影为三个方向的点密度和深度图，提取多个邻域尺度的视觉信息，再映射回每个原始三维点。它不读取标签，不依赖已有焊缝候选，也不把图像像素直接当三维焊缝。
 
 `tools/probe_multiview_visual_assistance.py` 在已登记 TRAIN 内按完整家族分组交叉训练，对照单视图与三视图。拟合使用有权重的点采样，推理覆盖所选工件全部原始点；报告点级误报、召回和参考曲线附近点的覆盖。此辅助实验不访问正式验证或 TEST，不替换原最佳权重，点区域成绩不能称完整焊缝提取准确率。运行需要外部数据和登记；可用 `--focus-job` 指定 TRAIN 工件，分组自动包含同家族的其他输入。
+
+
+`tools/probe_visual_supported_arcs.py` 对已完成交叉拟合的视觉分数进行有限圆弧可行性检查：仅用高分原始点及观测高度层拟合圆，按实际支持的空隙分割范围。先冻结全部候选，再读取 TRAIN 标签衡量候选覆盖能力。当前范围仅为与 XY 平行的弧，不具备任意姿态保证；参考投影只用于离线测量，不能当作已预测的端点，候选覆盖率不是完整提取准确率。
