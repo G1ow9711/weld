@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "402eaa03f5e002a2f3e002a5a47e874812326064ff48a127291b51a60d88b934",
-      "bytes": 68938
+      "sha256": "d95c13119933c96a1dddd43977fb99627d8691dc88cae5dd98bd8dfd2d8fadee",
+      "bytes": 69568
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -3170,6 +3170,11 @@
       "path": "tools/train_structured_parent_residual.py",
       "sha256": "5343455e6a716e4b28d2754465762a3a66e790d4a7c0abe6e214eb8e8af2e2ef",
       "bytes": 7858
+    },
+    {
+      "path": "tools/train_supported_interval_full_dataset.py",
+      "sha256": "0b4bd2d4145315110bb37ada818aadc4f74d6f43c5cc350224ab3ee52e7a6b46",
+      "bytes": 14929
     },
     {
       "path": "tools/train_surface_material_relation_pilot.py",
@@ -7040,6 +7045,11 @@
       "path": "weld_pipeline/server_supported_interval_events.py",
       "sha256": "fb35de1ec0cb1b01397c77b199d9aec53503c24646d4ed9a7eefb84236c96034",
       "bytes": 8376
+    },
+    {
+      "path": "weld_pipeline/server_supported_interval_training.py",
+      "sha256": "50fb4f12eb86c05c3957138fa5f523cd2c881ca3ba1b83683956d8762f52de56",
+      "bytes": 15716
     },
     {
       "path": "weld_pipeline/server_supported_interval_weld_model.py",

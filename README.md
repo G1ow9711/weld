@@ -392,3 +392,6 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 `server_supported_interval_weld_model.py` 将完整的输入端点对评分与原模型的已知属性、坐标系及父关系预测连接；输出几何来自所选有限曲线，不再使用自由端点/圆弧回归。原候选继续使用真实旧特征，新增视觉曲线有独立的原始 XYZ、图像及几何输入分支。`server_visual_curve_context.py` 生成这种真实输入，`server_visual_augmented_training_samples.py` 保留全部参考和属性所属关系，同时分开两种输入行。
 
 `tools/check_supported_interval_warm_fields.py` 核验完整已训练检查点，在一件完整 TRAIN 视图上检查零残差初始化的属性保持，并执行实际字段、父结构和连接更新；控制使用完整输入范围作为区间，不宣称已学会端点或完成全量训练。完整区间训练器、实际父候选生成与全量输出评价仍需接入。
+
+
+The supported interval training stage now optimizes every endpoint event, complete paired interval alternatives, known weld fields, ordered parent closure, and the actual directed runtime link head. Native inputs retain genuine legacy features; added visual curves use separate raw XYZ/image features. Training preserves multiple owner alternatives and masks unavailable shared boundaries without relabeling them as gaps. Three complete TRAIN passes are registered; complete extraction, nullable parent selection, CSV and held evaluation remain separate required gates. No model acceptance is claimed by the optimization stage.
