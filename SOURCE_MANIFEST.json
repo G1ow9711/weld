@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "ca422a0b733c4ee134bc5b52c0c926058ebed67c86b2fd1d05e074b3ee627367",
-      "bytes": 65212
+      "sha256": "3db57688af68aac00e69ca7313c3b3b3aae36cdff3abffbf207747a26c807ace",
+      "bytes": 66055
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -2380,6 +2380,11 @@
       "path": "tools/probe_grid_candidate_runtime.py",
       "sha256": "fc69f0f03957fb409c488bab1115224816056838db9c321a0384f85381cd510b",
       "bytes": 2726
+    },
+    {
+      "path": "tools/probe_multiview_visual_assistance.py",
+      "sha256": "344fb40bf6d40207d01a40fa4a2f85b9f6db9c3548d0b2084c313f88df0d9cfb",
+      "bytes": 17057
     },
     {
       "path": "tools/probe_paired_tree_interval_modes.py",
@@ -6790,6 +6795,11 @@
       "path": "weld_pipeline/server_multiscale_chain_windows.py",
       "sha256": "909bbbf0635028c6d08b72940656a6c133e6af4f476b448a807781ebd9b0c571",
       "bytes": 839
+    },
+    {
+      "path": "weld_pipeline/server_multiview_visual_features.py",
+      "sha256": "2761af8643daba7d9eca50c88c84b816100d023ff6af704694f0f97506872149",
+      "bytes": 3756
     },
     {
       "path": "weld_pipeline/server_native_parent_runtime.py",

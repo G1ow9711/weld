@@ -365,3 +365,10 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 `tools/check_interval_fixed_seed_training_repeatability.py` 在两个独立 CUDA 进程中重复一个完整 TRAIN 视图的短训练，逐项比较输入、监督、损失、权重、优化器及输出。`tools/audit_complete_query_reference_collisions.py` 核对全部 TRAIN 的实际查询是否对应多个几何或父结构，保留所有参考版本，不自动把差异认定为错误标签。
 
 `weld_pipeline/server_supported_interval_events.py` 为有限直线和圆弧生成统一输入事件，保留原始边界、观测范围、原始点投影和网格来源，整对选择端点后直接构造原曲线上的区间。网格不代表接触证据，观测空隙不会被标成有支持。`tools/prepare_supported_interval_training_events.py` 通过同一生成函数准备全部已登记 TRAIN 视图所需的输入事件缓存；训练责任分配只选择待缓存载体，不生成事件坐标。运行时仍需访问完整输入，训练缓存完成不代表模型完成训练或验收。
+
+
+## 多视角点云图像辅助实验
+
+`server_multiview_visual_features.py` 将完整 XYZ 投影为三个方向的点密度和深度图，提取多个邻域尺度的视觉信息，再映射回每个原始三维点。它不读取标签，不依赖已有焊缝候选，也不把图像像素直接当三维焊缝。
+
+`tools/probe_multiview_visual_assistance.py` 在已登记 TRAIN 内按完整家族分组交叉训练，对照单视图与三视图。拟合使用有权重的点采样，推理覆盖所选工件全部原始点；报告点级误报、召回和参考曲线附近点的覆盖。此辅助实验不访问正式验证或 TEST，不替换原最佳权重，点区域成绩不能称完整焊缝提取准确率。运行需要外部数据和登记；可用 `--focus-job` 指定 TRAIN 工件，分组自动包含同家族的其他输入。
