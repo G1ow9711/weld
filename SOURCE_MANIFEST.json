@@ -2398,8 +2398,8 @@
     },
     {
       "path": "tools/probe_visual_supported_arcs.py",
-      "sha256": "ec2cbc799b6d9d0e56960a084d26a899af43520c7b600f631bc115aefab73edd",
-      "bytes": 10177
+      "sha256": "1ffdf4582378c215eca1f5ab5ebe9ce01eb4e76bc9707615711b2bb9d6c19e73",
+      "bytes": 10326
     },
     {
       "path": "tools/probe_xyz_curved_upright_contacts.py",

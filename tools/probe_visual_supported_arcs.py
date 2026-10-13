@@ -87,7 +87,9 @@ def propose(xyz, scores, seed=1031):
                 CurveCarrier(representation)  # Reject malformed finite analytic geometry.
                 output.append(dict(representation=representation, support_points=len(group),
                     radial_support_tolerance_mm=1., maximum_observed_support_gap_mm=10.,
-                    observed_plane_z_mm=z, plane_band_halfwidth_mm=.25, input_generated=True))
+                    observed_plane_z_mm=z, input_selection_depth_mm=float(level),
+                    maximum_input_plane_distance_mm=float(np.abs(xyz[ids, 2] - z).max()),
+                    plane_band_halfwidth_mm=.25, input_generated=True))
     return output, dict(selected_points=len(chosen), input_depth_levels_mm=levels.tolist(),
                         orientation_scope='XY parallel arcs only', raw_points=len(xyz))
 
