@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "d181d900f3a2b94e7fc59910f6ce77ab7cff79ad3e827c95dcee1bbc1670d0d3",
-      "bytes": 68009
+      "sha256": "402eaa03f5e002a2f3e002a5a47e874812326064ff48a127291b51a60d88b934",
+      "bytes": 68938
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -700,6 +700,11 @@
       "path": "tools/check_supported_interval_events.py",
       "sha256": "542ae751d52c0c80613dd877a0b4af1672d41a24d0c3c4ca2017b57bf95221ce",
       "bytes": 5895
+    },
+    {
+      "path": "tools/check_supported_interval_warm_fields.py",
+      "sha256": "fe6d7c78416f281091836f9dfe401e33e1ed6ecf842cae474f1cc97455be326f",
+      "bytes": 5720
     },
     {
       "path": "tools/compact_endpoint_training_backend.py",
@@ -7037,6 +7042,11 @@
       "bytes": 8376
     },
     {
+      "path": "weld_pipeline/server_supported_interval_weld_model.py",
+      "sha256": "aa1cccc20bee727f78ce237d08f3ea100169819376be443c0ecef52c08a79698",
+      "bytes": 8710
+    },
+    {
       "path": "weld_pipeline/server_supported_joint_regions.py",
       "sha256": "86756550bd25d4ebcfbc1157c177d2d0d98039497a44089895f3ee55fa1a3c9b",
       "bytes": 15835
@@ -7077,9 +7087,19 @@
       "bytes": 1405
     },
     {
+      "path": "weld_pipeline/server_visual_augmented_training_samples.py",
+      "sha256": "c9e988717ca2905246a34ad80d2b428745b52adc957e4266a2927f4caa4fdc28",
+      "bytes": 8447
+    },
+    {
       "path": "weld_pipeline/server_visual_candidate_augmentation.py",
       "sha256": "cc76a28b0545f4c7968c780987c76ed38dd1308a9c220a0861a8554c0a0f13af",
       "bytes": 6800
+    },
+    {
+      "path": "weld_pipeline/server_visual_curve_context.py",
+      "sha256": "50cc4981201fbfc185c471f9298eb2c705e3e652719d26f247d575da9127572a",
+      "bytes": 3125
     },
     {
       "path": "weld_pipeline/server_whole_parent_features.py",

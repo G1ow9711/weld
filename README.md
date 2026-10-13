@@ -385,3 +385,10 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 
 
 `tools/prepare_visual_augmented_full_supervision.py` 在全量视觉候选完成后，为所有新增曲线生成真实输入事件，并追加通过原几何检查的训练区间。完整参考父结构、属性及坐标系仍绑定原标签，原有区间全部保留，所有缺候选的标签继续进入分母。`server_visual_augmented_input.py` 保留原输入编号与特征读取，对新增曲线拒绝伪造旧特征；完整模型仍需实现其独立特征分支。标签投影仅作为训练监督和容量测量，不进入运行候选或预测端点。
+
+
+## 完整区间模型接入组件
+
+`server_supported_interval_weld_model.py` 将完整的输入端点对评分与原模型的已知属性、坐标系及父关系预测连接；输出几何来自所选有限曲线，不再使用自由端点/圆弧回归。原候选继续使用真实旧特征，新增视觉曲线有独立的原始 XYZ、图像及几何输入分支。`server_visual_curve_context.py` 生成这种真实输入，`server_visual_augmented_training_samples.py` 保留全部参考和属性所属关系，同时分开两种输入行。
+
+`tools/check_supported_interval_warm_fields.py` 核验完整已训练检查点，在一件完整 TRAIN 视图上检查零残差初始化的属性保持，并执行实际字段、父结构和连接更新；控制使用完整输入范围作为区间，不宣称已学会端点或完成全量训练。完整区间训练器、实际父候选生成与全量输出评价仍需接入。
