@@ -351,3 +351,5 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 ## 完整几何学习对照
 
 `tools/compare_nonlinear_geometry_residual.py` 对照零初始化的非线性端点与自由圆弧修正；`tools/compare_geometry_direction_surrogate.py` 对照保持前向几何输出、让几何误差训练方向判断的实验梯度。两者只使用已登记 TRAIN 的完整工件和原始 XYZ，保留全部已知字段、父段和连接监督。独立小范围对照不能代表全数据、完整提取或验收成绩。相应模型位于 `weld_pipeline/server_nonlinear_geometry_residual_model.py` 和 `weld_pipeline/server_geometry_direction_surrogate_model.py`。
+
+`tools/compare_line_direction_surrogate.py` 进一步把实验梯度限定为预测直线的方向头，并核验该修正对输入上下文的梯度为零。它保持原有圆弧与已知字段监督，仍需要完整数据和最终输出评估。模型入口为 `weld_pipeline/server_line_direction_surrogate_model.py`。

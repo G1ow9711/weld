@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "b4bbf897a571d7bc61bb656dde4803c92db0c56ddfb5c737e660310e8181ad7a",
-      "bytes": 62906
+      "sha256": "17284d2f66c88264ef30eaae9212f6aee2ce52c7d1ccadbd8fce263cc25f575b",
+      "bytes": 63231
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -705,6 +705,11 @@
       "path": "tools/compare_joint_interval_outputs.py",
       "sha256": "38c7f46aa57dc7fd019fe47e5933bcf1680d6a60f6148c45ad8aaca3d6918272",
       "bytes": 2364
+    },
+    {
+      "path": "tools/compare_line_direction_surrogate.py",
+      "sha256": "3ce35414ed7ce317ff57f9f6e38cdf26a50b0b4a4cb5360248eac02e0de01f64",
+      "bytes": 14704
     },
     {
       "path": "tools/compare_metric_geometry_loss.py",
@@ -6700,6 +6705,11 @@
       "path": "weld_pipeline/server_legacy_runtime.py",
       "sha256": "a3651fdd20f694e79596674b0c3e16132d9c04f73cc2d6269a66dc7dfc1068b2",
       "bytes": 3147
+    },
+    {
+      "path": "weld_pipeline/server_line_direction_surrogate_model.py",
+      "sha256": "f205bed81e69a313180d45375bc84ba61255b9fdf1469645faeaa17b99cb42ed",
+      "bytes": 1680
     },
     {
       "path": "weld_pipeline/server_local_graph_arc_candidates.py",
