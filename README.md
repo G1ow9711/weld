@@ -353,3 +353,10 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 `tools/compare_nonlinear_geometry_residual.py` 对照零初始化的非线性端点与自由圆弧修正；`tools/compare_geometry_direction_surrogate.py` 对照保持前向几何输出、让几何误差训练方向判断的实验梯度。两者只使用已登记 TRAIN 的完整工件和原始 XYZ，保留全部已知字段、父段和连接监督。独立小范围对照不能代表全数据、完整提取或验收成绩。相应模型位于 `weld_pipeline/server_nonlinear_geometry_residual_model.py` 和 `weld_pipeline/server_geometry_direction_surrogate_model.py`。
 
 `tools/compare_line_direction_surrogate.py` 进一步把实验梯度限定为预测直线的方向头，并核验该修正对输入上下文的梯度为零。它保持原有圆弧与已知字段监督，仍需要完整数据和最终输出评估。模型入口为 `weld_pipeline/server_line_direction_surrogate_model.py`。
+
+
+## 保留有限曲线的有向组装与完整重复检查
+
+`weld_pipeline/server_supported_directed_parent_pool.py` 保留每条输入曲线的两个方向，将可训练连接评分用于实际父候选搜索。共享切点要求共同输入事件和精确坐标；组装保持有限线弧及端点坐标系，不进行端点平均或重新拟合圆弧。`tools/check_supported_directed_parent_pool.py` 检查几何、端点字段、真实训练梯度进入运行、空输入和资源上限。
+
+`tools/check_original_best_complete_repeatability.py` 在独立进程核对原始冻结输入的完整候选决策、父序列、全曲线与 CSV。`tools/check_interval_complete_output_repeatability.py` 对已登记 TRAIN 原始点云重新生成全部查询和候选，使用固定完整查询权重与明确的部分父权重快照检查完整输出重复性。它们是开发控制，不代替完整训练、准确率、独立测试或原始输入全流程时延验收。

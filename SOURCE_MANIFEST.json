@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "17284d2f66c88264ef30eaae9212f6aee2ce52c7d1ccadbd8fce263cc25f575b",
-      "bytes": 63231
+      "sha256": "4940dc8a7c2563e00d41d0faaff97cdaa119770e1a9f7448d0b4ded8d95258ac",
+      "bytes": 64205
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -577,6 +577,11 @@
       "bytes": 10621
     },
     {
+      "path": "tools/check_interval_complete_output_repeatability.py",
+      "sha256": "e773532f0257093931b2dc08501e8c417f61e4edb15184db9bbd2a6b1916eb65",
+      "bytes": 11880
+    },
+    {
       "path": "tools/check_local_metric_warmstart.py",
       "sha256": "5f8e84d1bc4c022bab7b5da96e1feb1682631200d67104bbb7358e5a45f6e331",
       "bytes": 7824
@@ -585,6 +590,11 @@
       "path": "tools/check_offline_step_query_parameters.py",
       "sha256": "69e7b3257253f7235680a3ca84a52c4a993d057cf72421ffd4b638bae42ec098",
       "bytes": 2723
+    },
+    {
+      "path": "tools/check_original_best_complete_repeatability.py",
+      "sha256": "ddb7cf4cdd15c524560bd25b9eff10568501a527c78167683201b3104f30bf2c",
+      "bytes": 8838
     },
     {
       "path": "tools/check_parent_analytic_sampling.py",
@@ -670,6 +680,11 @@
       "path": "tools/check_support_supervision_controls.py",
       "sha256": "0bde110a9ca5afd85c8da10f14713c2648d5701b0326a2c540f953c6ab7125c7",
       "bytes": 2595
+    },
+    {
+      "path": "tools/check_supported_directed_parent_pool.py",
+      "sha256": "031780a230632e18a9f067344aaf8199dcac0b85fa666cb9b066281be3bc6154",
+      "bytes": 13085
     },
     {
       "path": "tools/compact_endpoint_training_backend.py",
@@ -6965,6 +6980,11 @@
       "path": "weld_pipeline/server_structured_span_decoder.py",
       "sha256": "06e8e37c8e1f23a187b5208b9e0e15c63dbbd86d96aa840bfc149701b2a5a8c3",
       "bytes": 2279
+    },
+    {
+      "path": "weld_pipeline/server_supported_directed_parent_pool.py",
+      "sha256": "fa228af9846c8890eb3305cc9d1531fd2f85a6c9fa5b47ee902ab9748734ee70",
+      "bytes": 15587
     },
     {
       "path": "weld_pipeline/server_supported_joint_regions.py",
