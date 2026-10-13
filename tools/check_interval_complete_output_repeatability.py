@@ -89,8 +89,23 @@ def worker(out, attempt):
             device='cuda' if torch.cuda.is_available() else 'cpu')
         data = load_input_pool(dataset, job_key, folder, priors)
         parents, decoded, freeze = predict(selector, data)
-    if any(digest(path) != sha for path, sha in inputs.items()):
-        raise ValueError('An actual repeat input changed')
+    verified_inputs = []
+    for path, sha in inputs.items():
+        actual = path
+        if not actual.exists():
+            # The producer authenticates staged files and atomically renames
+            # their directory. Resolve only that exact declared transaction;
+            # a missing external input must still fail.
+            relative = path.relative_to(folder / 'pools')
+            if (len(relative.parts) != 3 or not relative.parts[0].startswith(job_key + '-')
+                    or relative.parts[1] != 'result' or relative.name not in pool_receipt['files']
+                    or pool_receipt['files'][relative.name] != sha):
+                raise ValueError('A consumed input disappeared outside the declared pool transaction')
+            actual = folder / 'pools' / job_key / relative.name
+        if digest(actual) != sha:
+            raise ValueError('An actual repeat input changed')
+        verified_inputs.append(dict(opened_path=str(path), retained_path=str(actual), sha256=sha))
+    write(folder / 'verified_runtime_inputs.json', verified_inputs)
     csv_directory = folder / 'csv'
     schema = export_decoded(csv_directory, job_key, decoded)
     roundtrip = verify_roundtrip(csv_directory, decoded)

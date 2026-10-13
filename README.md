@@ -360,3 +360,8 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 `weld_pipeline/server_supported_directed_parent_pool.py` 保留每条输入曲线的两个方向，将可训练连接评分用于实际父候选搜索。共享切点要求共同输入事件和精确坐标；组装保持有限线弧及端点坐标系，不进行端点平均或重新拟合圆弧。`tools/check_supported_directed_parent_pool.py` 检查几何、端点字段、真实训练梯度进入运行、空输入和资源上限。
 
 `tools/check_original_best_complete_repeatability.py` 在独立进程核对原始冻结输入的完整候选决策、父序列、全曲线与 CSV。`tools/check_interval_complete_output_repeatability.py` 对已登记 TRAIN 原始点云重新生成全部查询和候选，使用固定完整查询权重与明确的部分父权重快照检查完整输出重复性。它们是开发控制，不代替完整训练、准确率、独立测试或原始输入全流程时延验收。
+
+
+`tools/check_interval_fixed_seed_training_repeatability.py` 在两个独立 CUDA 进程中重复一个完整 TRAIN 视图的短训练，逐项比较输入、监督、损失、权重、优化器及输出。`tools/audit_complete_query_reference_collisions.py` 核对全部 TRAIN 的实际查询是否对应多个几何或父结构，保留所有参考版本，不自动把差异认定为错误标签。
+
+`weld_pipeline/server_supported_interval_events.py` 为有限直线和圆弧生成统一输入事件，保留原始边界、观测范围、原始点投影和网格来源，整对选择端点后直接构造原曲线上的区间。网格不代表接触证据，观测空隙不会被标成有支持。`tools/prepare_supported_interval_training_events.py` 通过同一生成函数准备全部已登记 TRAIN 视图所需的输入事件缓存；训练责任分配只选择待缓存载体，不生成事件坐标。运行时仍需访问完整输入，训练缓存完成不代表模型完成训练或验收。

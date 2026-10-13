@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "4940dc8a7c2563e00d41d0faaff97cdaa119770e1a9f7448d0b4ded8d95258ac",
-      "bytes": 64205
+      "sha256": "ca422a0b733c4ee134bc5b52c0c926058ebed67c86b2fd1d05e074b3ee627367",
+      "bytes": 65212
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -65,6 +65,11 @@
       "path": "tools/audit_carrier_endpoint_reachability.py",
       "sha256": "7c7e1a5ccdae0a37a9de82f8493501ce00af17ad9f29f485b76271725cbe5486",
       "bytes": 2651
+    },
+    {
+      "path": "tools/audit_complete_query_reference_collisions.py",
+      "sha256": "e062df5168af8ac7c16ed9620676890a0d582f53a4dcff49fbc7abecec349742",
+      "bytes": 8271
     },
     {
       "path": "tools/audit_complete_training_task_coverage.py",
@@ -578,8 +583,13 @@
     },
     {
       "path": "tools/check_interval_complete_output_repeatability.py",
-      "sha256": "ad46d132016e193c64d5965666425fae2826ca69b4410469fd9d610afe49217b",
-      "bytes": 11843
+      "sha256": "9ffc43ec23a19ab0944130ec2453a92ab7db8b71aea3b9179a4ac12719942235",
+      "bytes": 12794
+    },
+    {
+      "path": "tools/check_interval_fixed_seed_training_repeatability.py",
+      "sha256": "8def1816afc51bba8aa7e37f2c05ac4d5db78b4e216827073cfde4e5198d6a12",
+      "bytes": 9898
     },
     {
       "path": "tools/check_local_metric_warmstart.py",
@@ -685,6 +695,11 @@
       "path": "tools/check_supported_directed_parent_pool.py",
       "sha256": "031780a230632e18a9f067344aaf8199dcac0b85fa666cb9b066281be3bc6154",
       "bytes": 13085
+    },
+    {
+      "path": "tools/check_supported_interval_events.py",
+      "sha256": "542ae751d52c0c80613dd877a0b4af1672d41a24d0c3c4ca2017b57bf95221ce",
+      "bytes": 5895
     },
     {
       "path": "tools/compact_endpoint_training_backend.py",
@@ -2325,6 +2340,11 @@
       "path": "tools/prepare_sampled_boundary_anchor_cache.py",
       "sha256": "6fedf10197dfa3d4df1e162cd45eef76735c6c82fe322420d2c43e0d6153737c",
       "bytes": 4107
+    },
+    {
+      "path": "tools/prepare_supported_interval_training_events.py",
+      "sha256": "5956f963ae3e9409b16f306a1522c16f89501c476f253295f245a7f12c4ee2d1",
+      "bytes": 9681
     },
     {
       "path": "tools/prepare_surface_boundary_samples.py",
@@ -6985,6 +7005,11 @@
       "path": "weld_pipeline/server_supported_directed_parent_pool.py",
       "sha256": "fa228af9846c8890eb3305cc9d1531fd2f85a6c9fa5b47ee902ab9748734ee70",
       "bytes": 15587
+    },
+    {
+      "path": "weld_pipeline/server_supported_interval_events.py",
+      "sha256": "fb35de1ec0cb1b01397c77b199d9aec53503c24646d4ed9a7eefb84236c96034",
+      "bytes": 8376
     },
     {
       "path": "weld_pipeline/server_supported_joint_regions.py",
