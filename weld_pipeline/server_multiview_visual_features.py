@@ -11,7 +11,7 @@ VIEWS = (("XY", (0, 1, 2)), ("XZ", (0, 2, 1)), ("YZ", (1, 2, 0)))
 RADII = (3, 9, 25)
 
 
-def visual_features(xyz, pixel_mm=2., max_pixels=20_000_000):
+def visual_features(xyz, pixel_mm=2., max_pixels=32_000_000):
     xyz = np.asarray(xyz, dtype=np.float64)
     if xyz.ndim != 2 or xyz.shape[1] != 3 or not len(xyz) or not np.isfinite(xyz).all():
         raise ValueError("Finite nonempty complete XYZ is required")
