@@ -375,3 +375,10 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 
 
 `tools/probe_visual_supported_arcs.py` 对已完成交叉拟合的视觉分数进行有限圆弧可行性检查：仅用高分原始点及观测高度层拟合圆，按实际支持的空隙分割范围。先冻结全部候选，再读取 TRAIN 标签衡量候选覆盖能力。当前范围仅为与 XY 平行的弧，不具备任意姿态保证；参考投影只用于离线测量，不能当作已预测的端点，候选覆盖率不是完整提取准确率。
+
+
+## 全量视觉辅助训练与候选补充
+
+`tools/train_full_visual_assistance.py` 使用全部已登记 TRAIN 工件及版本监督拟合视觉辅助模块。训练按原家族/版本权重分配，点采样按概率校正；全部输入点都参加推理。已知字段和整父关系仍由后续完整焊缝模型训练，此入口不宣称已经训练完整模型。正式验证/TEST 不用于该拟合。
+
+`server_visual_candidate_augmentation.py` 是训练/运行共享的候选补充入口，保留全部原候选及编号，只追加由视觉高分原始点支持的有限弧。新增候选必须走自己的真实 XYZ/视觉特征，不伪造旧特征列。生成器仍限 XY 平行弧，误报、端点、任意姿态与完整输出需要后续处理。`server_tiled_multiview_visual_features.py` 对大尺寸输入使用重叠分块，保留完整滤波邻域和固定像素大小，不裁掉原始点。
