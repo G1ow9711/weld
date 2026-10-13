@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "0868dbf29e94b2e25c138443d4c618414b4ca664027176049b7f65b15a4ae0ea",
-      "bytes": 61924
+      "sha256": "777b3a01ef1fbdf005739b54bd5171c55b3d24f302e47d97dfd70bb115bb1569",
+      "bytes": 62302
     },
     {
       "path": "tools/align_possible_duplicate_inputs.py",
@@ -3510,6 +3510,11 @@
       "path": "tools/watch_completed_training_read_cache.py",
       "sha256": "26fce653a4f0050e930c7fb0352f4a15c5da1c81b23cb4ae302beb2969b11c2c",
       "bytes": 4011
+    },
+    {
+      "path": "tools/watch_train_file_cache_headroom.py",
+      "sha256": "7636390936f0a6573100df6926de1d309a404815a3e03f57ed7110f855303a07",
+      "bytes": 8102
     },
     {
       "path": "training/__init__.py",

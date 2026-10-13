@@ -345,3 +345,5 @@ Pass `--dataset-name`, a new `--preparation-name`, and the existing `--previous-
 `tools/run_interval_endpoint_baseline_stage.py` 以同一验证固定模型评估原最佳的全部原样本及精确历史标签。`tools/verify_interval_endpoint_baseline_regression.py` 保留原输入、标签、预测与评分的所有权检查，使用真实诊断模型及其实际记录拒绝不完整训练。回归结果不用于选模型。
 
 `tools/compare_saved_complete_query_diagnostics.py` 在全部注册 TRAIN 预测记录、完整模型和输入责任均核验一致后，逐条比较两份已完成的局部诊断，列出改善、退步及分类结果。它可等待明确绑定的现有评估进程，不重新训练或推理；独立子反向和分支择优检查仍不代表完整焊缝提取或测试准确率。
+
+`tools/watch_train_file_cache_headroom.py` 独立核验存活 TRAIN 进程，在内存达到阈值时对未被打开或映射的登记原始文件给只读缓存释放提示。它核对原文件元数据和进程身份，不改文件内容、权重、优化器或训练配置；此操作用于训练资源管理，不证明提取质量或原始输入至 CSV 的推理时间。
