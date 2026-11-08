@@ -1,0 +1,48 @@
+{
+  "scope": "Complete curve geometry only; segmentation and runtime optimization are outside the current user-requested completion gate.",
+  "model": "V524 with V527 provenance repair; runtimeV528",
+  "primary_version": "V60",
+  "TRAIN": {
+    "G": 121,
+    "P": 121,
+    "TP": 121,
+    "FP": 0,
+    "FN": 0,
+    "inputs": 22,
+    "extraction": 1.0,
+    "FP_per_G": 0.0,
+    "F1": 1.0
+  },
+  "validation_unique": {
+    "G": 37,
+    "P": 37,
+    "TP": 37,
+    "FP": 0,
+    "FN": 0,
+    "inputs": 9,
+    "extraction": 1.0,
+    "FP_per_G": 0.0,
+    "F1": 1.0
+  },
+  "validation_all_label_versions": {
+    "G": 48,
+    "P": 48,
+    "TP": 48,
+    "FP": 0,
+    "FN": 0,
+    "inputs": 10,
+    "extraction": 1.0,
+    "FP_per_G": 0.0,
+    "F1": 1.0
+  },
+  "every_evaluated_workpiece_complete_geometry_100_percent_FP0_FN0": true,
+  "endpoint_max_mm": 2.9999394587394144,
+  "whole_curve_max_mm": 2.9999394587394144,
+  "weights_sha256": "9ac0317e01026f807c478eac8ff894c00a8f57692ffca5379ca5fc2d861ec180",
+  "weights_bytes": 6349550,
+  "validation_is_already_exposed_iterative": true,
+  "unseen_family_or_formal_contract_acceptance_claim": false,
+  "freeze_changed_model_predictions_units_or_thresholds": false,
+  "accuracy_evidence": "All32 previously frozen final outputs verified again; qualified cached precision regression, not a new raw cold-inference benchmark.",
+  "private_per_workpiece_evidence_preserved_on_server": true
+}
