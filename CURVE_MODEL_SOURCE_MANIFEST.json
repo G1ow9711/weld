@@ -1,14 +1,34 @@
 {
-  "schema": "CURVEONLY_PUBLIC_SOURCE_MANIFEST_V1",
-  "model": "V524_R527_RUNTIME528",
+  "schema": "CURVEONLY_PUBLIC_SOURCE_MANIFEST_V2",
+  "model": "V710_CONTACT_ORIGIN_RUNTIME711_ENTRY718",
   "branch": "codex/curve-only-01a1ac7c",
-  "local_frozen_source_commit": "c2ecdc099708b01e06cdcb0283a9b76ee48fdddb",
+  "baseline_public_commit": "96fc5dabc2a3e7779a3ceacaade23904f5faae43",
+  "local_verified_model_commit": "7905e986660bd46310e551ffcb496c46ab52ac34",
   "weights_sha256": "9ac0317e01026f807c478eac8ff894c00a8f57692ffca5379ca5fc2d861ec180",
+  "original237_runtime_sources_unchanged": true,
+  "verified_runtime_source_count": 240,
+  "inference_spec": "experiment_records/CURVEONLY_01a1ac7c_20261106_v1/contact_origin_control_v712_20261109/INFERENCE_SPEC.json",
+  "inference_entry": "tools.curveonly_01a1ac7c_infer_contact_origin_v718",
   "files": [
     {
       "path": "CURVE_MODEL_README.md",
-      "sha256": "ad2519411384e29eb229a9b8afcad973a445b5752219e9b5d61d553ae1cd9270",
-      "bytes": 2854
+      "sha256": "8a5117b95118927c7ab7e8ee106e9f49b82205d04d00923d695a45091ef8266a",
+      "bytes": 3499
+    },
+    {
+      "path": "experiment_records/CURVEONLY_01a1ac7c_20261106_v1/contact_origin_control_v712_20261109/EVALUATION_SUMMARY.json",
+      "sha256": "bbad8042e0d033805d489dd17b946eb5fec067206f35113aee565087b6897377",
+      "bytes": 2325
+    },
+    {
+      "path": "experiment_records/CURVEONLY_01a1ac7c_20261106_v1/contact_origin_control_v712_20261109/INFERENCE_SPEC.json",
+      "sha256": "81788f2ac6130737f8771ab1f08c7db9540f368790aadd5fc9dce0ba7ec627bf",
+      "bytes": 47265
+    },
+    {
+      "path": "experiment_records/CURVEONLY_01a1ac7c_20261106_v1/contact_origin_control_v712_20261109/README.md",
+      "sha256": "8a5117b95118927c7ab7e8ee106e9f49b82205d04d00923d695a45091ef8266a",
+      "bytes": 3499
     },
     {
       "path": "experiment_records/CURVEONLY_01a1ac7c_20261106_v1/final_frozen_20261108/ENVIRONMENT.json",
@@ -149,6 +169,11 @@
       "path": "tools/curveonly_01a1ac7c_independent_endcap_pilot_v480.py",
       "sha256": "7e172a82e96989f9b257c7b6004f19d7e1ecd575c95f634e147ef2b2710481fc",
       "bytes": 1707
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_infer_contact_origin_v718.py",
+      "sha256": "5ba959b2c532bd4d0ef66d125da5caf93d6eb9e790f315c820df1b74b0c1f38a",
+      "bytes": 5332
     },
     {
       "path": "tools/curveonly_01a1ac7c_infer_frozen_v536.py",
@@ -394,6 +419,16 @@
       "path": "weld_pipeline/curveonly_01a1ac7c_contact_geometry_v4.py",
       "sha256": "eccd8771fa5f0cb146e372cd46b221e373ae1b984936c73accefcc0652bfa266",
       "bytes": 2168
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_contact_origin_runtime_v711.py",
+      "sha256": "ae19cd01cca4346858a818584dc8cccfc6e79e65f54afc87ff1b75ef5a0104d6",
+      "bytes": 989
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_contact_origin_v710.py",
+      "sha256": "d526353229043f02c42d3fe3384ce96e351aa6117b61bf4c40ec45be225b5d50",
+      "bytes": 7158
     },
     {
       "path": "weld_pipeline/curveonly_01a1ac7c_contact_relations_v47.py",
@@ -1222,6 +1257,5 @@
     }
   ],
   "original_inputs_labels_private_history_credentials_and_other_weights_included": false,
-  "current_final_model_weights_explicitly_requested_by_user": true,
-  "source_code_matches_local_frozen_manifest": true
+  "source_code_matches_local_verified_manifest": true
 }

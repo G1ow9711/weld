@@ -1,0 +1,76 @@
+{
+  "schema": "CURVEONLY_CONTACT_ORIGIN_EVALUATION_SUMMARY_V1",
+  "model": "V710_CONTACT_ORIGIN_RUNTIME711_ENTRY718",
+  "baseline_public_commit": "96fc5dabc2a3e7779a3ceacaade23904f5faae43",
+  "scope": "Complete curve geometry; internal representation segmentation ignored, real gaps and outer endpoints retained.",
+  "results": {
+    "OLD_TRAIN": {
+      "inputs": 22,
+      "TP": 121,
+      "G": 121,
+      "P": 121,
+      "FP": 0,
+      "FN": 0,
+      "extraction": 1.0,
+      "FP_per_G": 0.0
+    },
+    "OLD_VAL": {
+      "inputs": 9,
+      "TP": 37,
+      "G": 37,
+      "P": 37,
+      "FP": 0,
+      "FN": 0,
+      "extraction": 1.0,
+      "FP_per_G": 0.0
+    },
+    "OLD_VAL_WITH_ALTERNATE_LABEL_VERSION": {
+      "inputs": 10,
+      "TP": 48,
+      "G": 48,
+      "P": 48,
+      "FP": 0,
+      "FN": 0,
+      "extraction": 1.0,
+      "FP_per_G": 0.0
+    },
+    "UPLOAD": {
+      "inputs": 3,
+      "TP": 10,
+      "G": 10,
+      "P": 10,
+      "FP": 0,
+      "FN": 0,
+      "extraction": 1.0,
+      "FP_per_G": 0.0
+    }
+  },
+  "uploaded_2D2_before": {
+    "TP": 3,
+    "G": 4,
+    "FP": 0,
+    "FN": 1
+  },
+  "uploaded_2D2_after": {
+    "TP": 4,
+    "G": 4,
+    "FP": 0,
+    "FN": 0
+  },
+  "uploaded_2D2_endpoint_and_whole_max_mm": 1.515071872149594,
+  "all32_original_parent_lists_exact": true,
+  "all35_original_parent_prefixes_exact": true,
+  "geometry_positive_and_negative_controls_passed": 13,
+  "regression_evidence": "35 cached input/output regressions with this numerical rule; original full inference prefixes reused. Additionally, complete fresh normal XYZ+STEP inference on 2D2 independently reproduced all four curves and was scored.",
+  "original237_sources_and_weights_unchanged": true,
+  "new_training_runs": 0,
+  "weights_sha256": "9ac0317e01026f807c478eac8ff894c00a8f57692ffca5379ca5fc2d861ec180",
+  "uploaded_two_repeat_historical_validation": true,
+  "validation_is_exposed_iterative": true,
+  "no_2D2_supervised_fitting": true,
+  "unseen_family_generalization_or_formal_contract_acceptance_claim": false,
+  "whole_model_arbitrary_orientation_invariance_certified": false,
+  "original12_unlabelled_parts_not_reevaluated_in_this_update": true,
+  "complete_cold_inference_performance_acceptance_claim": false,
+  "private_raw_data_labels_per_workpiece_geometry_and_research_history_excluded": true
+}

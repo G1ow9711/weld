@@ -1,0 +1,1253 @@
+{
+  "schema": "CURVEONLY_VERIFIED_CONTACT_ORIGIN_V718",
+  "runtime": "weld_pipeline.curveonly_01a1ac7c_contact_origin_runtime_v711",
+  "weights": {
+    "path": "experiment_records/CURVEONLY_01a1ac7c_20261106_v1/final_frozen_20261108/model.pkl",
+    "sha256": "9ac0317e01026f807c478eac8ff894c00a8f57692ffca5379ca5fc2d861ec180",
+    "bytes": 6349550
+  },
+  "sources": [
+    {
+      "path": "tools/curveonly_01a1ac7c_alias_train_v214.py",
+      "sha256": "e0030d376f86fd69a57571f65d0c9b1fcd3279ced850a399be21a900909fa156",
+      "bytes": 7299
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_complete_eval_v60.py",
+      "sha256": "147e791bbd6b0dfca4b80de1ee279b34e798d2981894ac5c558412c3a90d3399",
+      "bytes": 5064
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_complete_parent_control_v370.py",
+      "sha256": "5e6706caa5f45ad580cdb31de0676e059026e43a962fd44f62253262eaa2cb1c",
+      "bytes": 6131
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_coplanar_source_control_v458.py",
+      "sha256": "ad6f5baaf9cc3502b3728fe9941de1c702c8f7f62d3c339881f542b9144c3a54",
+      "bytes": 8584
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_direction_full_v262.py",
+      "sha256": "cc99ca7e5df405a3d346dff22c13f26fe0cca0ca8f2b9f554da1a011e621e9d2",
+      "bytes": 28160
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_direction_span_family_v249.py",
+      "sha256": "1cbf309008688d387a77940b862ba2e11b9dfb96e6cd6986e24ca2ee3d9d93a6",
+      "bytes": 19893
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_direction_span_family_v253.py",
+      "sha256": "30cf9c12ca0ae458617e7d3e57da83d5f3329b557b2896c0f447dc0bfd2fc21c",
+      "bytes": 16962
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_direction_span_family_v259.py",
+      "sha256": "e42bc624a785252b358c79e80555d210f5b014cb9e5f241223fc53d105d2c00f",
+      "bytes": 20841
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_direction_span_train_v248.py",
+      "sha256": "991ecc58eb53bf2057612ce8858883557f3727a86c3ce4564ad160a31ba15fcc",
+      "bytes": 927
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_direction_span_train_v252.py",
+      "sha256": "59c3fcf78faff80705d05af2f77f76d7971632779a65e62e9424cce0ce45c9b9",
+      "bytes": 1792
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_edge_wall_control_v349.py",
+      "sha256": "f7bbafa3782f6f35f42570096b8c27327e032173c5e948d5a8ac12bc886dbbce",
+      "bytes": 2814
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_endcap_connection_pilot_v468.py",
+      "sha256": "0b2ef07bb3c303d1dff5ec546b4bbc16b7e92231bc7d358ff69cf6c8a5dfb234",
+      "bytes": 3670
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_endcap_control_v474.py",
+      "sha256": "3fb1c3b082aa499067a94b084a71d8ae3e65557562010e6a24d8ec404efd036c",
+      "bytes": 9976
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_endcap_coverage_pilot_v470.py",
+      "sha256": "812f7c5ec0f5cb7a6066caf74c713eff466de01cf2f0e2eebb0b41a71316404c",
+      "bytes": 1748
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_event_mass_train_v201.py",
+      "sha256": "89c54bfcf729a87bcf28dfc6bc671cc0ad82561008fafc8e6d926e07e0649a76",
+      "bytes": 3683
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_experiment.py",
+      "sha256": "dc19868b497e9e7a0549f04f602fc09a0a4fcc51bd7d7b2d3f6315d7bb44b43c",
+      "bytes": 21807
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_final_face_control_v516.py",
+      "sha256": "e36db2ffdeda161091365f1def625b69ee061eabc044452006c3d6b8bfc207e2",
+      "bytes": 12390
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_finite_curve_alias_pilot_v501.py",
+      "sha256": "25a21f05456f66b7e3ec4ac9b8b18493b406d8c1d9cb1b59e7a7143d6e439524",
+      "bytes": 5043
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_finite_curve_alias_pilot_v503.py",
+      "sha256": "07004aa95f6fc5c073c1811897348e3bdb65d64f8c47faf43ca3e501cf9af215",
+      "bytes": 1339
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_finite_curve_control_v506.py",
+      "sha256": "8167184dec7cc695f2070a6f86d1319510495a9f79740ba7ea39dad473b93d5b",
+      "bytes": 13419
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_geometry_eval_v27.py",
+      "sha256": "4027363e34b684bb1d717f3e6d2b7b9a6def65d03d346e0edb10312b5a6a7d40",
+      "bytes": 9705
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_independent_endcap_control_v481.py",
+      "sha256": "ae8c36668ea8a6700c3aa3050c6d82c9c737a4f686cdf3baa515f6186c5dca09",
+      "bytes": 2411
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_independent_endcap_pilot_v480.py",
+      "sha256": "7e172a82e96989f9b257c7b6004f19d7e1ecd575c95f634e147ef2b2710481fc",
+      "bytes": 1707
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_infer_frozen_v536.py",
+      "sha256": "39780b15b2ddee0accae3d35436d4d810d7cb8fc5521c6710218ce8615ed1cb0",
+      "bytes": 4704
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_instance_order_train_v198.py",
+      "sha256": "f09755a9fbf95116dfee76ffa155da0b58d4931db6e6cb48c2e5dddd63232524",
+      "bytes": 5092
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_learned_unit_control_v442.py",
+      "sha256": "a364e0a1a3d19ae867c4fbf53a7590ab2ef5b58beebab970f59e84583d82b1e0",
+      "bytes": 8246
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_local_review_v101.py",
+      "sha256": "08d30672980d5ac0192199d3fc4f95b697c694074a930bcdcf604d787185e202",
+      "bytes": 12004
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_mixed_source_control_v493.py",
+      "sha256": "77100d5a3ac80046ecd8ac75c3e85648e6621ed242e78593ad023cec50d36062",
+      "bytes": 10137
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_modality_control_v415.py",
+      "sha256": "e9e48c63fac98211facb0aab4ef3aeb2cad8501392590ce87d1dca58ae16cc08",
+      "bytes": 7193
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_native_boundary_control_v524.py",
+      "sha256": "572134b1d0a694f74a90c212ba5cee2177707bf75ef318cd5a249778befa9129",
+      "bytes": 16449
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_native_boundary_resume_v529.py",
+      "sha256": "ac78d30a73c54c9b0ee9c895ed4e6d6ddfcefce11c07a11eb39e1dc3c91c3d95",
+      "bytes": 5537
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_native_coverage_control_v296.py",
+      "sha256": "ff51f6dd7d0a473f5c8b733fa6cf7c7b2168984581a5159fe2281efe06de739d",
+      "bytes": 22860
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_native_join_control_v420.py",
+      "sha256": "741cf620dcea56215e8617b9fd5022ad04ff4824c15e28c72a64919715cf6d41",
+      "bytes": 8346
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_normal_span_family_v285.py",
+      "sha256": "c4c4514df6862a92d61ca5dd1dbf45eed119f97a06199458b439f7e6ccf19363",
+      "bytes": 22685
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_ordered_span_full_v238.py",
+      "sha256": "6f351d3592f0b8eb07f8c492d04bf9422fd4f161e21c8a318c0db81c621b8138",
+      "bytes": 26992
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_ordered_span_train_v236.py",
+      "sha256": "c321af5ac019d64e61fcdc3e9a3701321148b07c603d0c6dcc71749b72169b37",
+      "bytes": 10575
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_paired_boundary_train_v194.py",
+      "sha256": "0f876647a66fb68943e020e72ca6bcc6e5db7d90c72e969a17ac852c67768e77",
+      "bytes": 14085
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_paired_face_control_v409.py",
+      "sha256": "83d3937d1a035303a37a9f6990cc38f5a43044b73ce96f82a1fd202c5010854d",
+      "bytes": 9624
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_paired_wall_control_v436.py",
+      "sha256": "9389fd7e4e428cb993f24de3927f092975b938dc8b1e95a391ab5f736e8dded1",
+      "bytes": 7972
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_partial_contact_control_v386.py",
+      "sha256": "b8ec3974fc9bf846db799c6865c0a83bd95a1f6f3d708b895f0a373f1378709e",
+      "bytes": 8479
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_periodic_full_v229.py",
+      "sha256": "f66b82a8dd668615209761bf0ce7ab1317275b3945623cd9ca5d8850e52c93c2",
+      "bytes": 29191
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_periodic_unit_control_v448.py",
+      "sha256": "8ef1e2c302e03d03d4411c4c94c19e261be650fc18574b24e9d1357dfdf22cdb",
+      "bytes": 3837
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_preserved_gap_control_v343.py",
+      "sha256": "df0031655c53edb20e28ca5b3da4812c63bd2757bd245a2cc1eb36b8be7cf15d",
+      "bytes": 1762
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_proposal_quality_control_v241.py",
+      "sha256": "a4f6c3821131a6ff64db94b125ec2d45e97ee801b94ea27229812df5ce8d6156",
+      "bytes": 15849
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_quality_full_v243.py",
+      "sha256": "2bbfa9dd87bbbbfdf9a86679deb8e35e6196de80d3994bc2c50782eee1cb8696",
+      "bytes": 28955
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_representation_control_v464.py",
+      "sha256": "c02fba3dde1721e2f4c38987c536b7f98b10f240846021b1bc155b82d8534d27",
+      "bytes": 6500
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_resolution_control_v354.py",
+      "sha256": "94e3d032d1cc9e0f19fa96815be16ad6904e1d841e087a1bedb5d780bfc0f826",
+      "bytes": 5489
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_score_v2.py",
+      "sha256": "c8a5368c600c08985baa6af01414f240c3529d2f253912cdc4a2f93bdd7082c1",
+      "bytes": 11928
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_section_round_v146.py",
+      "sha256": "01a7fe012fdd02c0a0dd9ec5e5439a7f2ca57f36c32b41d62ab075289e3dc41a",
+      "bytes": 17284
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_source_endpoint_train_v204.py",
+      "sha256": "d9f4e3517179e927bae4e76269fa53041773227a0fd78c079abb846e9aaf9d9e",
+      "bytes": 11482
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_step_joint_control_v376.py",
+      "sha256": "4c312224f09cf2f9b09b5570594cb0b02a0bb4f333cbef21bbd22c3668cbb94b",
+      "bytes": 7438
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_supplement_score_v130.py",
+      "sha256": "86895c0216b4a522eb8c87ee0d35129866d74aec06dae29f8259aa3d245f1d32",
+      "bytes": 15530
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_transverse_control_v339.py",
+      "sha256": "32f5f27ceaaa6be4e80e0ec90f72023b687a3dfd67719e69d2811bbdccd318ca",
+      "bytes": 10590
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_wall_base_control_v400.py",
+      "sha256": "28557a46c68e2a8cd5d21909d491c0581f11bfe2d4172b069fe23b1edafb36e7",
+      "bytes": 8446
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c.py",
+      "sha256": "e5943d87dc5d256622de4da79f0fed4e7153079415319d35d107dd1c47204b09",
+      "bytes": 21042
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_adaptive_rule_runtime_v360.py",
+      "sha256": "3541a4bb25dd7cf1c4fa5ebe73b4ddedea64f1d160ca4a52f3a94296d77c2748",
+      "bytes": 867
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_adaptive_sections_v356.py",
+      "sha256": "fb47e27fd22ad47d0d37e7be5cbcc774328b2e91031839012b7affdf3a0e2739",
+      "bytes": 10720
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_adaptive_sections_v358.py",
+      "sha256": "72ff938979f016b2ef4ab0ceedc69ea5173315a2105e3c469e789dba40f5df8d",
+      "bytes": 10715
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_adaptive_sections_v363.py",
+      "sha256": "a0af1b93f4a5bf6341c4ffd152dfaee129c65da4765d277c13c7bd4d198e75d0",
+      "bytes": 10428
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_adaptive_sections_v365.py",
+      "sha256": "0fc7c1591b34d19e5e5b9a1289bf262c5bee50b64a6842bfcac9a3c909452820",
+      "bytes": 10504
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_arc_publication_v24.py",
+      "sha256": "bd4d4cbd135a5b03939ebbd51e35dc529754fb970cd4fcc1474fd19f401049eb",
+      "bytes": 5680
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_arc_publication_v6.py",
+      "sha256": "37c706ccf62765c743461df1b36d1e725c305c148373a30dd9e30da9cc030189",
+      "bytes": 4861
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_boundary_events_v187.py",
+      "sha256": "61845e3eca483d734b93cb8ea5f3fec31e66856623b9f7f6ee78d97c74c45898",
+      "bytes": 11295
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_boundary_v13.py",
+      "sha256": "9d815ae13c5d1548208ff98201ed345346cd8ee1235629e027a734853f08dfd2",
+      "bytes": 3998
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_carrier_union_v28.py",
+      "sha256": "1df10934ffa0d537b581ac8e72ab6f04e619629c29207a7ed6e418293fdaf796",
+      "bytes": 3452
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_checkpoint_sections_v139.py",
+      "sha256": "1634b169bb9fb46949ef9ebdc76500a8f2d40dfeb27089c3c1359ac6f4dd8895",
+      "bytes": 7180
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_complete_parent_guard_v367.py",
+      "sha256": "67ee1f6e8f18d61d88ec87b94c8558ce7d0c442cabd787be14cc93fad23d7d8d",
+      "bytes": 2834
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_complete_parent_runtime_v368.py",
+      "sha256": "e95cd481da59b0f09e9bb79a10d993e57daaee4bf208d8d991f6e70f8a561184",
+      "bytes": 873
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_complete_units_v36.py",
+      "sha256": "5336477c22b1e3edcdf9c31fa9560c6f96ce11c747e66b9b49daacd38c861d78",
+      "bytes": 5891
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_complete_units_v60.py",
+      "sha256": "bdaa7c7d48907497c630f720b3ea6fae7006f4e89241988ffb18f4caae5b1cf2",
+      "bytes": 3114
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_composite_v48.py",
+      "sha256": "41e04aa59f4916f96f02410ab80a7583459825fbedbd972469dd6179a2463d55",
+      "bytes": 8566
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_contact_geometry_v4.py",
+      "sha256": "eccd8771fa5f0cb146e372cd46b221e373ae1b984936c73accefcc0652bfa266",
+      "bytes": 2168
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_contact_relations_v47.py",
+      "sha256": "198d2c2fd45b6f52061aee20704e8eda1ad2a80400a149ddd373e7509a4a72ff",
+      "bytes": 3020
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_contour_v51.py",
+      "sha256": "205c29f5f66021c5e79c916ec043bdc98b5ea61c4fbfc514acf7a1c43788498e",
+      "bytes": 4510
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_coplanar_observations_v453.py",
+      "sha256": "9b63d81b70677aee1b52e9e4897f691e68490cb3b02058e89e53a37850c81c46",
+      "bytes": 8385
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_coplanar_source_rules_v455.py",
+      "sha256": "133e647892a35b1097f179b2a466abbe6b417fd77717ccf3e19f01fa745a2687",
+      "bytes": 3061
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_coplanar_source_runtime_v457.py",
+      "sha256": "b8fa3320cda6ae8ce4789e5dc257b563c1b5a6935ce746bb801bced28bfbc9c7",
+      "bytes": 714
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_corner_publication_v256.py",
+      "sha256": "4437b146f9dc619643db5748391683d7b3e82d29e370719915b3e35df9ade04b",
+      "bytes": 4480
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_count_view_v38.py",
+      "sha256": "c6e9f3739a184c2c0e4c132ff12c91ad02010efa30a1c6ae7acd9831715f15ba",
+      "bytes": 731
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_direction_local_v163.py",
+      "sha256": "d39c36311736503acdfcc4d0febe0a54441a9e379ee09ed2b4a0d9a854175b05",
+      "bytes": 3225
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_direction_runtime_v261.py",
+      "sha256": "987b88af1e6b90ee03aa9f59b10f2646ec3945a62f3e1d595f10ce6ded3e01cc",
+      "bytes": 298
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_direction_spans_v247.py",
+      "sha256": "02478de76fbccf3d0e830ee8c2b8b9d1659556870b0c736dceaa82deff9e51f3",
+      "bytes": 3577
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_edge_wall_rules_v348.py",
+      "sha256": "a526c39233e81bb089bac2631c02054bc01a10ab8c235c1ecec46d613ce17ac2",
+      "bytes": 10364
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_edge_wall_runtime_v350.py",
+      "sha256": "f0386fa22388f14d5c5e3ae6d20960d214050e48e7d9bc8e28ae1c5b2ce67bb0",
+      "bytes": 604
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_endcap_connections_v467.py",
+      "sha256": "f78b3b4346543d48ac0a0f598aa33553493c58bc792a36fa279055a9656a87a7",
+      "bytes": 11249
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_endcap_model_coverage_v469.py",
+      "sha256": "e2b386180327aa92051cd222435eed89c34a76f969f06cc2ea333a77a5359fc7",
+      "bytes": 6773
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_endcap_recovery_v471.py",
+      "sha256": "52a3755c99259b349da34ab0d3a8eaa3ab1d2b64d0e2f02d3425340fa27c0f85",
+      "bytes": 6843
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_endcap_runtime_v472.py",
+      "sha256": "e5e837a3b4bc4ce1818c08cda145eb0614510e7a720818b47a5cb05d65f01555",
+      "bytes": 705
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_event_cut_model_v308.py",
+      "sha256": "7d9f0f62e61584d71d5138d3125ebfa53e0e3ed0326b11ecfef741f0f5bf7de4",
+      "bytes": 10929
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_event_interval_model_v304.py",
+      "sha256": "411d5dc00fc54b3622c9c0a882ac5bc3f6fc17a697fdda8a1afb6196df4f6a5b",
+      "bytes": 18687
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_exact_mesh_index_v110.py",
+      "sha256": "26bf68daf33834951e2f1c754e3143e50630c5ceb82f9045a70be45336b2c04e",
+      "bytes": 5098
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_feature_policy_v144.py",
+      "sha256": "331ecaf36496e632fed59ab37eeb696bb0b01834d3228d6b2917d874ec1722c4",
+      "bytes": 1163
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_final_face_rules_v513.py",
+      "sha256": "24a304af6fedf441b877129db978a69b3ff540965b3e198d04b3d8aadfda295f",
+      "bytes": 2313
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_final_face_runtime_v514.py",
+      "sha256": "191a04bc4f23f1919638738951b49de077c38d9408e62e444c59d5d319ba447b",
+      "bytes": 1478
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_finite_curve_alias_v500.py",
+      "sha256": "7b7b8077becf1b68222ddd19ecb9d01686b57c1a7ab3565f010045734c32e132",
+      "bytes": 12550
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_finite_curve_alias_v502.py",
+      "sha256": "91f7812fa067cc28aa0273087f249fea8b849d2700f715915fc595fa6472b047",
+      "bytes": 1469
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_finite_curve_runtime_v505.py",
+      "sha256": "f47cb0cc6ad2066793b5738cb17bd04f38d4599ff8af626809521ac71ff8d556",
+      "bytes": 2222
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_finite_join_v46.py",
+      "sha256": "ad00d468a0a964b60d1b59a93c1effdf327cbd1c9ba3f4336f2cc16a0f3fcda5",
+      "bytes": 2878
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_finite_shadow_v73.py",
+      "sha256": "71e0a890eb24d99bcf9b24caf3dc625e7df862491d1eb87d117a764d9e7c8bb1",
+      "bytes": 3951
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_frame_v30.py",
+      "sha256": "fcb13899a34a122303c6533fccbaa3d8ed6109d1134cf71215a35c381cd81bf5",
+      "bytes": 1899
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_fresh_presence_v76.py",
+      "sha256": "ce8b3a07693c01f6de7a2cab545dc7cb464e5057fb45b7bcfab8219eedff727d",
+      "bytes": 1772
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_geometry_units_v26.py",
+      "sha256": "22848de8704fde1502ef59505f6cfedc214f3dde1a51a4ec96a16852f064f95d",
+      "bytes": 5827
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_graph_context_v65.py",
+      "sha256": "e482eeb58d5cfa6b23c7cadcd99d3a0ada6aba559a284eacb93a4bc0ef5e445a",
+      "bytes": 3616
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_hybrid_v17.py",
+      "sha256": "ce06c9518283b001d266dfacb16fdadcc1433ee39ce509a3eaf526956b5cb475",
+      "bytes": 2308
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_independent_endcap_recovery_v477.py",
+      "sha256": "7c444a09803956b84555a2f14efc3db2b21e2d42ad61c86f768c300f90963817",
+      "bytes": 769
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_independent_endcap_runtime_v479.py",
+      "sha256": "ba6c140abe380a95c9c4c3ce9e98d7d0e508c33a4fb79310f9671541645e0041",
+      "bytes": 720
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_independent_endcaps_v476.py",
+      "sha256": "7be2eeb0cdb9f3836603df3ca5829323d8b591e6ddcf8da68309e9103e9a1e5c",
+      "bytes": 1106
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_instance_order_v197.py",
+      "sha256": "092301ef53f8acaee5c073fca52ae8c29a8f425dd207e1eebb2e648ca606f1d8",
+      "bytes": 1237
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_interval_decode_v16.py",
+      "sha256": "a644fac0465ea6f91c0f83ed38eeb3f6ccf76489c7d2a13798ba8f7d935bf495",
+      "bytes": 5244
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_interval_instances_v178.py",
+      "sha256": "0a2bdcad9870dbd0b1939e1ca056e89846eaf36ef5e59e16ee978cd8f2d6a30b",
+      "bytes": 10669
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_learned_unit_rules_v440.py",
+      "sha256": "99ab905c135c7f3ed2e28bbb04f78c554861bb8b09ca2cd1f77901dae5f41ba7",
+      "bytes": 10951
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_learned_unit_runtime_v441.py",
+      "sha256": "e53cecc80368035ca3ca99b642bb69e841c4d81099807775c28315fffd93a053",
+      "bytes": 1189
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_local_intervals_v95.py",
+      "sha256": "2634c7df2aa93f66def1a1cbf568c0d57b521516f9f011f4962c2db6e1ed1c32",
+      "bytes": 6597
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_local_material_v94.py",
+      "sha256": "127f8485846f7363768b07e344e86d1b86e1490b2deb7e12eae9f3cffdd02e96",
+      "bytes": 7925
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_local_runtime_v104.py",
+      "sha256": "8692357c873387ca3ace18f1eb76e3df9baac7bcb9c6bb6574768c01f1b89500",
+      "bytes": 1412
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_local_runtime_v112.py",
+      "sha256": "48af628b36b81da4087800ccbfd5c6e95c704f16fd46cdb15aead1956fd60b32",
+      "bytes": 1422
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_local_runtime_v96.py",
+      "sha256": "1947a09d59d3260ad44082c83b13b53d25e484b2a0605c79dfd97e3b5026c783",
+      "bytes": 1426
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_local_unknown_v103.py",
+      "sha256": "058d9cb6dfb80ba92ed739a32c2eb13f7c0e5e708bfd8d180abff3791c459f4f",
+      "bytes": 1417
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_lower_face_observations_v403.py",
+      "sha256": "f193813ff3090155fb5b2dbe1075ac45d677397624f9b59b611134544435beac",
+      "bytes": 7120
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_material_direction_v157.py",
+      "sha256": "a842331547d4dae4c801d27215f46d26032afb3ed89f351ac3098efddc7b1286",
+      "bytes": 9361
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_material_direction_v160.py",
+      "sha256": "bd904974a4c2c3d4208ee64b7167c80952b16b0af62726b0fe23bea836bc7c39",
+      "bytes": 4227
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_material_interval_solver_v327.py",
+      "sha256": "36a87eb791630af99e124206689e725763eff31e152b736f23f4f5cbc7e1be5d",
+      "bytes": 6531
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_material_roles_v81.py",
+      "sha256": "e9bc268da9ac0063b556bd4b4b449634a8850434f708bb584f93b1ec65224f55",
+      "bytes": 5077
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_material_sections_v124.py",
+      "sha256": "f47d961b1e016796505d7c9e95a7fa2b8fb574c20ff10bc5ec943aba85354ca6",
+      "bytes": 7734
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_mixed_joint_sources_v485.py",
+      "sha256": "7e4b600708c505292faaf703a4ce35fc41f7b7212f29a84d0839b39eed34ce37",
+      "bytes": 7580
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_mixed_source_observations_v487.py",
+      "sha256": "79770487a00f25b536aaefa58751afc2dc5e56d082edb097714d2fd88f14525a",
+      "bytes": 6769
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_mixed_source_observations_v489.py",
+      "sha256": "6409dd06184df35f1c9ebfadc4864adb31689993155a760e4d26a048c2912327",
+      "bytes": 1636
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_mixed_source_runtime_v492.py",
+      "sha256": "59da6ca3b0077bd4937fdb6bdc6a88d2d1c7f62e0d14cf535b92ca65c876f99e",
+      "bytes": 2117
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_modality_runtime_v412.py",
+      "sha256": "16ba2a5b0d5562635aae1e6bea6f3b5c710b2322c7e424f1c1315c725e64eb8e",
+      "bytes": 1803
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_native_boundary_export_v521.py",
+      "sha256": "bbeec33bf89cba451733f81aa5d1f621073da4b8a3a46c06f290b0ab256f5045",
+      "bytes": 11846
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_native_boundary_provenance_v527.py",
+      "sha256": "836bf9ef7643a39177886e56074e67130c17fb6a402b1dcbd1bc1e3fd95a9fb5",
+      "bytes": 2568
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_native_boundary_runtime_v523.py",
+      "sha256": "53332c1c0013d49d346f51049435476924a6b76d29835f15c94c2854b894e65b",
+      "bytes": 1400
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_native_boundary_runtime_v528.py",
+      "sha256": "d10a46a999efad07e8ecb133ebb45503c6bec77bc5981788f0f5b022ad70a866",
+      "bytes": 573
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_native_coverage_runtime_v295.py",
+      "sha256": "620dfeeff6ad4a08aeb37ad9288665d94d5280414458787a50b34d7677ead8d9",
+      "bytes": 939
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_native_coverage_selection_v294.py",
+      "sha256": "5d808caa37b49441da29b521d33ba75d08117473c2138c5916ee9f0a0a614a80",
+      "bytes": 5263
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_native_join_rules_v418.py",
+      "sha256": "93d234f6f7aebf3cf6116bf75faf962d77f11a87ff03e5fe494879cee780634b",
+      "bytes": 4876
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_native_join_runtime_v419.py",
+      "sha256": "9780e251d5797f331e0b70b046e80263eac77de1f6e4ae5ff0a80b3ed6b10d8f",
+      "bytes": 709
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_native_reference_v154.py",
+      "sha256": "d1340dab4eeb4eec62ea99eb750ba8317600bc0727a4d3e32c841325c4f0f756",
+      "bytes": 3836
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_net_v14.py",
+      "sha256": "377681d343483d13dbaac258c97ff0cb63248f5b54a01d9d403c324e5a8c8948",
+      "bytes": 10618
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_net_v15.py",
+      "sha256": "3490ee83c79b37ff1603c81b4abaa36c382b146ba76f6d2c0a174d9901543280",
+      "bytes": 2368
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_nonlinear_pointers_v265.py",
+      "sha256": "66912cc84baebc8fe824a8ecd27879f481b6b05f36fdb831a6ed2b78cad3ad1c",
+      "bytes": 9865
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_normal_runtime_v283.py",
+      "sha256": "d8a4eab1e111be6d42b8a89e9cfb1fc090cb52ff8b26aabff899f2f6aa47dc0a",
+      "bytes": 1157
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_normal_spans_v274.py",
+      "sha256": "c1d16a9a252fbf60bba63366140c3a426cfa10c7c5d84d0ecedd6b5f7e74c723",
+      "bytes": 2834
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_ordered_spans_v235.py",
+      "sha256": "eac654ed4bd3d8f5dee1c3d9cefd143ae62aaa03632f7a9daafd70f55d1bac10",
+      "bytes": 18573
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_owner_rules_v340.py",
+      "sha256": "1fd90ee675d0c247c4bf7d87471c3f44b3aa87f20c4463e6ac8c6ef7624a5fef",
+      "bytes": 5438
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_paired_boundary_v193.py",
+      "sha256": "361c26bdb70d365300eccac1327f329645413447cceaa7d2ef60dbc6db867706",
+      "bytes": 11205
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_paired_endpoints_v190.py",
+      "sha256": "676a64990a329d4fd7cea124a08eaa52a045fe4cec86cfead3a18f073200f6c7",
+      "bytes": 3199
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_paired_face_rules_v407.py",
+      "sha256": "36f9157543144aaee4d348a81160e85f5eef8927eba8e34c22b5ffb7daaff542",
+      "bytes": 8468
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_paired_face_runtime_v408.py",
+      "sha256": "908d99dba1e3d2f1ff097de9b04e39a2ac825fa5281eb346fb23228dd9f05bac",
+      "bytes": 1171
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_paired_wall_caps_v430.py",
+      "sha256": "bad125b0c4c4e972aa8d06556c133bc16c8d93a63f06720d63cafc5b27750b82",
+      "bytes": 6615
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_paired_wall_native_caps_v432.py",
+      "sha256": "21c2cc9d64bbc034420502626cf16b98d8a9e3b008d7f310ca783b6970c55681",
+      "bytes": 4365
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_paired_wall_observations_v428.py",
+      "sha256": "fda77df9a6f0564238311904f5258415fbf90e4462dc709f77db98f8a0111280",
+      "bytes": 10972
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_paired_wall_rules_v434.py",
+      "sha256": "7c0a9d27bb0bd24b4939d76cb48c49069485992a24b402652c72a5b4fe82a4c5",
+      "bytes": 6505
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_paired_wall_runtime_v435.py",
+      "sha256": "6dc646117fa88f8d7088e3f294029e5b125da753bcb879e5748bbaa7c119fa09",
+      "bytes": 727
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_partial_contact_rules_v384.py",
+      "sha256": "25bdecb725c4e2745a47a9800e2cb1b7225e8f96464f243f5e9e7585fcd081e5",
+      "bytes": 5507
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_partial_contact_runtime_v385.py",
+      "sha256": "d198e34da2919d45eefb23a7ae1db042ebff2b5039b5ccadc80ca641c4e8e1e1",
+      "bytes": 730
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_partial_contact_v380.py",
+      "sha256": "09ba8934bc41a1c11e584498908de69e143d5677b544247aced3f1aba24bb429",
+      "bytes": 11024
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_partial_contact_v382.py",
+      "sha256": "75feba92a7e5c8a437c83ab7895d85b8df464f5ed740be803a3d808f9410f46e",
+      "bytes": 12616
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_periodic_profile_v227.py",
+      "sha256": "28a808519aabfedd9a12f8fadde2ebe7699fcb67c03f3c6249460c3b341c285d",
+      "bytes": 6124
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_periodic_unit_rules_v445.py",
+      "sha256": "e964e6a6065240e2527f15aac6028c31e2647f30cc12d8fec23266b62e535d72",
+      "bytes": 1818
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_periodic_unit_runtime_v447.py",
+      "sha256": "f95e670b2fa56db42529aa64bbd63a1488543db55781542a2a037f711ac853df",
+      "bytes": 502
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_point_geometry_schema_v509.py",
+      "sha256": "2f8b540c6be52b0b26ee1b0f4eb5dfa4be8fbbb182691623fc161e1a3d1f51b0",
+      "bytes": 2420
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_presence_v52.py",
+      "sha256": "fcebc11569406135c8cbd9263afccacc98ce22c726c0c26a341d5f1a8585572d",
+      "bytes": 789
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_preserved_gaps_v342.py",
+      "sha256": "06bf95e2b81c08f6f0e7a568919bd5ae5f2adb828390f6fd1a60c024e93bf737",
+      "bytes": 2244
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_primitive_output_v217.py",
+      "sha256": "72cc545cd3870ba427bd61b3bc189675030650c38407672bc39463a9857e5f49",
+      "bytes": 2337
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_primitive_output_v219.py",
+      "sha256": "0804acf7fb624c7feac0d4e1c32eca6820d60216295e135c4f7aba7fb4fbfb6b",
+      "bytes": 2600
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_projected_v10.py",
+      "sha256": "1e06f69a1167e3d9aabde2d69fda6c41076064a11f6ff86279c76b2dda181418",
+      "bytes": 9364
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_projected_v11.py",
+      "sha256": "8ace6222d95d8c0863f85e5493698e9ddb00094e3ec5dbf8c7a77f80265b6bb1",
+      "bytes": 9518
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_projected_v43.py",
+      "sha256": "957ae2215387011bf61a941a1c7ea6288f3ef043772d4dd71061f6cab9ca9890",
+      "bytes": 9785
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_projected_v7.py",
+      "sha256": "7a880ee6c5ed43550be122fa1c7a9dee7eea333c474bda57cc832976bbed0854",
+      "bytes": 7251
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_projected_v8.py",
+      "sha256": "33d211a23f754a2383e63bf63016c593f9561857634fe6bd56e8ea84c38a3ca1",
+      "bytes": 8498
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_projected_v9.py",
+      "sha256": "77d9337061734d3088b87afb0ddd5a3f60c346ba8bf3cec3304f28fef2bc8144",
+      "bytes": 9567
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_proposal_quality_v240.py",
+      "sha256": "207f9978bc4b48ea0b0807a385b4ee1c0de6ad3ff50f9e985a07bd056dbb2d7d",
+      "bytes": 8145
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_qualified_event_cells_v301.py",
+      "sha256": "498c7276f9480d483b1bd8786fb31e07cbee5e1df5067d9c944d81c0d9555407",
+      "bytes": 7952
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_qualified_normals_v271.py",
+      "sha256": "6978dd71903f28045e3f5ab3bede1a5bebb74e14a9c4254d674de20acd425802",
+      "bytes": 10438
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_quality_runtime_v242.py",
+      "sha256": "bfdea778db76a6ba12c7a635dc5a9161d81b52edeabfc8e66cc154ec8609da95",
+      "bytes": 600
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_range_field_v150.py",
+      "sha256": "125579330f6c96ab6ec491b86ed1f45db6ac0769a2de6b1d9506e2876c9eb855",
+      "bytes": 5457
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_recovered_containment_runtime_v424.py",
+      "sha256": "30aac3a64f7c32a86292bb77d53381d8984487eac3bfc47774780215721761ee",
+      "bytes": 562
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_recovered_containment_v423.py",
+      "sha256": "1a2b38e3a0d36068a6d5e86f35fccc0f3fc50e54ccc25617b607f828623425a1",
+      "bytes": 2569
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_recovery_resolution_v353.py",
+      "sha256": "4a28991afde2f1ba0718424a5aefd8c80e1deb21b87dd444cff14f83a09b03ed",
+      "bytes": 2824
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_registration_v2.py",
+      "sha256": "5b40fd7706baa218a1a3a0ed27833c24be240c36f672c2ebe650e07aca0e8c44",
+      "bytes": 7463
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_registration_v20.py",
+      "sha256": "a75c6bcd99ff3d623006ad2dab16da206fbd44ee0b1a7f86fccf515aa99381bb",
+      "bytes": 6417
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_registration_v21.py",
+      "sha256": "01ee6aa8c61a1c2b756a9c11fd67765fb97107cc8daf223dec37f7e2439b4016",
+      "bytes": 3231
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_representation_containment_v461.py",
+      "sha256": "ce680c8166dd8be7d27104bee86e00fdd27e4bc7d18dc0177c5f1ce0bafe82f0",
+      "bytes": 10347
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_representation_runtime_v462.py",
+      "sha256": "52026553edc06dab912bfd24826bad187233784c054cf86aaa0a648c2bce634a",
+      "bytes": 614
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_reverse_v16.py",
+      "sha256": "99decca5dca464a48cd077d3a64eb2be87f0e795c6808dbd81ba0807beeaffeb",
+      "bytes": 948
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_role_model_v82.py",
+      "sha256": "711d4db057c1f1fdf0ac643e04130f8c5e989a65625b8b8fec9b0ad3e7d86bad",
+      "bytes": 1862
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_role_runtime_v83.py",
+      "sha256": "a6cf3dd292c1a852e420ae1ac6687b3f773abd35f36dfc0afece49d1643f1276",
+      "bytes": 1695
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_rule_runtime_v290.py",
+      "sha256": "929c19dffd455cbb7f8e87ef17a1d683286d0cca0f7ca8c4261d8b2f4fe163fb",
+      "bytes": 930
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_rule_runtime_v345.py",
+      "sha256": "b128b0b3aca076bc2a8858367bee26168c9646b27c95461237546cb12fbd2264",
+      "bytes": 2002
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_rule_selection_v289.py",
+      "sha256": "6ecc3e43048310bb8f7e6890b66ad9d9fee763e262ebc786408df83cd42b84e3",
+      "bytes": 10828
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v12.py",
+      "sha256": "763ea0b480d1a673ca6cde499d28a6857d0a390015cf3b1a816718b88a5728e8",
+      "bytes": 909
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v13.py",
+      "sha256": "46b657a9ea095b92e356732fda62d201e179467a9c6d2806951d6f5158ed7258",
+      "bytes": 183
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v14.py",
+      "sha256": "7102fa928d752f2eaa75210a183a99394c8d584accab459064d1ce75cbe64553",
+      "bytes": 183
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v15.py",
+      "sha256": "fb4971f59ddc57f91c37b5bdd2e522981f74283f60129ed74e50587ee432cf87",
+      "bytes": 179
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v17.py",
+      "sha256": "728c846fc59870c139a9ff3cff1585647853b9873cf395d3ca4ab9c10b6437c5",
+      "bytes": 186
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v18.py",
+      "sha256": "813c59a43986f0b23b715022a5d39dd4384b51de340862ee53856dc349afdffe",
+      "bytes": 181
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v19.py",
+      "sha256": "b7376804c51b9f3629c8767b46c2a5a4ecf3222c2f6be5ae9a5626e07028b7ea",
+      "bytes": 2190
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v2.py",
+      "sha256": "7112028cd9677b79db1a6579e22cbb70afa441ce044f79d7b5717126ac855c73",
+      "bytes": 417
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v22.py",
+      "sha256": "5e0db3e6a95a6872d0ec28c8c59a1e98d017586fb0b815749ec9aa26eb609dda",
+      "bytes": 407
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v23.py",
+      "sha256": "3461ea2133d1fb6bb1a7deba14c07c1f871e7b0670a017f3dbae9de81a4699bc",
+      "bytes": 723
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v25.py",
+      "sha256": "c05d0e4db484c71c8e6edf7082055a1dd160170e9f5a5cb3f856f2c075017f07",
+      "bytes": 381
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v28.py",
+      "sha256": "2b7249f02d5f408c6f797c109a0dc35b016a69518b23cadcad96cc2ddceb3443",
+      "bytes": 542
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v3.py",
+      "sha256": "8bc480b5048717c29292137bda084737dc8853e523ba2d0f562077c912472c70",
+      "bytes": 2770
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v30.py",
+      "sha256": "2208224af920c48525428a6f94d88c6073c7dfffc5de40ab27dfca411927669a",
+      "bytes": 606
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v43.py",
+      "sha256": "6dc49ffbf8a41e90d3d1bba7d0ce291aa9d1ce2301cbc88b502f052b91f9d2da",
+      "bytes": 843
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v48.py",
+      "sha256": "e19b9223ddcef7d0222bfdcd76555fd68224da2d3af8581bad62cf1dba4cdf4c",
+      "bytes": 2144
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v5.py",
+      "sha256": "a07dcfac6d929f05dbdbfe0335b6c6c96213698aa58fcf80294b3536bbad0edf",
+      "bytes": 620
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v51.py",
+      "sha256": "f48516c8061f6db25060b9ac2f4ef1d1e5fcb3936a8af15b28b112ba0144d403",
+      "bytes": 873
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v56.py",
+      "sha256": "1643f0e06ce16cb7fbb59d5c3d933483d4a1d0f5e0689aebdbe47f3efaee8044",
+      "bytes": 448
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_runtime_v6.py",
+      "sha256": "759b5c0f4bae576c61c992cf74daf3ea8dbffd7cc9bca46a1d7f2e449b6af7ae",
+      "bytes": 378
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_sampler_v4.py",
+      "sha256": "60c477361bad3e938ee14968ffd8d5c381d583d4548730a31ddac4fdbde58de9",
+      "bytes": 2257
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_sampler_v5.py",
+      "sha256": "e45be2c2ab0a8d69fd23b5a2ab5ff61b1cc67e0bb1dd8652150d037e797cb882",
+      "bytes": 6517
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_section_local_v135.py",
+      "sha256": "559eff4629f814373f06fda6b8cd06d43cf26829908236181a53a7080efec1c8",
+      "bytes": 5349
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_section_policy_runtime_v146.py",
+      "sha256": "a5bae9a449eed62265c77a977645e86eb7e369131b1529505e025929ce74dd2b",
+      "bytes": 574
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_sequence_v171.py",
+      "sha256": "38eeb53f8ef87debe0d6f3f92e8f15f86b9a7d72c65004632de13852c970b593",
+      "bytes": 8941
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_set_v18.py",
+      "sha256": "0aaca5b7b96cb21265b9d861cbe78109b1397337f2253719dc003d56b665595c",
+      "bytes": 4629
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_source_context_model_v312.py",
+      "sha256": "bc2addf3d9909b0584170ee47523bcfccbe980b0ba12d6f673f250ab2eb3bdb0",
+      "bytes": 2989
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_source_endpoint_v203.py",
+      "sha256": "6d8460f028ce8a6ad8c09005f8a6c0cf4135f47320a300f789126597411012e1",
+      "bytes": 7608
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_source_expert_v405.py",
+      "sha256": "57865ec327a64c68403890b060a723087e34c2521bd39ed48b55c09cecf99699",
+      "bytes": 1278
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_source_selection_v56.py",
+      "sha256": "248f3d3b1b1cb1047db36fdc15203c73162ac28230472dfd53c3a842f982cbf9",
+      "bytes": 3833
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_stable_whole_moments_v336.py",
+      "sha256": "a2d118f4826fdce620dbecc6c9ac1c38c07c902b3137f3b1a733257ae22afe21",
+      "bytes": 3356
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_step_joint_rules_v373.py",
+      "sha256": "015cdcac1bbf83430e3a32c24e411da791aebe10f9b36525364dd99f8dbbf081",
+      "bytes": 14126
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_step_joint_runtime_v375.py",
+      "sha256": "d728ddbde26b368efa8e0c9f62897cb27adf32e63def34682910e889819535b4",
+      "bytes": 704
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_structural_event_cells_v298.py",
+      "sha256": "8ba98521c3272272603c34b76265d31fb349a28233b412c884fd1d3ab91f0a21",
+      "bytes": 9871
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_structural_whole_model_v324.py",
+      "sha256": "cda95d637d449e5bf8a0e876d5d25de536eea7c8712afea38fb423b09b921784",
+      "bytes": 1257
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_structured_intervals_v115.py",
+      "sha256": "ca87b0925684f13cb5250748daf6646cebe08437a881fab47e64e940dea4d060",
+      "bytes": 6319
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_surface_normals_v269.py",
+      "sha256": "d0da723736c23871dcc6ddb127b9ae8c974691381b907aff804e7d7ee510b97f",
+      "bytes": 11161
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_transverse_rules_v338.py",
+      "sha256": "78b6aeaf938e6de02c8ab9cbd339dbe7c6be701a74ee49e8cb0eae386e2b1d96",
+      "bytes": 11653
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_wall_base_domains_v389.py",
+      "sha256": "37a4b6cb554890d208bf2d156b32c7231d01077a02242e5f4d48b2d8841ef15d",
+      "bytes": 6205
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_wall_base_domains_v392.py",
+      "sha256": "7879336106543b86cfa4b4cdd1c5322b9df064ca576569e489768c628cb2da49",
+      "bytes": 8884
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_wall_base_rules_v394.py",
+      "sha256": "8b6fc51694cdac9e3c8fe5ca98ebbdfbd3e03413169c5fa318ee86699d141845",
+      "bytes": 7899
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_wall_base_rules_v398.py",
+      "sha256": "2dae85862554d3b20707796115c6ebeff77109ba89baf35c25466138391cf27e",
+      "bytes": 9433
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_wall_base_runtime_v395.py",
+      "sha256": "b1e259183318ffd155ded2335822037032761d2cddd6869b4ed09ce6eaf1bed8",
+      "bytes": 698
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_wall_base_runtime_v399.py",
+      "sha256": "651f29f83ad28bf59af767955a89b7a24fe09038ca36a7f69e7002309d80608a",
+      "bytes": 698
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_whole_endpoint_context_v318.py",
+      "sha256": "abd80f75689bddb885e8e8fd7cd8720d681b7edf966a865b8becb03091731409",
+      "bytes": 1239
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_whole_intervals_v316.py",
+      "sha256": "0e538189f6e2df8886b094eb067c2e3763239113124a42b29843de5e44f32424",
+      "bytes": 17874
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_contact_origin_v710.py",
+      "sha256": "d526353229043f02c42d3fe3384ce96e351aa6117b61bf4c40ec45be225b5d50",
+      "bytes": 7158
+    },
+    {
+      "path": "weld_pipeline/curveonly_01a1ac7c_contact_origin_runtime_v711.py",
+      "sha256": "ae19cd01cca4346858a818584dc8cccfc6e79e65f54afc87ff1b75ef5a0104d6",
+      "bytes": 989
+    },
+    {
+      "path": "tools/curveonly_01a1ac7c_infer_contact_origin_v718.py",
+      "sha256": "5ba959b2c532bd4d0ef66d125da5caf93d6eb9e790f315c820df1b74b0c1f38a",
+      "bytes": 5332
+    }
+  ],
+  "original_spec": {
+    "path": "experiment_records/CURVEONLY_01a1ac7c_20261106_v1/final_frozen_20261108/MODEL_SPEC.json",
+    "sha256": "0ae75479329b30435adb08258d2a26bcdce5f8aa8335b6c8d7695ea114eb2b80",
+    "bytes": 45726
+  },
+  "input_contract": "Pure mm XYZ PLY/NPY; optional material-only STEP and independently qualified STEP-to-XYZ pose",
+  "change": "Only recover missed finite shell hits within the pre-existing 1e-6mm ray-origin band, under unchanged original complete T-joint and final-face checks.",
+  "old_TRAIN": {
+    "inputs": 22,
+    "TP": 121,
+    "G": 121,
+    "FP": 0,
+    "FN": 0
+  },
+  "old_VAL": {
+    "inputs": 9,
+    "TP": 37,
+    "G": 37,
+    "FP": 0,
+    "FN": 0
+  },
+  "uploaded_three": {
+    "TP": 10,
+    "G": 10,
+    "FP": 0,
+    "FN": 0
+  },
+  "uploaded_2D2": {
+    "TP": 4,
+    "G": 4,
+    "FP": 0,
+    "FN": 0
+  },
+  "uploaded_two_repeat_historical_VAL": true,
+  "no_2D2_supervised_fitting": true,
+  "original_weights_and_237_sources_unchanged": true,
+  "complete_curve_geometry_ignore_internal_representation_cuts": true,
+  "endpoint_and_whole_tolerance_mm": 3.0,
+  "actual_raw_2D2_control_parity_passed": true,
+  "geometry_rule_controls_passed": 13,
+  "entire_model_coordinate_invariance_and_unseen_should_weld_generalization_not_certified": true,
+  "no_contract_independent_or_cold_performance_acceptance_claim": true
+}
